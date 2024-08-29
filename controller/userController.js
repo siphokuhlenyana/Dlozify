@@ -2,11 +2,11 @@ import { getUsersDb,selectUsersDb,insertUserDb,deleteUserDb,updateUserDb,selectU
 import {hash} from 'bcrypt'
 
 const getUsers =async(req,res)=>{
-    // try{
+    try{
     res.json(await getUsersDb())    
-    // }catch(e){
-    //     res.status(500).send('Server error!')
-    // }
+    }catch(e){
+        res.status(500).send('Server error!')
+    }
     
 }
 

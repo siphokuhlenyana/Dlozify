@@ -1,7 +1,7 @@
 import {pool} from '../config/config.js'
 
 const getUsersDb = async()=>{
-    let [[data]] = await pool.query("SELECT * FROM users ")
+    let [data] = await pool.query("SELECT * FROM users ")
     return data
 }
 const selectUsersDb =  async(username)=>{
