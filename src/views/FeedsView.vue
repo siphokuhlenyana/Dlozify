@@ -71,6 +71,8 @@
   
   <script>
   export default {
+    name:'FeedsView',
+    
     data() {
       return {
         feedItems: [

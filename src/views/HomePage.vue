@@ -2,62 +2,72 @@
     <div class="container">
       <div class="sidebar">
         <div class="logo">
-          <img src="https://i.imgur.com/g1g6K9C.png" alt="Logo" />
-          <h1>DLOZIFY</h1>
+          <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
+         
         </div>
-        <ul class="sidebar-menu">
+        <div class="sidebar-menu">
+          <nav>
+           <a href="#homepage"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></a>
+            
           <li>
-            <i class="fas fa-home"></i>
-            <span>Home</span>
+           <a href="#FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></a>
+          
           </li>
           <li>
-            <i class="fas fa-bookmark"></i>
-            <span>Bookmarks</span>
+           <a href="#notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></a>
+           
           </li>
           <li>
-            <i class="fas fa-bell"></i>
-            <span>Notifications</span>
+           <a href="#inbox"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"></a>
           </li>
           <li>
-            <i class="fas fa-user"></i>
-            <span>Profile</span>
+           <a href="#login"><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></a>
           </li>
-        </ul>
+          <li>
+           <a href="#about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></a>
+          </li>
+          <li>
+           <a href="#settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></a>
+          </li>
+         </nav>
+        </div>
       </div>
-      <div class="main-content">
+      <div class="main-content" >
         <div class="post-section">
           <div class="post-header">
             <textarea placeholder="What's on your mind?"></textarea>
             <button class="post-button">Post</button>
           </div>
           <div class="post-body">
-            <img src="https://i.imgur.com/Z5b710A.jpg" alt="Post Image" />
+            <!-- <img src="https://i.imgur.com/Z5b710A.jpg" alt="Post Image" /> -->
+            
             <div class="post-content">
-              <h2>Made for your comfort!</h2>
+              <h2 :style="{color:'#fff',marginBottom:'30px'}">A moderated online forum and social network, allowing users to connect with peers, share experiences, and find support.<br>Made for your comfort!</h2>
               <div class="post-actions">
-                <button class="follow-button">+Follow</button>
+                
                 <div class="suggested-users">
-                  <h3>Suggested to follow</h3>
+                  <h3 :style="{color:'#A51196',marginLeft:'200px',paddingBottom:'25px'}">Suggested to follow</h3>
                   <div class="user-card">
-                    <img src="https://i.imgur.com/q97bC5Z.jpg" alt="User Image" />
+                    <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/asanda.jpg" alt="" />
                     <div class="user-info">
-                      <p>User 1</p>
+                      <p>Asanda Mehlo</p>
                       <button class="follow-button">+Follow</button>
+                      <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_115558(0).jpg" alt="User Image" />
+                    <div class="user-info">
+                      <p>Gwiba Mabandla</p>
+                      <button class="follow-button">+Follow</button>
+                      <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_120223.jpg" alt="User Image" />
+                    <div class="user-info">
+                      <p>Marcus Adonis</p>
+                      <button class="follow-button">+Follow</button>
+                    </div>
+                    </div>
                     </div>
                   </div>
-                  <div class="user-card">
-                    <img src="https://i.imgur.com/o5N0y4Y.jpg" alt="User Image" />
-                    <div class="user-info">
-                      <p>User 2</p>
-                      <button class="follow-button">+Follow</button>
-                    </div>
-                  </div>
-                  <div class="user-card">
-                    <img src="https://i.imgur.com/q5fX84T.jpg" alt="User Image" />
-                    <div class="user-info">
-                      <p>User 3</p>
-                      <button class="follow-button">+Follow</button>
-                    </div>
+                </div>
+                  
+                  
+                  
                   </div>
                 </div>
               </div>
@@ -65,7 +75,7 @@
           </div>
         </div>
         <div class="footer">
-          <ul>
+          <!-- <ul>
             <li>
               <i class="fas fa-envelope"></i>
             </li>
@@ -75,39 +85,44 @@
             <li>
               <i class="fas fa-cog"></i>
             </li>
-          </ul>
+          </ul> -->
           <p>Dlozify©2024</p>
         </div>
-      </div>
-    </div>
+      
+  
   </template>
   
   <script>
   export default {
     name: 'HomePage',
+    methods:{
+      getUsers(){
+        this.$store.dispatch('getUsers')
+      }
+    },
+    mounted(){
+      this.getUsers()
+    }
   };
   </script>
   
   <style scoped>
   .container {
     display: flex;
-    height: 100vh;
+    height: 115vh;
   }
   
   .sidebar {
     background-color:#3F0639;
     width: 15%;
-    padding: 20px;
+    /* padding: 20px; */
   }
   
-  .logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+
   
   .logo img {
-    width: 100px;
-    height: 100px;
+    width: 240px;
+    height: 150px;
   }
   
   .sidebar-menu {
@@ -122,19 +137,25 @@
   .sidebar-menu li i {
     color: #fff;
     font-size: 1.5rem;
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
   
   .sidebar-menu li span {
     color: #fff;
     font-weight: bold;
   }
-  
+  p{
+    color: white;
+  }
   .main-content {
     background-color:rgb(95, 1, 95);
     background: rgb(120,9,121);
     background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
-
+    background-image: url('https://siphokuhlenyana.github.io/dlozify-pics/bck-img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
     flex-grow: 1;
     padding: 20px;
   }
@@ -163,7 +184,7 @@
   
   .post-button {
     padding: 10px 20px;
-    background-color: pink;
+    background-color: #3F0639;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -174,17 +195,28 @@
   .post-body {
     display: flex;
     align-items: center;
+    width: 1200px;
+    height: 500px;
+    background-color: #a511966e;
+    
+    
   }
   
   .post-body img {
     width: 50%;
     height: auto;
     border-radius: 10px;
+    
+   
   }
   
   .post-content {
-    width: 50%;
+    width: 70%;
     padding: 20px;
+   
+  }
+  .post-content h2{
+    margin-left:200px;
   }
   
   .post-content h2 {
@@ -197,7 +229,7 @@
   
   .follow-button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #3F0639;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -215,15 +247,24 @@
   
   .user-card {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+
+    /* align-items: ; */
+    /* margin-bottom: 5px; */
+  }
+  h3{
+    border: 1px solid #A51196;
+    border-radius: 5px;
+    background-color: #fff;
+    color:#A51196 ;
+    padding-top:15px;
   }
   
   .user-card img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+    
+    height:150px;
+    border-radius: 70%;
+    margin-right: 20px;
+    margin-left: 80px;
   }
   
   .user-info {
@@ -236,10 +277,14 @@
   }
   
   .footer {
+    /* margin:200px; */
     background-color: #A51196;
     color: #fff;
     /* padding: 20px; */
     text-align: center;
+/* margin-top: 250px; */
+ 
+  
   }
   
   .footer ul {
@@ -248,10 +293,10 @@
     /* margin-bottom: 10px; */
   }
   
-  .footer ul li {
+  /* .footer ul li {
     display: inline-block;
     margin: 0 10px;
-  }
+  } */
   
   .footer ul li i {
     font-size: 1.5rem;
