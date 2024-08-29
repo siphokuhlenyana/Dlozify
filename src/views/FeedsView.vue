@@ -45,7 +45,7 @@
         <h2 :style="{color:'#fff'}"> Feeds</h2>
         <div class="post-body">
          
-          <div id="carouselExampleCaptions" class="carousel slide">
+          <!-- <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -76,8 +76,12 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden"></span>
   </button>
-</div>
-           
+</div> -->
+{{ $store.state.posts }}
+            <div v-for="post in $store.state.posts" :key="post.idpost" class="content">
+              <img src="post.userProfile" alt="">
+             {{ post.description }}
+            </div>
                   </div>
                 </div>
               </div>
@@ -97,12 +101,12 @@
 export default {
   name: 'HomePage',
   methods:{
-    getUsers(){
-      this.$store.dispatch('getUsers')
+    getPosts(){
+      this.$store.dispatch('getPosts')
     }
   },
   mounted(){
-    this.getUsers()
+    this.getPosts()
   }
 };
 </script>

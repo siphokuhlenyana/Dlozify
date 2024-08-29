@@ -5,7 +5,8 @@ const apiURL = 'https://dlozify.onrender.com/'
 export default createStore({
   state: {
     users:null,
-    user:null
+    user:null,
+    posts:null
   },
   getters: {
 
@@ -16,9 +17,20 @@ export default createStore({
     },
     setUser(state,payload){
       state.user=payload
+    },
+    setPosts(state,payload){
+      state.posts=payload
     }
   },
   actions: {
+    async getPosts({commit}){
+      try{
+        const data= await axios.get(`${apiURL}posts`)
+commit('setPosts',data)
+      }catch(e){
+        console.log(`Failed to get posts: ${e.message}`);
+      }
+    },
     async getUsers({commit}){
       try{
         const datap =await axios.get(`${apiURL}users`)
