@@ -75,17 +75,7 @@
           </div>
         </div>
         <div class="footer">
-          <!-- <ul>
-            <li>
-              <i class="fas fa-envelope"></i>
-            </li>
-            <li>
-              <i class="fas fa-info-circle"></i>
-            </li>
-            <li>
-              <i class="fas fa-cog"></i>
-            </li>
-          </ul> -->
+         
           <p>Dlozify©2024</p>
         </div>
       
