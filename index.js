@@ -5,6 +5,7 @@ import contactRouter from './router/contactRouter.js'
 import msgRouter from './router/msgRouter.js'
 import notificationRouter from './router/notificationRouter.js'
 import requestRouter from './router/requestRouter.js'
+import postRouter from './router/postRouter.js'
 
 import cors from 'cors'
 
@@ -29,6 +30,7 @@ app.use('/contacts',contactRouter)
 app.use('/msg',msgRouter)
 app.use('/notifications',notificationRouter)
 app.use('/request',requestRouter)
+app.use('/posts',postRouter)
 
 
 app.listen(port,()=>{
