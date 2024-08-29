@@ -5,7 +5,7 @@ const apiURL = 'https://dlozify.onrender.com/'
 export default createStore({
   state: {
     users:null,
-    user:[]
+    user:null
   },
   getters: {
 
@@ -13,6 +13,9 @@ export default createStore({
   mutations: {
     setUsers(state,payload){
       state.users=payload
+    },
+    setUser(state,payload){
+      state.user=payload
     }
   },
   actions: {
@@ -25,6 +28,16 @@ export default createStore({
       
       
       }
+      },
+      async getUser({commit},id){
+        try{
+          const data =await axios.get(`${apiURL}users/${id}`)
+            commit('setUsers', data.data);
+        }catch(e){
+          console.log(`Failed to fetch products: ${e.message}`);
+        
+        
+        }
       }
     },
   

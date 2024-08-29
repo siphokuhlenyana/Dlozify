@@ -1,271 +1,306 @@
 <template>
-    <div class="feeds-page">
-      <div class="sidebar">
-        <div class="logo">
-          <img src="https://i.imgur.com/W8eJ0wI.png" alt="Dlozify Logo">
-        </div>
-        <div class="sidebar-links">
-          <router-link to="/home">
-            <i class="fa fa-home"></i> Home
-          </router-link>
-          <router-link to="/bookmarks">
-            <i class="fa fa-bookmark"></i> Bookmarks
-          </router-link>
-          <router-link to="/notifications">
-            <i class="fa fa-bell"></i> Notifications
-          </router-link>
-          <router-link to="/profile">
-            <i class="fa fa-user"></i> Profile
-          </router-link>
-        </div>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
+       
       </div>
-      <div class="content">
-        <div class="create-post">
-          <textarea placeholder="What's on your mind?"></textarea>
-          <button>Post</button>
-        </div>
-        <div class="feed-items">
-          <div class="feed-item" v-for="item in feedItems" :key="item.id">
-            <div class="user-info">
-              <img :src="item.user.avatar" alt="User Avatar">
-              <span>{{ item.user.name }}</span>
-            </div>
-            <div class="post-content">
-              {{ item.content }}
-            </div>
-            <div class="post-actions">
-              <button>Like</button>
-              <button>Comment</button>
-              <button>Share</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sidebar">
-        <div class="sidebar-title">
-          Made for your comfort!
-        </div>
-        <button class="follow-button">+ Follow</button>
-        <div class="suggested-users">
-          <h3>Suggested to follow</h3>
-          <div class="suggested-user" v-for="user in suggestedUsers" :key="user.id">
-            <img :src="user.avatar" alt="User Avatar">
-            <span>{{ user.name }}</span>
-            <button>Follow</button>
-          </div>
-        </div>
-      </div>
-      <div class="bottom-nav">
-        <router-link to="/home">
-          <i class="fa fa-envelope"></i>
-        </router-link>
-        <router-link to="/discover">
-          <i class="fa fa-info"></i>
-        </router-link>
-        <router-link to="/settings">
-          <i class="fa fa-cog"></i>
-        </router-link>
+      <div class="sidebar-menu">
+        <nav>
+          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+         <!-- <a href="#homepage"></a> -->
+          
+        <li>
+          <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
+         
+        
+        </li>
+        <li>
+          <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
+         <!-- <a href="#notifications"></a> -->
+         
+        </li>
+        <li>
+          <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"> </router-link>
+        
+        </li>
+        <li>
+         <a href="#login"><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></a>
+        </li>
+        <li>
+        <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
+        </li>
+        <li>
+         <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
+        </li>
+       </nav>
       </div>
     </div>
-  </template>
+    <div class="main-content" >
+      <div class="post-section">
+        <div class="post-header">
+          <textarea placeholder="What's on your mind?"></textarea>
+          <button class="post-button">Post</button>
+        </div> 
+        <h2 :style="{color:'#fff'}"> Feeds</h2>
+        <div class="post-body">
+         
+          <div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
   
-  <script>
-  export default {
-    name:'FeedsView',
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" class="d-block w-10" alt="">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" class="d-block w-10" alt="">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
     
-    data() {
-      return {
-        feedItems: [
-          {
-            id: 1,
-            user: {
-              name: 'John Doe',
-              avatar: 'https://i.imgur.com/W8eJ0wI.png',
-            },
-            content: 'This is a sample post.',
-          },
-          // Add more feed items here
-        ],
-        suggestedUsers: [
-          {
-            id: 1,
-            name: 'Jane Doe',
-            avatar: 'https://i.imgur.com/W8eJ0wI.png',
-          },
-          // Add more suggested users here
-        ],
-      };
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .feeds-page {
-    display: flex;
-    height: 100vh;
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+</div>
+           
+                  </div>
+                </div>
+              </div>
+                
+                
+                
+  </div>
+      <div class="footer">
+       
+        <p>Dlozify©2024</p>
+      </div>
+    
+
+</template>
+
+<script>
+export default {
+  name: 'HomePage',
+  methods:{
+    getUsers(){
+      this.$store.dispatch('getUsers')
+    }
+  },
+  mounted(){
+    this.getUsers()
   }
+};
+</script>
+
+<style scoped>
+.container {
+  display: flex;
+  height: 115vh;
+}
+
+.sidebar {
+  background-color:#3F0639;
+  width: 15%;
+  /* padding: 20px; */
+}
+
+
+
+.logo img {
+  width: 240px;
+  height: 150px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 15px;
+}
+
+.sidebar-menu li i {
+  color: #fff;
+  font-size: 1.5rem;
+  /* margin-right: 10px; */
+}
+
+.sidebar-menu li span {
+  color: #fff;
+  font-weight: bold;
+}
+p{
+  color: white;
+}
+.main-content {
+  background-color:rgb(95, 1, 95);
+  background: rgb(120,9,121);
+  background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
+  background-image: url('https://siphokuhlenyana.github.io/dlozify-pics/bck-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   
-  .sidebar {
-    width: 200px;
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-  }
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* .post-section {
+  /* background-color: #fff; */
+  /* padding: 20px;
+  border-radius: 10px;
+  background-color: #A51196;
+} */
+ 
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
   
-  .logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+}
+
+.post-header textarea {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #A51196;
+  border-radius: 5px;
+  resize: none;
+}
+
+.post-button {
+  padding: 10px 20px;
+  background-color: #3F0639;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.post-body {
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  height: 600px;
+  background-color: #a511966e;
+  border-radius: 10px;
   
-  .logo img {
-    width: 100px;
-  }
   
-  .sidebar-links {
-    display: flex;
-    flex-direction: column;
-  }
+}
+
+.post-body img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
   
-  .sidebar-links a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
+ 
+}
+
+.post-content {
+  width: 70%;
+  padding: 20px;
+ 
+}
+.post-content h2{
+  margin-left:200px;
+}
+
+.post-content h2 {
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  margin-top: 20px;
+}
+
+.follow-button {
+  padding: 10px 20px;
+  background-color: #3F0639;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.suggested-users {
+  margin-top: 20px;
+}
+
+.suggested-users h3 {
+  margin-bottom: 10px;
+}
+
+.user-card {
+  display: flex;
+
+  /* align-items: ; */
+  /* margin-bottom: 5px; */
+}
+h3{
+  border: 1px solid #A51196;
+  border-radius: 5px;
+  background-color: #fff;
+  color:#A51196 ;
+  padding-top:15px;
+}
+
+.user-card img {
   
-  .sidebar-links a i {
-    margin-right: 10px;
-  }
-  
-  .content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .create-post {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .create-post textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border: none;
-    resize: none;
-  }
-  
-  .create-post button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .feed-items {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .feed-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .user-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .post-content {
-    margin-bottom: 10px;
-  }
-  
-  .post-actions {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .post-actions button {
-    background-color: transparent;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .sidebar-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .follow-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .suggested-users {
-    margin-bottom: 20px;
-  }
-  
-  .suggested-user {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .suggested-user img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .suggested-user button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px;
-  }
-  
-  .bottom-nav a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .bottom-nav a i {
-    font-size: 24px;
-  }
-  </style>
+  height:150px;
+  border-radius: 70%;
+  margin-right: 20px;
+  margin-left: 80px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info p {
+  margin-right: 10px;
+}
+
+.footer {
+  /* margin:200px; */
+  background-color: #A51196;
+  color: #fff;
+  /* padding: 20px; */
+  text-align: center;
+/* margin-top: 250px; */
+
+
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  /* margin-bottom: 10px; */
+}
+
+/* .footer ul li {
+  display: inline-block;
+  margin: 0 10px;
+} */
+
+.footer ul li i {
+  font-size: 1.5rem;
+}
+</style>

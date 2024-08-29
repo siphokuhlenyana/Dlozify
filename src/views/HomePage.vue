@@ -7,37 +7,41 @@
         </div>
         <div class="sidebar-menu">
           <nav>
-           <a href="#homepage"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></a>
+            <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+           <!-- <a href="#homepage"></a> -->
             
           <li>
-           <a href="#FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></a>
+            <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
+           
           
           </li>
           <li>
-           <a href="#notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></a>
+            <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
+           <!-- <a href="#notifications"></a> -->
            
           </li>
           <li>
-           <a href="#inbox"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"></a>
+            <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"> </router-link>
+          
           </li>
           <li>
            <a href="#login"><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></a>
           </li>
           <li>
-           <a href="#about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></a>
+          <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
           </li>
           <li>
-           <a href="#settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></a>
+           <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
           </li>
          </nav>
         </div>
       </div>
       <div class="main-content" >
         <div class="post-section">
-          <div class="post-header">
+          <!-- <div class="post-header">
             <textarea placeholder="What's on your mind?"></textarea>
             <button class="post-button">Post</button>
-          </div>
+          </div> -->
           <div class="post-body">
             <!-- <img src="https://i.imgur.com/Z5b710A.jpg" alt="Post Image" /> -->
             
@@ -51,7 +55,8 @@
                     <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/asanda.jpg" alt="" />
                     <div class="user-info">
                       <p>Asanda Mehlo</p>
-                      <button class="follow-button">+Follow</button>
+                      <button  v-if="button == true" class="follow-button" >+Follow</button>
+                      <button v-else class="follow-button">Followed</button>
                       <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_115558(0).jpg" alt="User Image" />
                     <div class="user-info">
                       <p>Gwiba Mabandla</p>
@@ -74,6 +79,7 @@
             </div>
           </div>
         </div>
+        {{$store.state.users }}
         <div class="footer">
          
           <p>Dlozify©2024</p>
@@ -147,7 +153,8 @@
     background-position: center;
     
     flex-grow: 1;
-    padding: 20px;
+    padding: 50px;
+    padding-top:150px;
   }
   
   /* .post-section {
@@ -188,6 +195,8 @@
     width: 1200px;
     height: 500px;
     background-color: #a511966e;
+    
+  
     
     
   }
