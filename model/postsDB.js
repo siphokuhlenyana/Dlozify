@@ -1,7 +1,7 @@
 import {pool} from '../config/config.js'
 
 const getPostsDb = async()=>{
-    let [data] = await pool.query("SELECT * FROM posts ")
+    let [data] = await pool.query("SELECT * FROM posts LIMIT 7")
     return data
 }
 

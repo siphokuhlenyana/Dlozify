@@ -2,11 +2,11 @@ import { getPostsDb,selectPostDb,insertPostDb,deletePostDb,updatePostDb} from '.
 
 
 const getPosts =async(req,res)=>{
-    try{
+    // try{
     res.json(await getPostsDb())    
-    }catch(e){
-        res.status(500).send('Server error!')
-    }
+    // }catch(e){
+    //     res.status(500).send('Server error!')
+    // }
     
 }
 
