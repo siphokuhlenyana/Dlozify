@@ -8,7 +8,7 @@
         <div class="sidebar-menu">
           <nav>
             <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
-           <!-- <a href="#homepage"></a> -->
+           <a href="#homepage"></a> 
             
           <li>
             <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
@@ -17,7 +17,7 @@
           </li>
           <li>
             <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
-           <!-- <a href="#notifications"></a> -->
+           <a href="#notifications"></a> 
            
           </li>
           <li>
@@ -25,20 +25,20 @@
           
           </li>
           <li>
-           <a href="#login"><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></a>
+            <router-link to="/account" ><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></router-link>
           </li>
           <li>
           <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
           </li>
           <li>
            <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
-          </li>
+          </li> 
          </nav>
-        </div>
+        </div> 
       </div>
       <div class="main-content" >
         <div class="post-section">
-          <!-- <div class="post-header">
+           <!-- <div class="post-header">
             <textarea placeholder="What's on your mind?"></textarea>
             <button class="post-button">Post</button>
           </div> -->
@@ -55,30 +55,33 @@
                     <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/asanda.jpg" alt="" />
                     <div class="user-info">
                       <p>Asanda Mehlo</p>
-                      <button  v-if="button == true" class="follow-button" >+Follow</button>
-                      <button v-else class="follow-button">Followed</button>
+                      <button  v-if="createView === false" @click="createViewIf()" class="follow-button" >+Follow</button>
+                      <button v-if="createView" @click="createViewIf()" class="follow-button">Followed</button>
                       <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_115558(0).jpg" alt="User Image" />
                     <div class="user-info">
                       <p>Gwiba Mabandla</p>
-                      <button class="follow-button">+Follow</button>
+                      <button v-if="createView === false" @click="createViewIf()" class="follow-button">+Follow</button>
+                      <button v-if="createView" @click="createViewIf()" class="follow-button">Followed</button>
                       <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_120223.jpg" alt="User Image" />
                     <div class="user-info">
                       <p>Marcus Adonis</p>
-                      <button class="follow-button">+Follow</button>
+                      <button v-if="createView === false" @click="createViewIf()" class="follow-button">+Follow</button>
+                      <button v-if="createView" @click="createViewIf()" class="follow-button">Followed</button>
                     </div>
                     </div>
                     </div>
                   </div>
                 </div>
                   
-                  
+              </div>
+            </div>
                   
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          <!-- </div>
+        </div> -->
         <!-- {{$store.state.users }} -->
         <div class="footer">
          
@@ -91,10 +94,19 @@
   <script>
   export default {
     name: 'HomePage',
+    data() {
+    return {
+      createView: false,
+    }
+  },
     methods:{
       getUsers(){
         this.$store.dispatch('getUsers')
-      }
+      },
+      createViewIf() {
+      this.createView = !this.createView;
+      alert('Followed this user ! 👌')
+    }
     },
     mounted(){
       this.getUsers()

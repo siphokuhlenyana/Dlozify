@@ -21,6 +21,7 @@ export default createStore({
     setPosts(state,payload){
       state.posts=payload
     }
+   
   },
   actions: {
     async getPosts({commit}){
@@ -31,12 +32,25 @@ commit('setPosts',data)
         console.log(`Failed to get posts: ${e.message}`);
       }
     },
+    
+      async getPost({commit},id){
+        try{
+          const {data} =await axios.get(`${apiURL}posts/${id}`)
+            commit('setUsers', data.data);
+            console.log(data);
+            
+        }catch(e){
+          console.log(`Failed to fetch post: ${e.message}`);
+        
+        
+        }
+      },
     async getUsers({commit}){
       try{
         const datap =await axios.get(`${apiURL}users`)
           commit('setUsers', datap.data);
       }catch(e){
-        console.log(`Failed to fetch products: ${e.message}`);
+        console.log(`Failed to fetch users: ${e.message}`);
       
       
       }
@@ -50,7 +64,15 @@ commit('setPosts',data)
         
         
         }
-      }
+      },
+      
+      async addUser(context,info){
+      let {data}=await axios.post(`${apiURL}/users/insert`,info)
+      console.log(data);
+      // let addedUser =await data.json()
+      // commit('setUser')
+      alert(data)
+    },
     },
   
   modules: {

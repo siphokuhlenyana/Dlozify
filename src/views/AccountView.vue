@@ -1,6 +1,5 @@
 <template>
-  
-  <div class="container">
+<div class="container">
     <div class="sidebar">
       <div class="logo">
         <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
@@ -39,18 +38,21 @@
     </div>
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
-<div class="about">
-   <h1 :style="{color:'#fff'}">What about Dlozify ?? 🤔</h1>
-   <p>Dlozify is a mobile app designed to provide a safe and welcoming space for individuals seeking healing,<br>
-     spiritual growth, and meaningful connections.<br> The app aims to foster a sense of community and belonging,<br>
-     allowing users to connect with like-minded individuals who share similar interests and goals.</p>
-     <p>Spiritual Healing: Dlozify offers a range of spiritual healing practices, including meditation, yoga, and energy balancing exercises,<br> to help users cultivate inner peace and balance.<br>
-Meaningful Connections: The app provides a platform for users to connect with others who share similar spiritual interests and goals,<br> fostering meaningful relationships and a sense of community.<br>
-Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and non-judgmental environment for users to explore their spiritual journeys.</p>
-  </div>
-    </div>
-    <img src="https://i.etsystatic.com/12379428/r/il/e9650a/5794649332/il_fullxfull.5794649332_brgd.jpg" alt="">
-  </div>
+
+       <img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
+        <label>Create a username :<br><input type="text" v-model="username" required></label><br><br>
+        <label>Create a password  :<br><input type="password" v-model="password" required></label><br><br>
+        <label>Age :<br><input type="text" v-model="userAge" required></label><br><br>
+        <label>Gender:<br><input type="text" v-model="gender"></label><br><br>
+        <label>Profile:<br><input type="text" v-model="userProfile" placeholder="Url"></label><br><br>
+        <label>Role:<br><input type="text" v-model="userRole" placeholder="User"></label><br><br>
+        <label>Bio :<br><input type="text" v-model="bio"></label><br><br>
+        
+
+<button @click="addUser()">Add User</button>
+</div>
+</div>
+
         <!-- </div>
       </div> -->
       <!-- {{$store.state.users }} -->
@@ -168,7 +170,7 @@ p{
 
 .post-header textarea {
   flex-grow: 1;
-  /* padding: 10px; */
+  padding: 10px;
   border: 1px solid #A51196;
   border-radius: 5px;
   resize: none;
@@ -206,7 +208,7 @@ p{
 
 .post-content {
   width: 70%;
-  /* padding: 20px; */
+  padding: 20px;
  
 }
 .post-content h2{
@@ -296,4 +298,3 @@ h3{
   font-size: 1.5rem;
 }
 </style>
-
