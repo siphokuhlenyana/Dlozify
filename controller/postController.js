@@ -27,10 +27,10 @@ const insertPost =async(req,res)=>{
     
 
     
-    let {description,userProfile}= req.body
+    let {description,url}= req.body
     
         
-                await insertPostDb(description,userProfile)
+                await insertPostDb(description,url)
                 res.send('Post was inserted successfully !')
            
         
@@ -53,16 +53,16 @@ const deletePost = async(req,res)=>{
        try{
 
        
-        let {description,userProfile}=req.body
+        let {description,url}=req.body
         console.log(req.body);
 
         let post =await selectPostDb(req.params.id)
      
         description ? description=description: description = post.description
-      userProfile ?userProfile=userProfile:userProfile=post.userProfile
+      url ?url=url:url=post.url
        
         res.json({
-            results: await updatePostDb(description,userProfile, req.params.id),
+            results: await updatePostDb(description,url, req.params.id),
             msg: 'Post has been successfully updated ! '
         })}catch(e){
             res.status(500).send('Server error !!')

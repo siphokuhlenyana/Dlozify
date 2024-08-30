@@ -11,9 +11,9 @@ const selectPostDb =  async(idpost)=>{
     
     
 }
-const insertPostDb =async(description,userProfile)=>{
+const insertPostDb =async(description,url)=>{
     let [data] =await pool.query(`
-        INSERT INTO posts(description,userProfile)
+        INSERT INTO posts(description,url)
         VALUES (?,?)
         `,[description,userProfile])
      return data
@@ -23,9 +23,9 @@ const insertPostDb =async(description,userProfile)=>{
                // return data 
            }
 
-    const updatePostDb=async(description,userProfile)=>{
+    const updatePostDb=async(description,url)=>{
         
-          await pool.query('UPDATE posts SET description = ?, userProfile = ? WHERE idpost= ?', [description,userProfile]);
+          await pool.query('UPDATE posts SET description = ?, url = ? WHERE idpost= ?', [description,url]);
 
         }; 
     
