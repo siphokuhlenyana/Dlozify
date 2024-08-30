@@ -6,7 +6,7 @@ export default createStore({
   state: {
     users:null,
     user:null,
-    posts:null
+    posts:[]
   },
   getters: {
 

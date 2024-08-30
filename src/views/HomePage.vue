@@ -79,7 +79,7 @@
             </div>
           </div>
         </div>
-        {{$store.state.users }}
+        <!-- {{$store.state.users }} -->
         <div class="footer">
          
           <p>Dlozify©2024</p>
