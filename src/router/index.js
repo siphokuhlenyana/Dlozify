@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import FeedsView from '../views/FeedsView.vue'
 import AccountView from '@/views/AccountView.vue'
+import AdminView from '@/views/AdminView.vue'
 
 const routes = [
   // {
@@ -40,6 +41,16 @@ const routes = [
     path: '/account',
     name: 'AccountView',
     component: AccountView
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    // component: () => import(/* webpackChunkName: "about" */ '../views/Homepage.vue')
+  }
+  ,
+  {
+    path: '/settings',
+    name: 'Admin',
+    component: AdminView
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

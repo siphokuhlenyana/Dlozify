@@ -36,7 +36,7 @@ commit('setPosts',data)
       async getPost({commit},id){
         try{
           const {data} =await axios.get(`${apiURL}posts/${id}`)
-            commit('setUsers', data.data);
+            commit('setPosts', data.data);
             console.log(data);
             
         }catch(e){
@@ -47,8 +47,10 @@ commit('setPosts',data)
       },
     async getUsers({commit}){
       try{
-        const datap =await axios.get(`${apiURL}users`)
-          commit('setUsers', datap.data);
+        const {data} =await axios.get(`${apiURL}users`)
+          commit('setUsers', data);
+          console.log(data);
+          
       }catch(e){
         console.log(`Failed to fetch users: ${e.message}`);
       
@@ -67,12 +69,29 @@ commit('setPosts',data)
       },
       
       async addUser(context,info){
-      let {data}=await axios.post(`${apiURL}/users/insert`,info)
+      let {data}=await axios.post(`${apiURL}users/register`,info)
       console.log(data);
       // let addedUser =await data.json()
       // commit('setUser')
-      alert(data)
+      alert("User registered !!")
     },
+    async loginUser(context,info){
+      let {data} =await axios.post(`${apiURL}users/login`,info)
+      console.log(data);
+      alert("User logged successfully !")
+    },
+    async EditUser({commit},id){
+      let {data} =await axios.patch(`${apiURL}users/${id}`)
+      commit('setUsers',data.data);
+      console.log(data);
+      alert("User updated successfully !")
+    },
+    async DeleteUser({commit},id){
+      let {data} =await axios.delete(`${apiURL}users/${id}`)
+      commit('setUsers',data.data);
+      console.log(data);
+      alert("User updated successfully !")
+    }
     },
   
   modules: {

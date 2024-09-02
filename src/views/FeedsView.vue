@@ -42,13 +42,13 @@
           <textarea placeholder="What's on your mind?"></textarea>
           <button class="post-button">Post</button>
         </div> 
-        <h2 :style="{color:'#3F0639'}"> Feeds</h2>
+        <h1 :style="{color:'#3F0639',marginLeft:'600px'}"> Feeds</h1>
         <!-- <div class="post-body" v-for="post in $store.state.posts.data" :key="post.idpost" >
           {{ post.description}}
           <img src="post.url" alt=""> -->
           <div class="card-container">  
             <div  class="card" style="width: 18rem;border-color:purple ;border-width: 2px;border-style: solid;" v-for="post in $store.state.posts.data" :key="post.idpost">
-              <img v-if="post" :src="post.url" class="card-img-top" alt="" :style="{width:'100px',height:'150px'}">
+              <img v-if="post" :src="post.url" class="card-img-top" alt="" :style="{width:'150px',height:'150px',marginLeft:'60px'}">
               <div v-else><spinner-view/></div>
               
               <div class="card-body" :style="{backgroundColor:'#a511966e'}">
@@ -62,8 +62,8 @@
                   <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
                 </svg>
                 </button><br>
-                <button id="view" v-if="createView === false" @click="createViewIf()">View</button>
-                <button id="view" v-if="createView" @click="createViewIf()">Hide</button>
+                <button id="view" v-if="createView === false" @click="createViewIf(idpost)">View</button>
+                <button id="view" v-if="createView" @click="createViewIf(idpost)">Hide</button>
                 <!-- <p v-else> 
                      {{post.description}}
                      </p> -->
@@ -124,21 +124,23 @@
                 
   
       <div class="footer">
-       
-        <p>Dlozify©2024</p>
+       <footer-view/>
+        <!-- <p>Dlozify©2024</p> -->
       </div>
     
   </div>
 </template>
 
 <script>
+import FooterView from './FooterView.vue';
 import SpinnerView from './SpinnerView.vue';
 export default {
-  components: { SpinnerView },
+  components: { SpinnerView, FooterView },
   name: 'FeedsView',
   data() {
     return {
       createView: false,
+      
     }
   },
   methods:{
@@ -170,18 +172,21 @@ createViewIf() {
 }
 #comment{
   background-color: #A51196;
-  margin-right: -3px;
+  margin-right: 30px;
   border-radius: 10px;
+  width: 280px;
 }
 .like{
   background-color: #3F0639;
   border-radius: 10px;
-  margin-right: 50px;
+  margin-left: 20px;
+
  
 }
 #send{
   background-color: #3F0639;
   border-radius: 10px;
+  margin-left: 150px;
 }
 .card{
 margin: 10px;
@@ -198,7 +203,7 @@ margin: 10px;
 }
 .container {
   display: flex;
-  height: 185vh;
+  height: 190vh;
 }
 
 .sidebar {

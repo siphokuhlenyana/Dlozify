@@ -40,12 +40,12 @@
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
 <div class="about">
-   <h1 :style="{color:'#fff'}">What about Dlozify ?? 🤔</h1>
+   <h1 :style="{color:'#fff'}"><u>What about Dlozify ?? 🤔</u></h1>
    <p>Dlozify is a mobile app designed to provide a safe and welcoming space for individuals seeking healing,<br>
-     spiritual growth, and meaningful connections.<br> The app aims to foster a sense of community and belonging,<br>
+     spiritual growth, and meaningful connections.<br><br> The app aims to foster a sense of community and belonging,<br>
      allowing users to connect with like-minded individuals who share similar interests and goals.</p>
-     <p>Spiritual Healing: Dlozify offers a range of spiritual healing practices, including meditation, yoga, and energy balancing exercises,<br> to help users cultivate inner peace and balance.<br>
-Meaningful Connections: The app provides a platform for users to connect with others who share similar spiritual interests and goals,<br> fostering meaningful relationships and a sense of community.<br>
+     <p>Spiritual Healing: Dlozify offers a range of spiritual healing practices, including meditation, yoga, and energy balancing exercises,<br> to help users cultivate inner peace and balance.<br><br>
+Meaningful Connections: The app provides a platform for users to connect with others who share similar spiritual interests and goals,<br> fostering meaningful relationships and a sense of community.<br><br>
 Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and non-judgmental environment for users to explore their spiritual journeys.</p>
   </div>
     </div>
@@ -87,6 +87,9 @@ export default {
 </script>
 
 <style scoped>
+.about{
+  margin-left: 10px;
+}
 input{
     width: 400px;
     height: 50px;
@@ -118,7 +121,8 @@ label{
 
 .sidebar-menu {
   list-style: none;
-  padding: 0;
+  padding: 30px;
+
 }
 
 .sidebar-menu li {
@@ -287,10 +291,10 @@ h3{
   /* margin-bottom: 10px; */
 }
 
-/* .footer ul li {
+.footer ul li {
   display: inline-block;
   margin: 0 10px;
-} */
+} 
 
 .footer ul li i {
   font-size: 1.5rem;

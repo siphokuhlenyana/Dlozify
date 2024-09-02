@@ -8,7 +8,7 @@
         <div class="sidebar-menu">
           <nav>
             <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
-           <a href="#homepage"></a> 
+       
             
           <li>
             <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
@@ -17,7 +17,7 @@
           </li>
           <li>
             <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
-           <a href="#notifications"></a> 
+        
            
           </li>
           <li>
@@ -38,10 +38,10 @@
       </div>
       <div class="main-content" >
         <div class="post-section">
-           <!-- <div class="post-header">
-            <textarea placeholder="What's on your mind?"></textarea>
-            <button class="post-button">Post</button>
-          </div> -->
+           <div class="post-header">
+            <textarea placeholder="Search Friends"></textarea>
+            <button class="post-button">Search</button>
+          </div>
           <div class="post-body">
             <!-- <img src="https://i.imgur.com/Z5b710A.jpg" alt="Post Image" /> -->
             
@@ -50,7 +50,7 @@
               <div class="post-actions">
                 
                 <div class="suggested-users">
-                  <h3 :style="{color:'#A51196',marginLeft:'200px',paddingBottom:'25px'}">Suggested to follow</h3>
+                  <h3 id="suggest" :style="{color:'#A51196',marginLeft:'150px',paddingBottom:'25px'}">Suggested to follow</h3>
                   <div class="user-card">
                     <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/asanda.jpg" alt="" />
                     <div class="user-info">
@@ -84,15 +84,17 @@
         </div> -->
         <!-- {{$store.state.users }} -->
         <div class="footer">
-         
-          <p>Dlozify©2024</p>
+         <footer-view/>
+        
         </div>
       
   
   </template>
   
   <script>
+import FooterView from './FooterView.vue';
   export default {
+  components: { FooterView },
     name: 'HomePage',
     data() {
     return {
@@ -115,9 +117,14 @@
   </script>
   
   <style scoped>
+  #suggest{
+    text-align: center;
+  }
   .container {
     display: flex;
     height: 115vh;
+    padding: 0;
+    
   }
   
   .sidebar {
@@ -127,15 +134,14 @@
   }
   
 
-  
-  .logo img {
-    width: 240px;
+.logo img {
+    width: 250px;
     height: 150px;
   }
   
   .sidebar-menu {
     list-style: none;
-    padding: 0;
+    padding: 30px;
   }
   
   .sidebar-menu li {
@@ -151,7 +157,7 @@
   .sidebar-menu li span {
     color: #fff;
     font-weight: bold;
-  }
+  } 
   p{
     color: white;
   }
@@ -166,7 +172,7 @@
     
     flex-grow: 1;
     padding: 50px;
-    padding-top:150px;
+    padding-top:50px;
   }
   
   /* .post-section {
@@ -180,6 +186,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    margin-top: 0;
     
   }
   
@@ -294,6 +301,10 @@
     /* padding: 20px; */
     text-align: center;
 /* margin-top: 250px; */
+height: 80px;
+padding-top: 50px;
+
+
  
   
   }
@@ -309,7 +320,7 @@
     margin: 0 10px;
   } */
   
-  .footer ul li i {
-    font-size: 1.5rem;
-  }
+  /* .footer ul li i {
+    font-size: 2rem;
+  } */
   </style>

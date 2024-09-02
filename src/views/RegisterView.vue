@@ -1,4 +1,3 @@
-<template>
 <div class="container">
     <div class="sidebar">
       <div class="logo">
@@ -38,27 +37,19 @@
     </div>
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
-         
-       <img :style="{marginLeft:'450px'}" src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
-       <button :style="{marginLeft:'480px'}" @click="register = !register">Register/LogIn</button><br>
 
-       <div class="register" v-if="register">
-        <h2>Register User :</h2>
-       <label>Create a username :<br><input type="text" v-model="username" required></label><br>
-        <label>Create a password  :<br><input type="password" v-model="password" required></label><br>
-        <label>Age :<br><input type="text" v-model="userAge" required></label><br>
-        <label>Gender:<br><input type="text" v-model="gender"></label><br>
-        <label>Profile:<br><input type="text" v-model="userProfile" placeholder="Url"></label><br>
-        <label>Role:<br><input type="text" v-model="userRole" placeholder="User"></label><br>
-        <label>Bio :<br><input type="text" v-model="bio"></label><br>
+       <img :style="{marginLeft:'450px'}" src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
+        <label>Create a username :<br><input type="text" v-model="username" required></label><br><br>
+        <label>Create a password  :<br><input type="password" v-model="password" required></label><br><br>
+        <label>Age :<br><input type="text" v-model="userAge" required></label><br><br>
+        <label>Gender:<br><input type="text" v-model="gender"></label><br><br>
+        <label>Profile:<br><input type="text" v-model="userProfile" placeholder="Url"></label><br><br>
+        <label>Role:<br><input type="text" v-model="userRole" placeholder="User"></label><br><br>
+        <label>Bio :<br><input type="text" v-model="bio"></label><br><br>
         
 
-<button @click="addUser()">Register</button>
-       </div>
-       <div v-else>
-  <login-view/>
+<button @click="addUser()">Add User</button>
 
-       </div>
 </div>
 <div></div>
 </div>
@@ -67,21 +58,15 @@
       </div> -->
       <!-- {{$store.state.users }} -->
       <div class="footer">
-    <footer-view/>
+       
+        <p>Dlozify©2024</p>
       </div>
     
 
 </template>
 
 <script>
-import LoginView from '@/store/LoginView.vue';
-import FooterView from './FooterView.vue';
-
 export default {
-  components:{
-    LoginView,
-    FooterView
-  },
     data(){
         return{
             username:'',
@@ -90,8 +75,7 @@ export default {
             userRole:'',
             bio:'',
             userAge:'',
-            gender:'',
-            register:true
+            gender:''
             
             
         }
@@ -106,7 +90,6 @@ export default {
 </script>
 
 <style scoped>
-
 input{
     width: 400px;
     height: 50px;
@@ -170,8 +153,6 @@ p{
   flex-grow: 1;
   padding: 50px;
   
- 
-  
 }
 
 /* .post-section {
@@ -184,7 +165,7 @@ p{
 .post-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   
 }
 
