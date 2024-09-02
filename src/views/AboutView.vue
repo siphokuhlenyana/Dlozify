@@ -47,7 +47,25 @@
      <p>Spiritual Healing: Dlozify offers a range of spiritual healing practices, including meditation, yoga, and energy balancing exercises,<br> to help users cultivate inner peace and balance.<br><br>
 Meaningful Connections: The app provides a platform for users to connect with others who share similar spiritual interests and goals,<br> fostering meaningful relationships and a sense of community.<br><br>
 Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and non-judgmental environment for users to explore their spiritual journeys.</p>
-  </div>
+ <br>
+ <h3>Reach out ..</h3> 
+<form
+  action="https://formspree.io/f/xdknjkoj"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email" required>
+  </label><br>
+  <label>
+    Your message:
+    <textarea name="message" required></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+
+</div>
     </div>
     <img src="https://i.etsystatic.com/12379428/r/il/e9650a/5794649332/il_fullxfull.5794649332_brgd.jpg" alt="">
   </div>
@@ -56,14 +74,18 @@ Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and n
       <!-- {{$store.state.users }} -->
       <div class="footer">
        
-        <p>Dlozify©2024</p>
+       <footer-view/>
       </div>
     
 
 </template>
 
 <script>
+import FooterView from './FooterView'
 export default {
+  components:{
+    FooterView
+  },
     data(){
         return{
             username:'',
