@@ -6,7 +6,7 @@ export default createStore({
   state: {
     users:null,
     user:null,
-    posts:[]
+    posts:null
   },
   getters: {
 
@@ -26,7 +26,7 @@ export default createStore({
   actions: {
     async getPosts({commit}){
       try{
-        const data= await axios.get(`${apiURL}posts`)
+        const {data}= await axios.get(`${apiURL}posts`)
 commit('setPosts',data)
       }catch(e){
         console.log(`Failed to get posts: ${e.message}`);

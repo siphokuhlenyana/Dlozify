@@ -47,7 +47,7 @@
           {{ post.description}}
           <img src="post.url" alt=""> -->
           <div class="card-container">  
-            <div  class="card" style="width: 18rem;border-color:purple ;border-width: 2px;border-style: solid;" v-for="post in $store.state.posts.data" :key="post.idpost">
+            <div  class="card" style="width: 18rem;border-color:purple ;border-width: 2px;border-style: solid;" v-for="post in $store.state.posts" :key="post.idpost">
               <img v-if="post" :src="post.url" class="card-img-top" alt="" :style="{width:'150px',height:'150px',marginLeft:'60px'}">
               <div v-else><spinner-view/></div>
               
