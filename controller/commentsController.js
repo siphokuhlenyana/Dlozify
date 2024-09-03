@@ -60,7 +60,7 @@ const deleteComment = async(req,res)=>{
         content ? content=content: content = comment.content
        
         res.json({
-            results: await updateChatDb(userID,reciepientID,createdAt, req.params.id),
+            results: await updateChatDb(content, req.params.id),
             msg: 'Data was successfully updated ! '
         })}catch(e){
             res.status(500).send('Server error !!')
