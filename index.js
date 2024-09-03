@@ -6,6 +6,7 @@ import msgRouter from './router/msgRouter.js'
 import notificationRouter from './router/notificationRouter.js'
 import requestRouter from './router/requestRouter.js'
 import postRouter from './router/postRouter.js'
+import commentRouter from './router/commentRouter.js'
 
 import cors from 'cors'
 
@@ -31,7 +32,7 @@ app.use('/msg',msgRouter)
 app.use('/notifications',notificationRouter)
 app.use('/request',requestRouter)
 app.use('/posts',postRouter)
-
+app.use('/comment',commentRouter)
 
 app.listen(port,()=>{
     console.log("http://localhost:" +port);
