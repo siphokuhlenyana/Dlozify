@@ -124,6 +124,7 @@ import FooterView from './FooterView.vue';
     display: flex;
     height: 115vh;
     padding: 0;
+    margin:0;
     
   }
   

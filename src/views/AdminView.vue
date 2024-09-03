@@ -62,10 +62,10 @@
             <td :style="{textAlign:'center'}">{{ user.gender }}</td>
             <td :style="{textAlign:'center'}">{{ user.bio}}</td>
             <td>
-              <button @click="EditUser(user)" class="btn " :style="{backgroundColor:'#3F0639',color:'#fff'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" :style="{backgroundColor:'#3F0639',color:'#fff'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
   <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
 </svg></button>
-              <button @click="deleteUser(user.userID)" class="btn " :style="{backgroundColor:'#3F0639',color:'#fff',marginLeft:'10px'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+              <button @click="DeleteUser(userID)" class="btn " :style="{backgroundColor:'#3F0639',color:'#fff',marginLeft:'10px'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
   <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
   <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708"/>
 </svg></button>
@@ -75,7 +75,7 @@
       </table>
   
       <!-- Edit User Modal -->
-      <div v-if="showModal" class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -86,25 +86,29 @@
               <form @submit.prevent="updateUser">
                 <div class="mb-3">
                   <label for="text" class="form-label">Profile</label>
-                  <input type="text" v-model="user.userProfile" class="form-control"  placeholder="Url link">
+                  <input type="text" v-model="userProfile" class="form-control"  placeholder="Url link">
                 </div>
                 <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" v-model="currentProduct.name" class="form-control"  required>
+                  <label for="name" class="form-label">Username</label>
+                  <input type="text" v-model="username" class="form-control"  >
                 </div>
                 <div class="mb-3">
                   <label for="role" class="form-label">Role</label>
-                  <input type="text" v-model="currentProduct.name" class="form-control"  required>
+                  <input type="text" v-model="userRole" class="form-control"  >
                 </div>
                 <div class="mb-3">
                   <label for="age" class="form-label">Age</label>
-                  <input type="number" v-model="currentProduct.name" class="form-control"  required>
+                  <input type="number" v-model="userAge" class="form-control"  >
                 </div>
                 <div class="mb-3">
                   <label for="gender" class="form-label">Gender</label>
-                  <input type="text" v-model="currentProduct.price" class="form-control" >
+                  <input type="text" v-model="gender" class="form-control" >
                 </div>
-                <button type="submit" class="btn btn-primary" >Save changes</button>
+                <div class="mb-3">
+                  <label for="gender" class="form-label">Bio</label>
+                  <input type="text" v-model="bio" class="form-control" >
+                </div>
+                <button @click="EditUser()" type="submit" class="btn btn-primary" >Save changes</button>
               </form>
             </div>
           </div>
@@ -142,7 +146,7 @@ import FooterView from './FooterView.vue';
                 userRole:'',
                 bio:'',
                 userAge:'',
-                gender:''
+                gender:'',
               
                 
                 
@@ -157,6 +161,12 @@ import FooterView from './FooterView.vue';
           EditUser(){
             this.$store.dispatch('EditUser',this.$data)
           },
+        //   closeModal(){
+        //    this.showModal.value=false
+        //   },
+          DeleteUser(userID){
+            this.$store.dispatch('DeleteUser',userID)
+          },
           getUsers(){
       this.$store.dispatch('getUsers')
     },
@@ -165,6 +175,7 @@ import FooterView from './FooterView.vue';
         ,
   mounted(){
     this.getUsers()
+    this.DeleteUser()
     
   }
     };

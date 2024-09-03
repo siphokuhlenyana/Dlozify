@@ -12,6 +12,7 @@
  
  
   <router-view/>
+  <!-- <footer-view/> -->
  
 </div>
 </template>

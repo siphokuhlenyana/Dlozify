@@ -4,6 +4,7 @@ import HomePage from '../views/HomePage.vue'
 import FeedsView from '../views/FeedsView.vue'
 import AccountView from '@/views/AccountView.vue'
 import AdminView from '@/views/AdminView.vue'
+import ChatView from '@/views/ChatView.vue'
 
 const routes = [
   // {
@@ -51,6 +52,15 @@ const routes = [
     path: '/settings',
     name: 'Admin',
     component: AdminView
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    // component: () => import(/* webpackChunkName: "about" */ '../views/Homepage.vue')
+  },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: ChatView
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

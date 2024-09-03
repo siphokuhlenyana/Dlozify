@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import LoginView from '@/store/LoginView.vue';
+import LoginView from '@/views/LoginView.vue';
 import FooterView from './FooterView.vue';
 
 export default {

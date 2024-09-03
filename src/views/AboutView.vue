@@ -48,26 +48,26 @@
 Meaningful Connections: The app provides a platform for users to connect with others who share similar spiritual interests and goals,<br> fostering meaningful relationships and a sense of community.<br><br>
 Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and non-judgmental environment for users to explore their spiritual journeys.</p>
  <br>
- <h3>Reach out ..</h3> 
+ <h3 :style="{backgroundColor:'#A51196',marginLeft:'100px',color:'#fff'}">Reach out ..</h3> 
 <form
   action="https://formspree.io/f/xdknjkoj"
   method="POST"
 >
   <label>
     Your email:
-    <input type="email" name="email" required>
+    <input id="email" type="email" name="email" required>
   </label><br>
   <label>
-    Your message:
-    <textarea name="message" required></textarea>
-  </label>
+    Your message:<br>
+    <textarea name="message" required :style="{width:'400px',height:'60px'}"></textarea>
+  </label><br>
   <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+  <button type="submit" :style="{borderRadius:'10px',backgroundColor:'#3F0639',color:'#fff'}">Send</button>
 </form>
 
 </div>
     </div>
-    <img src="https://i.etsystatic.com/12379428/r/il/e9650a/5794649332/il_fullxfull.5794649332_brgd.jpg" alt="">
+    <img src="https://i.etsystatic.com/12379428/r/il/e9650a/5794649332/il_fullxfull.5794649332_brgd.jpg"  alt="">
   </div>
         <!-- </div>
       </div> -->
@@ -109,8 +109,11 @@ export default {
 </script>
 
 <style scoped>
+#email{
+  height: 10px;
+}
 .about{
-  margin-left: 10px;
+  margin-left: 20px;
 }
 input{
     width: 400px;

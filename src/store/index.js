@@ -6,7 +6,8 @@ export default createStore({
   state: {
     users:null,
     user:null,
-    posts:null
+    posts:null,
+    comments:null
   },
   getters: {
 
@@ -20,10 +21,18 @@ export default createStore({
     },
     setPosts(state,payload){
       state.posts=payload
+    },
+    setComments(state,payload){
+      state.comments=payload
     }
-   
   },
   actions: {
+    
+    async addComment(context,info){
+      let {data}=await axios.post(`${apiURL}comment/comment`,info)
+      console.log(data);
+      alert("Comment added !!")
+    },
     async getPosts({commit}){
       try{
         const {data}= await axios.get(`${apiURL}posts`)
@@ -62,7 +71,7 @@ commit('setPosts',data)
           const data =await axios.get(`${apiURL}users/${id}`)
             commit('setUsers', data.data);
         }catch(e){
-          console.log(`Failed to fetch products: ${e.message}`);
+          console.log(`Failed to fetch user: ${e.message}`);
         
         
         }
@@ -82,7 +91,7 @@ commit('setPosts',data)
     },
     async EditUser({commit},id){
       let {data} =await axios.patch(`${apiURL}users/${id}`)
-      commit('setUsers',data.data);
+      commit('setUsers',data);
       console.log(data);
       alert("User updated successfully !")
     },
@@ -90,7 +99,7 @@ commit('setPosts',data)
       let {data} =await axios.delete(`${apiURL}users/${id}`)
       commit('setUsers',data.data);
       console.log(data);
-      alert("User updated successfully !")
+      alert("User deleted successfully !")
     }
     },
   
