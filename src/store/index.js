@@ -66,10 +66,22 @@ commit('setPosts',data)
       
       }
       },
+      async getLimit({commit}){
+        try{
+          const {data} =await axios.get(`${apiURL}users/limit`)
+            commit('setUsers', data);
+            console.log(data);
+            
+        }catch(e){
+          console.log(`Failed to fetch users: ${e.message}`);
+        
+        
+        }
+        },
       async getUser({commit},id){
         try{
           const data =await axios.get(`${apiURL}users/${id}`)
-            commit('setUsers', data.data);
+            commit('setUsers', data);
         }catch(e){
           console.log(`Failed to fetch user: ${e.message}`);
         
@@ -79,6 +91,13 @@ commit('setPosts',data)
       
       async addUser(context,info){
       let {data}=await axios.post(`${apiURL}users/register`,info)
+      console.log(data);
+      // let addedUser =await data.json()
+      // commit('setUser')
+      alert("User registered !!")
+    },
+    async addPost(context,info){
+      let {data}=await axios.post(`${apiURL}posts/post`,info)
       console.log(data);
       // let addedUser =await data.json()
       // commit('setUser')

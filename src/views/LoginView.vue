@@ -5,6 +5,7 @@
         <label>Password  :<br><input type="password" v-model="password" required></label><br>
         <button @click="loginUser()">Submit</button>
     </div>
+    
 </template>
 <script>
 export default {

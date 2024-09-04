@@ -8,7 +8,7 @@
       </div>
       <div class="sidebar-menu">
         <nav>
-          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
         
           
         <li>
@@ -110,7 +110,7 @@ export default {
 
 <style scoped>
 #email{
-  height: 10px;
+  height: 40px;
 }
 .about{
   margin-left: 20px;
@@ -128,12 +128,14 @@ label{
 }
 .container {
   display: flex;
-  height: 115vh;
+  height: 135vh;
+  margin: 0;
+  --bs-gutter-x:0;
 }
 
 .sidebar {
   background-color:#3F0639;
-  width: 15%;
+  width: 20%;
   /* padding: 20px; */
 }
 
@@ -306,7 +308,7 @@ h3{
   /* padding: 20px; */
   text-align: center;
 /* margin-top: 250px; */
-
+width: 1645px;
 
 }
 

@@ -1,327 +1,453 @@
 <template>
-    <div class="container">
-      <div class="sidebar">
-        <div class="logo">
-          <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
-         
-        </div>
-        <div class="sidebar-menu">
-          <nav>
-            <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
-       
-            
-          <li>
-            <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
-           
-          
-          </li>
-          <li>
-            <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
-        
-           
-          </li>
-          <li>
-            <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"> </router-link>
-          
-          </li>
-          <li>
-            <router-link to="/account" ><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></router-link>
-          </li>
-          <li>
-          <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
-          </li>
-          <li>
-           <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
-          </li> 
-         </nav>
-        </div> 
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <img
+          src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png"
+          alt="Logo"
+        />
       </div>
-      <div class="main-content" >
-        <div class="post-section">
-           <div class="post-header">
-            <textarea placeholder="Search Friends"></textarea>
-            <button class="post-button">Search</button>
-          </div>
-          <div class="post-body">
-            <!-- <img src="https://i.imgur.com/Z5b710A.jpg" alt="Post Image" /> -->
-            
-            <div class="post-content">
-              <h2 :style="{color:'#fff',marginBottom:'30px'}">A moderated online forum and social network, allowing users to connect with peers, share experiences, and find support.<br>Made for your comfort!</h2>
-              <div class="post-actions">
-                
-                <div class="suggested-users">
-                  <h3 id="suggest" :style="{color:'#A51196',marginLeft:'150px',paddingBottom:'25px'}">Suggested to follow</h3>
-                  <div class="user-card">
-                    <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/asanda.jpg" alt="" />
-                    <div class="user-info">
-                      <p>Asanda Mehlo</p>
-                      <button  v-if="createView === false" @click="createViewIf()" class="follow-button" >+Follow</button>
-                      <button v-if="createView" @click="createViewIf()" class="follow-button">Followed</button>
-                      <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_115558(0).jpg" alt="User Image" />
-                    <div class="user-info">
-                      <p>Gwiba Mabandla</p>
-                      <button v-if="createView === false" @click="createViewIf()" class="follow-button">+Follow</button>
-                      <button v-if="createView" @click="createViewIf()" class="follow-button">Followed</button>
-                      <img src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_120223.jpg" alt="User Image" />
-                    <div class="user-info">
-                      <p>Marcus Adonis</p>
-                      <button v-if="createView === false" @click="createViewIf()" class="follow-button">+Follow</button>
-                      <button v-if="createView" @click="createViewIf()" class="follow-button">Followed</button>
-                    </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-                  
-              </div>
-            </div>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          <!-- </div>
-        </div> -->
-        <!-- {{$store.state.users }} -->
-        <div class="footer">
-         <footer-view/>
-        
+      <div class="sidebar-menu">
+        <nav>
+          <router-link to="/"
+            ><img
+              src="https://siphokuhlenyana.github.io/dlozify-pics/home.png"
+              alt=""
+              width="100px"
+              height="80px"
+          /></router-link>
+
+          <li>
+            <router-link to="/FeedsView"
+              ><img
+                src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png"
+                alt=""
+                width="100px"
+                height="80px"
+            /></router-link>
+          </li>
+          <li>
+            <router-link to="/notifications"
+              ><img
+                src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png"
+                alt=""
+                width="100px"
+                height="80px"
+            /></router-link>
+          </li>
+          <li>
+            <router-link to="/messages"
+              ><img
+                src="https://siphokuhlenyana.github.io/dlozify-pics/email.png"
+                alt=""
+                width="100px"
+                height="80px"
+              />
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/account"
+              ><img
+                src="https://siphokuhlenyana.github.io/dlozify-pics/account.png"
+                alt=""
+                width="100px"
+                height="80px"
+            /></router-link>
+          </li>
+          <li>
+            <router-link to="/about"
+              ><img
+                src="https://siphokuhlenyana.github.io/dlozify-pics/information.png"
+                alt=""
+                width="100px"
+                height="80px"
+            /></router-link>
+          </li>
+          <li>
+            <router-link to="/settings"
+              ><img
+                src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png"
+                alt=""
+                width="100px"
+                height="80px"
+            /></router-link>
+          </li>
+        </nav>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="post-section">
+        <div class="post-header">
+          <textarea placeholder="Search Friends" v-model="username"></textarea>
+          <button class="post-button btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
+       
+       <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Users</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" v-if="user">
+      {{ $store.state.users }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
         </div>
-      
+        <div class="post-body">
+          <!-- <img src="https://i.imgur.com/Z5b710A.jpg" alt="Post Image" /> -->
+
+          <div class="post-content">
+            <h2 :style="{ color: '#fff', marginBottom: '30px' }">
+              A moderated online forum and social network, allowing users to
+              connect with peers, share experiences, and find support.<br />Made
+              for your comfort!
+            </h2>
+            <div class="post-actions">
+              <div class="suggested-users" >
+                <h3
+                  id="suggest"
+                  :style="{
+                    color: '#A51196',
+                    marginLeft: '150px',
+                    paddingBottom: '25px', width: '800px'
+                  }"
+                >
+                  Suggested to follow
+                </h3>
+             <div id="cards">
+                <div class="user-card" v-for="user in $store.state.users" :key="user.userID">
+                  <img id="img" :style="{width:'200px'}"
+                    :src="user.userProfile"
+                    alt="" 
+                  />
+                  <div class="user-info text-center">
+                    <p class="text-center" :style="{fontSize:'25px'}">{{ user.username }} </p>
+                    <button
+                      v-if="createView === false"
+                      @click="createViewIf(userID)"
+                      class="follow-button"
+                    >
+                      +Follow
+                    </button>
+                    <button
+                      v-if="createView"
+                      @click="createViewIf(userID)"
+                      class="follow-button"
+                    >
+                      Followed
+                    </button>
+                    <!-- <img
+                      src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_115558(0).jpg"
+                      alt="User Image"
+                    /> -->
+                    <!-- <div class="user-info">
+                      <p>Gwiba Mabandla</p>
+                      <button
+                        v-if="createView === false"
+                        @click="createViewIf()"
+                        class="follow-button"
+                      >
+                        +Follow
+                      </button>
+                      <button
+                        v-if="createView"
+                        @click="createViewIf()"
+                        class="follow-button"
+                      >
+                        Followed
+                      </button>
+                      <img
+                        src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_120223.jpg"
+                        alt="User Image"
+                      />
+                      <div class="user-info">
+                        <p>Marcus Adonis</p>
+                        <button
+                          v-if="createView === false"
+                          @click="createViewIf()"
+                          class="follow-button"
+                        >
+                          +Follow
+                        </button>
+                        <button
+                          v-if="createView"
+                          @click="createViewIf()"
+                          class="follow-button"
+                        >
+                          Followed
+                        </button>
+                      </div> -->
+                    </div>
+                  </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-  </template>
-  
-  <script>
-import FooterView from './FooterView.vue';
-  export default {
+  <!-- </div>
+        </div> -->
+  <!-- {{$store.state.users }} -->
+  <div class="footer">
+    <footer-view />
+  </div>
+</template>
+
+<script>
+import FooterView from "./FooterView.vue";
+export default {
   components: { FooterView },
-    name: 'HomePage',
-    data() {
+  name: "HomePage",
+  data() {
     return {
+      username:'',
       createView: false,
-    }
+    };
   },
-    methods:{
-      getUsers(){
-        this.$store.dispatch('getUsers')
-      },
-      createViewIf() {
-      this.createView = !this.createView;
-      alert('Followed this user ! 👌')
-    }
+  methods: {
+    getLimit() {
+      this.$store.dispatch("getLimit");
     },
-    mounted(){
-      this.getUsers()
-    }
-  };
-  </script>
-  
-  <style scoped>
-  #suggest{
-    text-align: center;
-  }
-  .container {
-    display: flex;
-    height: 115vh;
-    padding: 0;
-    margin:0;
-    
-  }
-  
-  .sidebar {
-    background-color:#3F0639;
-    width: 15%;
-    /* padding: 20px; */
-  }
-  
+    createViewIf() {
+      this.createView = !this.createView;
+      alert("Followed this user ! 👌");
+    },
+    getUsers(){
+      this.$store.dispatch('getUsers')
+      
+    },
+// searchedUsers(sea){
+//   let users= $store.state.users;
+//   let searchedUsers= users.value.filter(users);
+// }
+  },
+  mounted() {
+    this.getLimit();
+  },
+};
+</script>
+
+<style scoped>
+
+#suggest {
+  text-align: center;
+}
+.container {
+  display: flex;
+  height: 115vh;
+  padding: 0;
+  margin: 0;
+  --bs-gutter-x: 0;
+}
+
+.sidebar {
+  background-color: #3f0639;
+  width: 20%;
+  /* padding: 20px; */
+}
 
 .logo img {
-    width: 250px;
-    height: 150px;
-  }
-  
-  .sidebar-menu {
-    list-style: none;
-    padding: 30px;
-  }
-  
-  .sidebar-menu li {
-    margin-bottom: 15px;
-  }
-  
-  .sidebar-menu li i {
-    color: #fff;
-    font-size: 1.5rem;
-    /* margin-right: 10px; */
-  }
-  
-  .sidebar-menu li span {
-    color: #fff;
-    font-weight: bold;
-  } 
-  p{
-    color: white;
-  }
-  .main-content {
-    background-color:rgb(95, 1, 95);
-    background: rgb(120,9,121);
-    background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
-    background-image: url('https://siphokuhlenyana.github.io/dlozify-pics/bck-img.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    
-    flex-grow: 1;
-    padding: 50px;
-    padding-top:50px;
-  }
-  
-  /* .post-section {
+  width: 250px;
+  height: 150px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 30px;
+}
+
+.sidebar-menu li {
+  margin-bottom: 15px;
+}
+
+.sidebar-menu li i {
+  color: #fff;
+  font-size: 1.5rem;
+  /* margin-right: 10px; */
+}
+
+.sidebar-menu li span {
+  color: #fff;
+  font-weight: bold;
+}
+p {
+  color: white;
+}
+.main-content {
+  background-color: rgb(95, 1, 95);
+  background: rgb(120, 9, 121);
+  background: linear-gradient(180deg, #3f0639 0%, #880e7c 72%, #a51196 100%);
+  background-image: url("https://siphokuhlenyana.github.io/dlozify-pics/bck-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  flex-grow: 1;
+  padding: 50px;
+  padding-top: 50px;
+}
+
+/* .post-section {
     /* background-color: #fff; */
-    /* padding: 20px;
+/* padding: 20px;
     border-radius: 10px;
     background-color: #A51196;
   } */
-   
-  .post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    margin-top: 0;
-    
-  }
-  
-  .post-header textarea {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #A51196;
-    border-radius: 5px;
-    resize: none;
-  }
-  
-  .post-button {
-    padding: 10px 20px;
-    background-color: #3F0639;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .post-body {
-    display: flex;
-    align-items: center;
-    width: 1200px;
-    height: 500px;
-    background-color: #a511966e;
-    
-  
-    
-    
-  }
-  
-  .post-body img {
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
-    
-   
-  }
-  
-  .post-content {
-    width: 70%;
-    padding: 20px;
-   
-  }
-  .post-content h2{
-    margin-left:200px;
-  }
-  
-  .post-content h2 {
-    margin-bottom: 10px;
-  }
-  
-  .post-actions {
-    margin-top: 20px;
-  }
-  
-  .follow-button {
-    padding: 10px 20px;
-    background-color: #3F0639;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .suggested-users {
-    margin-top: 20px;
-  }
-  
-  .suggested-users h3 {
-    margin-bottom: 10px;
-  }
-  
-  .user-card {
-    display: flex;
 
-    /* align-items: ; */
-    /* margin-bottom: 5px; */
-  }
-  h3{
-    border: 1px solid #A51196;
-    border-radius: 5px;
-    background-color: #fff;
-    color:#A51196 ;
-    padding-top:15px;
-  }
-  
-  .user-card img {
-    
-    height:150px;
-    border-radius: 70%;
-    margin-right: 20px;
-    margin-left: 80px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .user-info p {
-    margin-right: 10px;
-  }
-  
-  .footer {
-    /* margin:200px; */
-    background-color: #A51196;
-    color: #fff;
-    /* padding: 20px; */
-    text-align: center;
-/* margin-top: 250px; */
-height: 80px;
-padding-top: 50px;
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
 
+.post-header textarea {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #a51196;
+  border-radius: 5px;
+  resize: none;
+}
 
+.post-button {
+  padding: 10px 20px;
+  background-color: #3f0639;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.post-body {
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  height: 500px;
+  background-color: #a511966e;
+}
+
+.post-body img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.post-content {
+  width: 70%;
+  padding: 20px;
+}
+.post-content h2 {
+  margin-left: 200px;
+}
+
+.post-content h2 {
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  margin-top: 20px;
+}
+
+.follow-button {
+  padding: 10px 20px;
+  background-color: #3f0639;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-right: 10px; */
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  top:3px;
+  height: 40px;
+  
+  
+}
+
+.suggested-users {
+  margin-top: 20px;
  
-  
-  }
-  
-  .footer ul {
-    list-style: none;
-    padding: 0;
-    /* margin-bottom: 10px; */
-  }
-  
-  /* .footer ul li {
+}
+
+.suggested-users h3 {
+  margin-bottom: 10px;
+}
+#cards{
+   display: grid;
+  grid-template-columns: repeat(3,1fr); 
+  margin-left: 200px;
+  grid-gap: 40px;
+}
+.user-card {
+display: flex;
+flex-direction: column;
+position: relative;
+
+}
+  /* align-items: ; */
+  /* margin-bottom: 5px; */
+
+h3 {
+  border: 1px solid #a51196;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #a51196;
+  padding-top: 15px;
+}
+
+.user-card img {
+  height: 150px;
+  border-radius: 70%;
+  /* margin-right: 20px;
+  margin-left: 80px; */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info p {
+  margin-left: 70px;
+  text-align: center;
+}
+
+.footer {
+  /* margin:200px; */
+  background-color: #a51196;
+  color: #fff;
+  /* padding: 20px; */
+  text-align: center;
+  /* margin-top: 250px; */
+  height: 80px;
+  padding-top: 50px;
+  width: 1551px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  /* margin-bottom: 10px; */
+}
+
+/* .footer ul li {
     display: inline-block;
     margin: 0 10px;
   } */
-  
-  /* .footer ul li i {
+
+/* .footer ul li i {
     font-size: 2rem;
   } */
-  </style>
+</style>

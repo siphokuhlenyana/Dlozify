@@ -7,7 +7,7 @@
       </div>
       <div class="sidebar-menu">
         <nav>
-          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
          <!-- <a href="#homepage"></a> -->
           
         <li>
@@ -25,7 +25,7 @@
         
         </li>
         <li>
-         <a href="#login"><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></a>
+         <router-link to="/account"><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></router-link>
         </li>
         <li>
         <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
@@ -40,6 +40,7 @@
       <div class="post-section">
         <div class="post-header">
           <textarea placeholder="What's on your mind?"></textarea>
+        
           <button class="post-button">Post</button>
         </div> 
         <h1 :style="{color:'#3F0639',marginLeft:'600px'}"> Feeds</h1>
@@ -173,14 +174,14 @@ createViewIf() {
 <style scoped>
 #view{
   background-color: #3F0639;
-  width: 18rem;
+  width: 16rem;
   color: #fff;
 }
 #comment{
   background-color: #A51196;
   margin-right: 30px;
   border-radius: 10px;
-  width: 280px;
+  width: 250px;
 }
 .like{
   background-color: #3F0639;
@@ -209,12 +210,16 @@ margin: 10px;
 }
 .container {
   display: flex;
-  height: 190vh;
+  height: 250vh;
+  margin: 0;
+  padding: 0;
+  --bs-gutter-x:0;
+  
 }
 
 .sidebar {
   background-color:#3F0639;
-  width: 15%;
+  width: 18%;
   /* padding: 20px; */
 }
 
@@ -258,7 +263,8 @@ p{
   background-position: center;
   
   flex-grow: 1;
-  padding: 20px;
+  padding: 40px;
+
 }
 
 /* .post-section {

@@ -1,20 +1,19 @@
 <template> 
-<div class="container">
-<div class="row">
+
+<!-- <div class="row"> -->
 <!-- <div class="col-md-3">
   <nav-bar-view/>
  </div> -->
  <!-- <div class="col-md-9">
    <home-page/>
  </div> -->
-
-</div>
- 
  
   <router-view/>
+ 
+
   <!-- <footer-view/> -->
  
-</div>
+<!-- </div> -->
 </template>
 <script>
 // import HomePage from './views/HomePage.vue';
@@ -34,6 +33,7 @@ export default{
   text-align: center;
   color: #2c3e50;
   margin: 0;
+  
 
 }
 body{

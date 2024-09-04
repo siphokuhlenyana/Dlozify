@@ -121,11 +121,12 @@ label{
 .container {
   display: flex;
   height: 115vh;
+  --bs-gutter-x:0;
 }
 
 .sidebar {
   background-color:#3F0639;
-  width: 15%;
+  width: 18%;
   /* padding: 20px; */
 }
 
@@ -138,7 +139,9 @@ label{
 
 .sidebar-menu {
   list-style: none;
-  padding: 0;
+ 
+  padding: 30px;
+
 }
 
 .sidebar-menu li {
@@ -168,7 +171,8 @@ p{
   background-position: center;
   
   flex-grow: 1;
-  padding: 50px;
+  padding-left: 50px;
+  
   
  
   

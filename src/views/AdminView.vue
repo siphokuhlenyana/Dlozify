@@ -7,7 +7,7 @@
           </div>
           <div class="sidebar-menu">
             <nav>
-              <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+              <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
             
               
             <li>
@@ -196,6 +196,7 @@ import FooterView from './FooterView.vue';
     .container {
       display: flex;
       height: 115vh;
+      margin: 0;
     }
     
     .sidebar {
