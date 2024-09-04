@@ -1,9 +1,17 @@
-import { getUsersDb,selectUsersDb,insertUserDb,deleteUserDb,updateUserDb,selectUserDb} from '../model/userDB.js'
+import { getUsersDb,selectUsersDb,insertUserDb,deleteUserDb,updateUserDb,selectUserDb,getLimitDb} from '../model/userDB.js'
 import {hash} from 'bcrypt'
 
 const getUsers =async(req,res)=>{
     try{
     res.json(await getUsersDb())    
+    }catch(e){
+        res.status(500).send('Server error!')
+    }
+    
+}
+const getLimit =async(req,res)=>{
+    try{
+    res.json(await getLimitDb())    
     }catch(e){
         res.status(500).send('Server error!')
     }
@@ -99,4 +107,4 @@ const deleteUser = async(req,res)=>{
     
 }
 
-export{getUsers,selectUser,insertUser,deleteUser,updateUser,loginUser}
+export{getUsers,selectUser,insertUser,deleteUser,updateUser,loginUser,getLimit}

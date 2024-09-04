@@ -4,6 +4,10 @@ const getUsersDb = async()=>{
     let [data] = await pool.query("SELECT * FROM users ")
     return data
 }
+const getLimitDb = async()=>{
+    let [data] = await pool.query("SELECT * FROM users LIMIT 3")
+    return data
+}
 const selectUsersDb =  async(username)=>{
     let [[data]] = await pool.query('SELECT *FROM users WHERE username= ?',[username])
     return data? data : ''; 
@@ -35,4 +39,4 @@ const insertUserDb =async(username,password,userProfile,userRole,bio,userAge,gen
         }; 
     
 
-export {getUsersDb,selectUsersDb,insertUserDb,deleteUserDb,updateUserDb,selectUserDb}
+export {getUsersDb,selectUsersDb,insertUserDb,deleteUserDb,updateUserDb,selectUserDb,getLimitDb}
