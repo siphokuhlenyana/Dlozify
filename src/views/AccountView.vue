@@ -106,7 +106,84 @@ export default {
 </script>
 
 <style scoped>
-
+.hover-text {
+  display: none;
+  position: absolute;
+  top: 200px; 
+  left: 145px;
+  color: #fff;
+  font-size:large;
+  font-weight: 900;
+}
+img:hover + .hover-text {
+  display: block;
+}
+.hover-textP {
+  display: none;
+  position: absolute;
+  top: 300px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textP {
+  display: block;
+}
+.hover-textN {
+  display: none;
+  position: absolute;
+  top: 400px; 
+  left: 135px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textN {
+  display: block;
+}
+.hover-textI {
+  display: none;
+  position: absolute;
+  top: 500px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textI {
+  display: block;
+}
+.hover-textC {
+  display: none;
+  position: absolute;
+  top: 600px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textC {
+  display: block;
+}
+.hover-textA {
+  display: none;
+  position: absolute;
+  top: 700px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textA {
+  display: block;
+}
+.hover-textD {
+  display: none;
+  position: absolute;
+  top: 800px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textD {
+  display: block;
+}
 input{
     width: 400px;
     height: 50px;

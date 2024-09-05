@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-// import {toast} from 'vue3-toastify'
+import {toast} from 'vue3-toastify'
 import "vue3-toastify/dist/index.css";
 
 
@@ -34,10 +34,15 @@ export default createStore({
   },
   actions: {
     
-    async addComment(context,info){
+    async addComment({commit},info){
+      try{
       let {data}=await axios.post(`${apiURL}comment/comment`,info)
       console.log(data);
+      commit('setComments',data)
       alert("Comment added !!")
+      }catch(e){
+        console.log(`Failed to add comment: ${e.message}`)
+      }
     },
     async getPosts({commit}){
       try{
@@ -51,7 +56,7 @@ commit('setPosts',data)
       async getPost({commit},id){
         try{
           const {data} =await axios.get(`${apiURL}posts/${id}`)
-            commit('setPosts', data.data);
+            commit('setPosts', data);
             console.log(data);
             
         }catch(e){
@@ -96,23 +101,56 @@ commit('setPosts',data)
       },
       
       async addUser({commit},info){
+        try{
+
+        
       let {data}=await axios.post(`${apiURL}users/register`,info)
       console.log(data);
       // let addedUser =await data.json()
       commit('setUser')
-      alert("User registered !!")
+      toast("Success !! User added .", {
+        "theme": "dark",
+        "type": "success",
+        "position": "top-center",
+        "dangerouslyHTMLString": true
+      })
+      }catch(e){
+        toast(`Failed to add user: ${e.message}`, {
+          "theme": "dark",
+          "type": "error",
+          "position": "top-center",
+          "dangerouslyHTMLString": true
+        })
+          // console.log(`Failed to add user: ${e.message}`);
+      }
     },
-    async addPost(context,info){
+    async addPost({commit},info){
       let {data}=await axios.post(`${apiURL}posts/post`,info)
       console.log(data);
       // let addedUser =await data.json()
-      // commit('setUser')
+      commit('setPost')
       alert("User registered !!")
     },
-    async loginUser(context,info){
-      let {data} =await axios.post(`${apiURL}users/login`,info)
+    async loginUser({commit},info){
+      try{
+        let {data} =await axios.post(`${apiURL}users/login`,info)
       console.log(data);
-      alert("User logged successfully !")
+      commit('setUser',data)
+      toast(` ${data.message} , Token :${data.token} `, {
+        "theme": "dark",
+        "type": "success",
+        "position": "top-center",
+        "dangerouslyHTMLString": true
+      })
+      }catch(e){
+        toast(` ${e.data}`, {
+          "theme": "dark",
+          "type": "error",
+          "position": "top-center",
+          "dangerouslyHTMLString": true
+        })
+      }
+      
     },
     async EditUser({commit},id){
       let {data} =await axios.patch(`${apiURL}users/${id}`)
@@ -122,9 +160,9 @@ commit('setPosts',data)
     },
     async DeleteUser({commit},id){
       let {data} =await axios.delete(`${apiURL}users/${id}`)
-      commit('setUsers',data.data);
+      commit('setUsers',data);
       console.log(data);
-      alert("User deleted successfully !")
+      // alert("User deleted successfully !")
     }
     },
   

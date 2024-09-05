@@ -54,12 +54,11 @@
 <div></div>
 </div>
 
-        <!-- </div>
-      </div> -->
-      <!-- {{$store.state.users }} -->
+      </div>
+      </div> 
+   
       <div class="footer">
-       
-        <p>Dlozify©2024</p>
+       <footer-view/>
       </div>
     
 

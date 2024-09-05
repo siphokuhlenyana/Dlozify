@@ -76,21 +76,21 @@
       </div>
     </div>
     <div class="main-content">
-      <div class="post-section">
+      <div class="post-section" >
         <div class="post-header">
           <textarea placeholder="Search Friends" v-model="username"></textarea>
           <button class="post-button btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
        
        <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-for="user in $store.state.users" :key="user.username">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Users</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" v-if="user">
-      {{ $store.state.users }}
+      <div class="modal-body" v-if="foundUser">
+      {{user.userProfile}} {{ user.username}} {{ user.userRole }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -213,7 +213,8 @@ export default {
   data() {
     return {
       username:'',
-      createView: false
+      createView: false,
+      foundUser :null
       
     };
   },
@@ -225,10 +226,17 @@ export default {
       this.createView = !this.createView;
       alert("Followed this user ! 👌");
     },
-    getUsers(){
-      this.$store.dispatch('getUsers')
+    getUser(){
+      this.$store.dispatch('getUser',this.username)
       
+    },
+    searchUser() {
+      this.foundUser = this.user.find(user => {
+        return user.username.toLowerCase().includes(this.username.toLowerCase())
+              
+      })
     }
+  }
     // handleHover() {
     //   this.isHovered = !this.isHovered
     // }
@@ -236,9 +244,10 @@ export default {
 //   let users= $store.state.users;
 //   let searchedUsers= users.value.filter(users);
 // }
-  },
+  ,
   mounted() {
     this.getLimit();
+    this.getUser();
   },
 };
 </script>

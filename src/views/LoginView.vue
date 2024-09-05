@@ -20,8 +20,8 @@ export default {
     methods: {
         loginUser(){
             this.$store.dispatch('loginUser',{username:this.username, password:this.password})
-            alert('Yayyyy user Logged in !')
-            location.reload()
+            // alert('Yayyyy user Logged in !')
+            // location.reload()
         }
       }
     
@@ -29,7 +29,8 @@ export default {
 
 </script>
 <style  scoped>
-    .login-wrapper{
 
-    }
+    /* .login-wrapper{
+
+    } */
 </style>
