@@ -1,11 +1,13 @@
 <template lang="">
     <div>
-        <h2>Already have an account? Login😁</h2>
+        <h2 class="login-header ">Already have an account? Login😁</h2>
+        <div class="login-wrapper">
+            
         <label>Username :<br><input type="text" v-model="username" required></label><br>
         <label>Password  :<br><input type="password" v-model="password" required></label><br>
         <button @click="loginUser()">Submit</button>
     </div>
-    
+    </div>
 </template>
 <script>
 export default {
@@ -26,6 +28,8 @@ export default {
     }
 
 </script>
-<style lang="">
-    
+<style  scoped>
+    .login-wrapper{
+
+    }
 </style>

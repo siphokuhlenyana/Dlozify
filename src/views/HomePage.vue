@@ -15,7 +15,7 @@
               alt=""
               width="100px"
               height="80px"
-          /></router-link>
+          /> <span  class="hover-text">Home</span></router-link><br><br>
 
           <li>
             <router-link to="/FeedsView"
@@ -24,7 +24,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span  class="hover-textP">Posts</span></router-link>
           </li>
           <li>
             <router-link to="/notifications"
@@ -33,7 +33,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span  class="hover-textN">Notifications</span></router-link>
           </li>
           <li>
             <router-link to="/messages"
@@ -43,7 +43,7 @@
                 width="100px"
                 height="80px"
               />
-            </router-link>
+              <span  class="hover-textI">Inbox</span></router-link>
           </li>
           <li>
             <router-link to="/account"
@@ -52,7 +52,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span  class="hover-textC">Account</span></router-link>
           </li>
           <li>
             <router-link to="/about"
@@ -61,7 +61,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span  class="hover-textA">About</span></router-link>
           </li>
           <li>
             <router-link to="/settings"
@@ -70,7 +70,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span  class="hover-textD">Admin</span></router-link>
           </li>
         </nav>
       </div>
@@ -119,9 +119,9 @@
                     paddingBottom: '25px', width: '800px'
                   }"
                 >
-                  Suggested to follow
+                  People you may know 
                 </h3>
-             <div id="cards">
+             <div id="cards" >
                 <div class="user-card" v-for="user in $store.state.users" :key="user.userID">
                   <img id="img" :style="{width:'200px'}"
                     :src="user.userProfile"
@@ -187,6 +187,7 @@
                     </div>
                   </div>
               </div>
+              <!-- <div v-else><spinner-view/></div> -->
                 </div>
               </div>
             </div>
@@ -205,13 +206,15 @@
 
 <script>
 import FooterView from "./FooterView.vue";
+// import SpinnerView from './SpinnerView.vue';
 export default {
   components: { FooterView },
   name: "HomePage",
   data() {
     return {
       username:'',
-      createView: false,
+      createView: false
+      
     };
   },
   methods: {
@@ -225,7 +228,10 @@ export default {
     getUsers(){
       this.$store.dispatch('getUsers')
       
-    },
+    }
+    // handleHover() {
+    //   this.isHovered = !this.isHovered
+    // }
 // searchedUsers(sea){
 //   let users= $store.state.users;
 //   let searchedUsers= users.value.filter(users);
@@ -238,6 +244,87 @@ export default {
 </script>
 
 <style scoped>
+#img{
+  position: relative;
+}
+.hover-text {
+  display: none;
+  position: absolute;
+  top: 200px; 
+  left: 145px;
+  color: #fff;
+  font-size:large;
+  font-weight: 900;
+}
+img:hover + .hover-text {
+  display: block;
+}
+.hover-textP {
+  display: none;
+  position: absolute;
+  top: 300px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textP {
+  display: block;
+}
+.hover-textN {
+  display: none;
+  position: absolute;
+  top: 400px; 
+  left: 135px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textN {
+  display: block;
+}
+.hover-textI {
+  display: none;
+  position: absolute;
+  top: 500px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textI {
+  display: block;
+}
+.hover-textC {
+  display: none;
+  position: absolute;
+  top: 600px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textC {
+  display: block;
+}
+.hover-textA {
+  display: none;
+  position: absolute;
+  top: 700px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textA {
+  display: block;
+}
+.hover-textD {
+  display: none;
+  position: absolute;
+  top: 800px; 
+  left: 145px;
+  color: #a51196;
+  font-size:large;
+}
+img:hover + .hover-textD {
+  display: block;
+}
 
 #suggest {
   text-align: center;
@@ -378,7 +465,11 @@ p {
 
 .suggested-users {
   margin-top: 20px;
+  transition: all 0.5s ease-in-out;
  
+}
+.suggested-users:hover {
+  transform: scale(1.1); /* adjust the effect as needed */
 }
 
 .suggested-users h3 {

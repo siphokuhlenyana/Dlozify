@@ -1,6 +1,12 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 // import {toast} from 'vue3-toastify'
+import "vue3-toastify/dist/index.css";
+
+
+
+
+
 const apiURL = 'https://dlozify.onrender.com/'
 export default createStore({
   state: {
@@ -89,11 +95,11 @@ commit('setPosts',data)
         }
       },
       
-      async addUser(context,info){
+      async addUser({commit},info){
       let {data}=await axios.post(`${apiURL}users/register`,info)
       console.log(data);
       // let addedUser =await data.json()
-      // commit('setUser')
+      commit('setUser')
       alert("User registered !!")
     },
     async addPost(context,info){
