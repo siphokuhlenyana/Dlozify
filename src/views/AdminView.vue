@@ -38,12 +38,15 @@
         </div>
         <div class="main-content ">
     <!-- {{ $store.state.users }} -->
-             
-    <h2 class="display-1">User Management</h2>
-     
-      <table class="table-primary table-bordered border-primary" id="table" :style="{width:'800px',borderColor:'#A51196',borderWidth:'10px',borderStyle:'solid'}">
+    
+    <h2 class="display-2" :style="{color:'#fff'}">Admin</h2>
+     <button :style="{marginLeft:'480px'}" @click="user = !user">User /Post Settings</button>
+      <table v-if="user" class="table-primary table-bordered border-primary" id="table" :style="{width:'800px',borderColor:'#A51196',borderWidth:'10px',borderStyle:'solid',backgroundColor:'A51196'}">
         <thead :style="{fontWeight:'1000',marginBottom:'1000px'}">
           <tr >
+            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+</svg></th>
             <th >Profile</th>
             <th>Name</th>
             <th>User Role</th>
@@ -55,6 +58,7 @@
         </thead>
         <tbody>
           <tr v-for="user in users" :key="user.userID">
+            <td> <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></td>
             <td><img :src="user.userProfile" alt="" width="80px"></td>
             <td :style="{textAlign:'center'}">{{ user.username }}</td>
             <td :style="{textAlign:'center'}">{{ user.userRole }}</td>
@@ -65,7 +69,7 @@
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" :style="{backgroundColor:'#3F0639',color:'#fff'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
   <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
 </svg></button>
-              <button @click="DeleteUser(userID)" class="btn " :style="{backgroundColor:'#3F0639',color:'#fff',marginLeft:'10px'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+              <button @click="DeleteUser(user.userID)" class="btn " :style="{backgroundColor:'#3F0639',color:'#fff',marginLeft:'10px'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
   <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
   <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708"/>
 </svg></button>
@@ -73,14 +77,50 @@
           </tr>
         </tbody>
       </table>
-  
+      <div v-else>
+        <h2 class="display-5" :style="{color:'#fff'}">Post Management</h2>
+        <table  class="table-primary table-bordered border-primary" id="table" :style="{width:'1200px',height:'100px',borderColor:'#A51196',borderWidth:'10px',borderStyle:'solid',backgroundColor:'A51196'}">
+        <thead :style="{fontWeight:'1000',marginBottom:'1000px'}">
+          <tr >
+            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+</svg></th>
+               
+               <th>Url Link</th>
+            <th >Description</th>
+            
+            
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="post in $store.state.posts" :key="post.idpost">
+            <td> <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></td>
+            <td :style="{textAlign:'center'}"><img :src="post.url" alt="" width="150px" height="150px"></td>
+            <td :style="{textAlign:'center'}">{{ post.description }}</td>
+            
+            
+            <td>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" :style="{backgroundColor:'#3F0639',color:'#fff'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
+</svg></button>
+              <button @click="DeletePost(post.idpost)" class="btn " :style="{backgroundColor:'#3F0639',color:'#fff',marginLeft:'10px'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708"/>
+</svg></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
       <!-- Edit User Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Update User</h5>
-              <button type="button" class="btn-close" @click="closeModal"></button>
+             
             </div>
             <div class="modal-body">
               <form @submit.prevent="updateUser">
@@ -109,14 +149,17 @@
                   <input type="text" v-model="bio" class="form-control" >
                 </div>
                 <button @click="EditUser()" type="submit" class="btn btn-primary" >Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+    
     </div>
-    <div></div>
+    
     </div>
+    
     
             <!-- </div>
           </div> -->
@@ -147,6 +190,7 @@ import FooterView from './FooterView.vue';
                 bio:'',
                 userAge:'',
                 gender:'',
+                user:true
               
                 
                 
@@ -166,16 +210,26 @@ import FooterView from './FooterView.vue';
         //   },
           DeleteUser(userID){
             this.$store.dispatch('DeleteUser',userID)
+            location.reload;
           },
+          DeletePost(idpost){
+            this.$store.dispatch('DeletePost',idpost)
+            location.reload;
+          },
+          
           getUsers(){
       this.$store.dispatch('getUsers')
     },
+    getPosts(){
+      this.$store.dispatch('getPosts')
+    }
         
         }
         ,
   mounted(){
     this.getUsers()
-    this.DeleteUser()
+    // this.DeleteUser()
+    this.getPosts()
     
   }
     };
@@ -263,8 +317,11 @@ img:hover + .hover-textD {
     #table{
         color: #fff;
         border-collapse: collapse;
-  background-color: #d614c35a ; 
+
   backdrop-filter: blur(50px); 
+    }
+    .border-primary{
+      border-color: #A51196;
     }
     
     #mainC{

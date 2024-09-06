@@ -8,31 +8,34 @@
       </div>
       <div class="sidebar-menu">
         <nav>
-          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
-        
+          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"><span class="hover-text">Home</span></router-link><br><br>
+   
           
         <li>
-          <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
+          <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"> <span class="hover-textP">Post</span></router-link>
          
         
         </li>
         <li>
-          <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
-         
+          <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"><span class="hover-textN">Notifications</span></router-link>
+          
          
         </li>
         <li>
-          <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"> </router-link>
+          <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"> <span class="hover-textI">Inbox</span> </router-link>
+         
+        </li>
+        <li>
+        <router-link to="/account" ><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"> <span class="hover-textC">Account</span></router-link>
+       
+      </li>
+        <li>
+        <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"><span class="hover-textA">About</span></router-link>
         
-        </li>
+      </li>
         <li>
-        <router-link to="/account" ><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></router-link>
-        </li>
-        <li>
-        <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
-        </li>
-        <li>
-         <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
+         <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"> <span class="hover-textD">Admin</span></router-link>
+        
         </li> 
        </nav>
       </div> 
@@ -136,7 +139,7 @@ img:hover + .hover-textP {
   display: none;
   position: absolute;
   top: 400px; 
-  left: 135px;
+  left: 130px;
   color: #a51196;
   font-size:large;
 }

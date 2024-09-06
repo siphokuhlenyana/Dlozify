@@ -129,20 +129,9 @@
                   />
                   <div class="user-info text-center">
                     <p class="text-center" :style="{fontSize:'25px'}">{{ user.username }} </p>
-                    <button
-                      v-if="createView === false"
-                      @click="createViewIf(userID)"
-                      class="follow-button"
-                    >
-                      +Follow
-                    </button>
-                    <button
-                      v-if="createView"
-                      @click="createViewIf(userID)"
-                      class="follow-button"
-                    >
-                      Followed
-                    </button>
+
+                    <ButtonComp  @create-view-if="createViewIf"/>
+                    
                     <!-- <img
                       src="https://siphokuhlenyana.github.io/ImagesPortfolio/20240422_115558(0).jpg"
                       alt="User Image"
@@ -205,10 +194,13 @@
 </template>
 
 <script>
+import {toast} from 'vue3-toastify'
+import "vue3-toastify/dist/index.css";
+import ButtonComp from "@/components/ButtonComp.vue";
 import FooterView from "./FooterView.vue";
 // import SpinnerView from './SpinnerView.vue';
 export default {
-  components: { FooterView },
+  components: { FooterView,ButtonComp },
   name: "HomePage",
   data() {
     return {
@@ -223,8 +215,13 @@ export default {
       this.$store.dispatch("getLimit");
     },
     createViewIf() {
-      this.createView = !this.createView;
-      alert("Followed this user ! 👌");
+      toast("Followed this user ! 👌", {
+        "theme": "dark",
+        "type": "success",
+        "position": "top-center",
+        "dangerouslyHTMLString": true
+      })
+      
     },
     getUser(){
       this.$store.dispatch('getUser',this.username)
@@ -247,7 +244,7 @@ export default {
   ,
   mounted() {
     this.getLimit();
-    this.getUser();
+    // this.getUser();
   },
 };
 </script>

@@ -14,7 +14,7 @@
               src="https://siphokuhlenyana.github.io/dlozify-pics/home.png"
               alt=""
               width="100px"
-              height="80px" /></router-link
+              height="80px" /><span class="hover-text">Home</span></router-link
           ><br /><br />
           <!-- <a href="#homepage"></a> -->
 
@@ -25,7 +25,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span class="hover-textP">Posts</span></router-link>
           </li>
           <li>
             <router-link to="/notifications"
@@ -34,7 +34,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span class="hover-textN">Notifications</span></router-link>
             <!-- <a href="#notifications"></a> -->
           </li>
           <li>
@@ -45,7 +45,7 @@
                 width="100px"
                 height="80px"
               />
-            </router-link>
+              <span class="hover-textI">Inbox</span></router-link>
           </li>
           <li>
             <router-link to="/account"
@@ -54,7 +54,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span class="hover-textC">Account</span></router-link>
           </li>
           <li>
             <router-link to="/about"
@@ -63,7 +63,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span class="hover-textA">About</span></router-link>
           </li>
           <li>
             <router-link to="/settings"
@@ -72,7 +72,7 @@
                 alt=""
                 width="100px"
                 height="80px"
-            /></router-link>
+            /><span class="hover-textD">Admin</span></router-link>
           </li>
         </nav>
       </div>
@@ -80,9 +80,27 @@
     <div class="main-content">
       <div class="post-section">
         <div class="post-header">
-          <textarea placeholder="What's on your mind?"></textarea>
-
-          <button class="post-button">Post</button>
+          <textarea placeholder="What's on your mind?" v-model="description"></textarea>
+          <button  type="button" class=" post-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+</svg></button>
+<!-- Modal to add url link -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Url</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="" id="urlLink" v-model="url" placeholder="Url link">
+      </div>
+      
+    </div>
+  </div>
+</div>
+          <button class="post-button" @click="addPost()">Post</button>
         </div>
         <h1 :style="{ color: '#3F0639', marginLeft: '600px' }">Feeds</h1>
         <!-- <div class="post-body" v-for="post in $store.state.posts.data" :key="post.idpost" >
@@ -100,6 +118,7 @@
             v-for="post in $store.state.posts"
             :key="post.idpost"
           >
+          <!-- <comp :postInfo="post"/> -->
             <img
               v-if="post"
               :src="post.url"
@@ -132,8 +151,8 @@
                   />
                 </svg>
               </button>
-
-              <button id="send" @click="addComment(idpost)">
+              <!-- {{ post.idpost }} -->
+              <button id="send" @click="addComment(post.idpost)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -230,6 +249,8 @@ export default {
     return {
       createView: false,
       content: "",
+      description:"",
+      url:""
     };
   },
   methods: {
@@ -246,11 +267,16 @@ export default {
       this.createView = !this.createView;
     },
     // },
-    // addComment(idpost){
-    //   this.$store.dispatch('addComment',idpost,{content:this.content})
-    //   // location.reload;
+    addComment(idpost){
+      // console.log(idpost,this.content);
+      
+      this.$store.dispatch('addComment',{idpost:idpost,content:this.content})
+      location.reload;
 
-    // }
+    },
+    addPost(){
+      this.$store.dispatch('addPost',this.$data)
+    }
   },
   mounted() {
     this.getPosts();
@@ -288,7 +314,7 @@ img:hover + .hover-textP {
   display: none;
   position: absolute;
   top: 400px; 
-  left: 135px;
+  left: 130px;
   color: #a51196;
   font-size:large;
 }
@@ -354,11 +380,13 @@ img:hover + .hover-textD {
   background-color: #3f0639;
   border-radius: 10px;
   margin-left: 20px;
+  color: #fff;
 }
 #send {
   background-color: #3f0639;
   border-radius: 10px;
   margin-left: 150px;
+  color: #fff;
 }
 .card {
   margin: 10px;

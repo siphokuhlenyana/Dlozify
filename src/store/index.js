@@ -1,13 +1,16 @@
+/*eslint-disable*/
 import { createStore } from 'vuex'
 import axios from 'axios'
 import {toast} from 'vue3-toastify'
 import "vue3-toastify/dist/index.css";
+import router from '@/router';
 
-
-
+axios.defaults.withCredentials =true
+// import {useCookies} from 'vue-cookies'
 
 
 const apiURL = 'https://dlozify.onrender.com/'
+// const apiURL = 'http://localhost:5009/'
 export default createStore({
   state: {
     users:null,
@@ -128,41 +131,53 @@ commit('setPosts',data)
       let {data}=await axios.post(`${apiURL}posts/post`,info)
       console.log(data);
       // let addedUser =await data.json()
-      commit('setPost')
-      alert("User registered !!")
+      commit('setPost',data)
+      alert("Post added  !!")
     },
     async loginUser({commit},info){
       try{
         let {data} =await axios.post(`${apiURL}users/login`,info)
       console.log(data);
       commit('setUser',data)
+      // $cookies.set('token',data.token)
       toast(` ${data.message} , Token :${data.token} `, {
         "theme": "dark",
         "type": "success",
         "position": "top-center",
         "dangerouslyHTMLString": true
       })
+      // router.push('/messages')
       }catch(e){
-        toast(` ${e.data}`, {
+        toast(` ${data}`, {
           "theme": "dark",
           "type": "error",
           "position": "top-center",
           "dangerouslyHTMLString": true
         })
       }
+      // router.push('/')
       
     },
-    async EditUser({commit},id){
-      let {data} =await axios.patch(`${apiURL}users/${id}`)
+    async EditUser({commit},info){
+      let {data} =await axios.patch(`${apiURL}users/${id}`,info)
       commit('setUsers',data);
       console.log(data);
       alert("User updated successfully !")
     },
-    async DeleteUser({commit},id){
+    async DeleteUser(context,id){
       let {data} =await axios.delete(`${apiURL}users/${id}`)
-      commit('setUsers',data);
+      // commit('setUsers',data);
       console.log(data);
       // alert("User deleted successfully !")
+      // router.push('/settings')
+      
+    },
+    async DeletePost(context,id){
+      let {data} =await axios.delete(`${apiURL}posts/${id}`)
+      
+      console.log(data);
+      
+      
     }
     },
   
