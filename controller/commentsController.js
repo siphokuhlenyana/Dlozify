@@ -27,10 +27,10 @@ const insertComment =async(req,res)=>{
     
 
     
-    let {content}= req.body
+    let {idpost,content}= req.body
     
         
-                await insertCommentDb(content)
+                await insertCommentDb(idpost,content)
                 res.send('Comment was inserted successfully !')
            
         

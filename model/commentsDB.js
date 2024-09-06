@@ -11,11 +11,11 @@ const selectCommentDb =  async(commentsID)=>{
     
     
 }
-const insertCommentDb =async(content)=>{
+const insertCommentDb =async(idpost,content)=>{
     let [data] =await pool.query(`
-        INSERT INTO comments(content)
-        VALUES (?)
-        `,[content])
+        INSERT INTO comments(idpost,content)
+        VALUES (?,?)
+        `,[idpost,content])
      return data
     }
     const deleteCommentDb=async(commentsID)=>{
