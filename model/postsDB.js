@@ -15,7 +15,7 @@ const insertPostDb =async(description,url)=>{
     let [data] =await pool.query(`
         INSERT INTO posts(description,url)
         VALUES (?,?)
-        `,[description,userProfile])
+        `,[description,url])
      return data
     }
     const deletePostDb=async(idpost)=>{
