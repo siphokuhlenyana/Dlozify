@@ -106,6 +106,16 @@
         <!-- <div class="post-body" v-for="post in $store.state.posts.data" :key="post.idpost" >
           {{ post.description}}
           <img src="post.url" alt=""> -->
+          <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" :style="{backgroundColor: '#3F0639',color:'#fff'}">
+    Sort By
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">A-Z</a></li>
+    <li><a class="dropdown-item" href="#">Z-A</a></li>
+    
+  </ul>
+</div>
         <div class="card-container">
           <div
             class="card"
@@ -166,6 +176,7 @@
                   />
                 </svg></button
               ><br />
+              
               <button
                 id="view"
                 v-if="createView === false"
@@ -287,6 +298,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 .hover-text {
   display: none;
   position: absolute;
@@ -295,6 +307,10 @@ export default {
   color: #fff;
   font-size:large;
   font-weight: 900;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-text {
   display: block;
@@ -306,6 +322,10 @@ img:hover + .hover-text {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textP {
   display: block;
@@ -317,6 +337,10 @@ img:hover + .hover-textP {
   left: 130px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textN {
   display: block;
@@ -328,6 +352,10 @@ img:hover + .hover-textN {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textI {
   display: block;
@@ -339,6 +367,10 @@ img:hover + .hover-textI {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textC {
   display: block;
@@ -350,6 +382,10 @@ img:hover + .hover-textC {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textA {
   display: block;
@@ -361,6 +397,10 @@ img:hover + .hover-textA {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textD {
   display: block;
@@ -375,6 +415,7 @@ img:hover + .hover-textD {
   margin-right: 30px;
   border-radius: 10px;
   width: 250px;
+
 }
 .like {
   background-color: #3f0639;
@@ -390,7 +431,10 @@ img:hover + .hover-textD {
 }
 .card {
   margin: 10px;
- 
+ font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 
 }
 
@@ -459,6 +503,10 @@ p {
 
   flex-grow: 1;
   padding: 40px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* .post-section {
@@ -511,6 +559,10 @@ p {
 .post-content {
   width: 70%;
   padding: 20px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 .post-content h2 {
   margin-left: 200px;
@@ -554,6 +606,10 @@ h3 {
   background-color: #fff;
   color: #a51196;
   padding-top: 15px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .user-card img {
@@ -566,10 +622,18 @@ h3 {
 .user-info {
   display: flex;
   align-items: center;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .user-info p {
   margin-right: 10px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .footer {
@@ -579,6 +643,10 @@ h3 {
   /* padding: 20px; */
   text-align: center;
   /* margin-top: 250px; */
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .footer ul {

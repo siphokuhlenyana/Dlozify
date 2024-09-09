@@ -1,27 +1,34 @@
 <template> 
+<div class="container-fluid">
+<div class="row"> 
+  <!-- <div class="col-md-3 order-1 order-md-2">
 
-<!-- <div class="row"> -->
-<!-- <div class="col-md-3">
   <nav-bar-view/>
- </div> -->
- <!-- <div class="col-md-9">
-   <home-page/>
- </div> -->
+ </div>  -->
+ <div class="row flex-column-reverse flex-md-row">
+  
+     <router-view/>
+   <!-- <home-page/> -->
+ </div> 
  
-  <router-view/>
+ 
+  <div class="col-12 bg-dark text-white p-2 fixed-bottom">
+    <footer-view/> 
+  </div>
+ 
  
 
-  <!-- <footer-view/> -->
- 
-<!-- </div> -->
+  
+ </div>
+</div>
 </template>
 <script>
 // import HomePage from './views/HomePage.vue';
 // import NavBarView from './views/NavBarView.vue';
 export default{
   components:{
-// // NavBarView,
-//     HomePage
+// NavBarView
+    // HomePage
   }
 }
 </script>
@@ -39,5 +46,6 @@ export default{
 body{
   padding: 0;
   margin: 0;
+  margin-left: 0;
 }
 </style>

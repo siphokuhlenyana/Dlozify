@@ -236,6 +236,7 @@ import FooterView from './FooterView.vue';
     </script>
     
     <style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
     .hover-text {
   display: none;
   position: absolute;

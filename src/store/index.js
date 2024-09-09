@@ -4,19 +4,20 @@ import axios from 'axios'
 import {toast} from 'vue3-toastify'
 import "vue3-toastify/dist/index.css";
 import router from '@/router';
+import {useCookies} from 'vue-cookies'
 
 axios.defaults.withCredentials =true
-// import {useCookies} from 'vue-cookies'
+axios.defaults.headers=$cookies.get('token')
 
 
-const apiURL = 'https://dlozify.onrender.com/'
-// const apiURL = 'http://localhost:5009/'
+// const apiURL = 'https://dlozify.onrender.com/'
+const apiURL = 'http://localhost:5009/'
 export default createStore({
   state: {
     users:null,
     user:null,
     posts:null,
-    comments:null
+    comment:null
   },
   getters: {
 
@@ -32,10 +33,18 @@ export default createStore({
       state.posts=payload
     },
     setComments(state,payload){
-      state.comments=payload
+      state.comment=payload
     }
   },
   actions: {
+    async getComments({commit}){
+      try{
+        const {data}= await axios.get(`${apiURL}comment`)
+commit('setComments',data)
+      }catch(e){
+        console.log(`Failed to get comments: ${e.message}`);
+      }
+    },
     
     async addComment({commit},info){
       try{
@@ -92,10 +101,13 @@ commit('setPosts',data)
         
         }
         },
-      async getUser({commit},id){
+      async getUser({commit}){
         try{
-          const data =await axios.get(`${apiURL}users/${id}`)
+          const {data} =await axios.get(`${apiURL}users/${id}`)
             commit('setUsers', data);
+            $cookies.get('token')
+            console.log(data);
+            
         }catch(e){
           console.log(`Failed to fetch user: ${e.message}`);
         
@@ -139,7 +151,7 @@ commit('setPosts',data)
         let {data} =await axios.post(`${apiURL}users/login`,info)
       console.log(data);
       commit('setUser',data)
-      // $cookies.set('token',data.token)
+      $cookies.set('token',data.token)
       toast(` ${data.message} , Token :${data.token} `, {
         "theme": "dark",
         "type": "success",

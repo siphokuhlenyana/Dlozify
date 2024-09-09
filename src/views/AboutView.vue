@@ -112,6 +112,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 .hover-text {
   display: none;
   position: absolute;
@@ -120,6 +121,9 @@ export default {
   color: #fff;
   font-size:large;
   font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-text {
   display: block;
@@ -131,6 +135,9 @@ img:hover + .hover-text {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textP {
   display: block;
@@ -142,6 +149,9 @@ img:hover + .hover-textP {
   left: 130px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textN {
   display: block;
@@ -153,6 +163,9 @@ img:hover + .hover-textN {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textI {
   display: block;
@@ -164,6 +177,9 @@ img:hover + .hover-textI {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textC {
   display: block;
@@ -175,6 +191,9 @@ img:hover + .hover-textC {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textA {
   display: block;
@@ -186,15 +205,24 @@ img:hover + .hover-textA {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textD {
   display: block;
 }
 #email{
   height: 40px;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 .about{
   margin-left: 20px;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 input{
     width: 400px;
@@ -202,10 +230,16 @@ input{
 }
 label{
     color: #fff;
+    font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 #mainC{
     background: #3F0639;
     background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
+    font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 .container {
   display: flex;
@@ -261,7 +295,9 @@ p{
   
   flex-grow: 1;
   /* padding: 50px; */
-  
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* .post-section {
@@ -363,6 +399,9 @@ h3{
   background-color: #fff;
   color:#A51196 ;
   padding-top:15px;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .user-card img {
@@ -390,6 +429,9 @@ h3{
   text-align: center;
 /* margin-top: 250px; */
 width: 1645px;
+font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 
 }
 
