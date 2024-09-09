@@ -174,7 +174,7 @@ commit('setPosts',data)
       let {data} =await axios.patch(`${apiURL}users/${id}`,info)
       commit('setUsers',data);
       console.log(data);
-      alert("User updated successfully !")
+     
     },
     async DeleteUser(context,id){
       let {data} =await axios.delete(`${apiURL}users/${id}`)
