@@ -9,6 +9,7 @@ import postRouter from './router/postRouter.js'
 import commentRouter from './router/commentRouter.js'
 
 import cors from 'cors'
+import { verifyAToken } from './middleware/authenticate.js'
 
 const app =express()
 let port=process.env.PORT || 5009
@@ -24,7 +25,7 @@ let port=process.env.PORT || 5009
 app.use(express.json())
 app.use(express.static('public'))
 app.use(cors({
-    origin:"*",
+    origin:"http://localhost:8080",
     credentials: true
 }))
 
@@ -35,7 +36,7 @@ app.use('/msg',msgRouter)
 app.use('/notifications',notificationRouter)
 app.use('/request',requestRouter)
 app.use('/posts',postRouter)
-app.use('/comment',commentRouter)
+app.use('/comment',verifyAToken, commentRouter)
 
 app.listen(port,()=>{
     console.log("http://localhost:" +port);

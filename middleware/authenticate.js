@@ -42,9 +42,9 @@ console.log(result);
 
 }
 const verifyAToken =(req,res,next)=>{
-    // let {cookie} =req.headers
+    let {cookie} =req.headers   
     // //checks if the token exists first
-    // let token = cookie && cookie.split ('=')[1]
+    let token = cookie && cookie.split ('=')[1]
     // // console.log(cookie);
     
     jwt.verify(token ,process.env.SECRET_KEY,(err,decoded)=>{

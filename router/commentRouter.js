@@ -1,8 +1,9 @@
 import express from 'express'
 import {getComments,selectComment,insertComment,deleteComment,updateComment} from '../controller/commentsController.js'
+import { verifyAToken } from '../middleware/authenticate.js'
 
 const router = express.Router()
-router.get('/',getComments)
+router.get('/', getComments)
 router.get('/:id',selectComment)
 router.post('/comment',insertComment)
 router.delete('/:id',deleteComment)
