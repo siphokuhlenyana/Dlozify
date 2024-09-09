@@ -22,12 +22,11 @@ app.use((req, res, next) => {
     next()
 })
 app.use(express.json())
+app.use(express.static('public'))
 app.use(cors({
     origin:"*",
     credentials: true
 }))
-app.use(express.static('public'))
-
 
 app.use('/users',userRouter)
 app.use('/chats',chatsRouter)
