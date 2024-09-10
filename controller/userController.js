@@ -43,7 +43,7 @@ const insertUser =async(req,res)=>{
     } else{
         userRole = 'user'   
         userProfile = 'https://codjoelmayer.github.io/projectImages/images/profile-Image.png'
-        
+        bio ='Hi there I just joined !'
         hash(password,10,async(err,hashedP)=>{
             if(err) throw err
             console.log(hashedP);
