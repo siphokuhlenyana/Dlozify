@@ -45,18 +45,18 @@
             <td>Enables the user to login </td>
         </tr>
         <tr>
-            <td>/:id</td>
+            <td>/users/:id</td>
             <td>DELETE</td>
             <td>Deletes a user  by ID</td>
         </tr>
         <tr>
-            <td>/:id</td>
+            <td>/users/:id</td>
             <td>PATCH</td>
             <td>Edits all information of a user by id </td>
 
         </tr>
         <tr>
-            <th style="text-align: center;width: 600px;">Contacts Table</th>
+            <th style="text-align: center;width: 600px;">Post Table</th>
         </tr>
         <tr>
             <th>Path</th>
@@ -65,30 +65,33 @@
         
         </tr>
         <tr>
-            <td>/contacts</td>
+            <td>/posts</td>
             <td>GET</td>
-            <td>Gets all the contacts in the database</td>
+            <td>Gets all the posts in the database</td>
         </tr>
         <tr>
-            <td>/contacts/:id</td>
+            <td>/posts/:id</td>
             <td>GET</td>
-            <td>Gets a single contact by id </td> 
+            <td>Gets a single post by id </td> 
         </tr>
         <tr>
-            <td>/contacts/insert</td>
+            <td>/posts/post</td>
             <td>POST</td>
-            <td>Adds a contact </td>
+            <td>Adds a post </td>
         </tr>
         <tr>
-            <td>/:id</td>
+            <td>/posts/:id</td>
             <td>DELETE</td>
-            <td>Deletes a contact  by ID</td>
+            <td>Deletes a post  by ID</td>
         </tr>
         <tr>
-            <td>/:id</td>
+            <td>/posts/:id</td>
             <td>PATCH</td>
-            <td>Edits  information of a contact by id </td>
+            <td>Edits  information of a posts by id </td>
 
+        </tr>
+        <tr>
+            <th style="text-align: center;width: 600px;">Comments Table</th>
         </tr>
         <tr>
             <th>Path</th>
@@ -97,27 +100,61 @@
         
         </tr>
         <tr>
-            <td>/contacts</td>
+            <td>/comment</td>
             <td>GET</td>
-            <td>Gets all the contacts from the database .</td>
+            <td>Gets all the comments from the database .</td>
 
         </tr>
         <tr>
-            <td>/contacts/insert</td>
+            <td>/comment/comment</td>
             <td>POST</td>
-            <td>Inserts all the information required to the contacts table .</td>
+            <td>Inserts all the information required to the comments table .</td>
 
         </tr>
         <tr>
-            <td>/:id</td>
+            <td>/comment/:id</td>
             <td>DELETE</td>
-            <td>Deletes the information  in the contacts by ID .</td>
+            <td>Deletes the information  in the comments by ID .</td>
 
         </tr>
         <tr>
-            <td>/:id</td>
+            <td>/comment/:id</td>
             <td>PATCH</td>
-            <td>Updates all the necessary information in the  contacts table .</td>
+            <td>Updates all the necessary information in the  comments table .</td>
+
+        </tr>
+
+        <tr>
+            <th style="text-align: center;width: 600px;">Request Table</th>
+        </tr>
+        <tr>
+            <th>Path</th>
+            <th>Method</th>
+            <th>Description</th>
+        
+        </tr>
+        <tr>
+            <td>/request</td>
+            <td>GET</td>
+            <td>Gets all the request from the database .</td>
+
+        </tr>
+        <tr>
+            <td>/request/follow</td>
+            <td>POST</td>
+            <td>Inserts all the information required to the request table .</td>
+
+        </tr>
+        <tr>
+            <td>/request/:id</td>
+            <td>DELETE</td>
+            <td>Deletes the information  in the request by ID .</td>
+
+        </tr>
+        <tr>
+            <td>/request/:id</td>
+            <td>PATCH</td>
+            <td>Updates all the necessary information in the  request table .</td>
 
         </tr>
     </table>
