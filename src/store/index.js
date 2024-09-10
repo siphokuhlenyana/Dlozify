@@ -5,6 +5,7 @@ import {toast} from 'vue3-toastify'
 import "vue3-toastify/dist/index.css";
 import router from '@/router';
 import {useCookies} from 'vue-cookies'
+import Swal from 'sweetalert2'
 
 axios.defaults.withCredentials =true
 axios.defaults.headers=$cookies.get('token')
@@ -123,12 +124,12 @@ commit('setPosts',data)
       console.log(data);
       // let addedUser =await data.json()
       commit('setUser')
-      toast("Success !! User added .", {
-        "theme": "dark",
-        "type": "success",
-        "position": "top-center",
-        "dangerouslyHTMLString": true
-      })
+      Swal.fire({
+        title: "User Added!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
+      
       }catch(e){
         toast(`Failed to add user: ${e.message}`, {
           "theme": "dark",
@@ -152,6 +153,11 @@ commit('setPosts',data)
       console.log(data);
       commit('setUser',data)
       $cookies.set('token',data.token)
+      Swal.fire({
+        title: "User Logged In !",
+        text: ` ${data.message} , Token :${data.token} `,
+        icon: "success"
+      });
       toast(` ${data.message} , Token :${data.token} `, {
         "theme": "dark",
         "type": "success",

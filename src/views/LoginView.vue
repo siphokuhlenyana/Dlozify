@@ -10,6 +10,7 @@
     </div>
 </template>
 <script>
+import router from '@/router';
 export default {
     data(){
         return{
@@ -22,6 +23,7 @@ export default {
             this.$store.dispatch('loginUser',{username:this.username, password:this.password})
             // alert('Yayyyy user Logged in !')
             // location.reload()
+            router.push('/FeedsView')
         }
       }
     
@@ -33,4 +35,13 @@ export default {
     /* .login-wrapper{
 
     } */
+     button{
+        padding: 10px 20px;
+  background-color: #3f0639;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+     }
 </style>

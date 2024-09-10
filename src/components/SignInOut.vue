@@ -41,9 +41,10 @@
              
            <img :style="{marginLeft:'450px'}" src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
            <button :style="{marginLeft:'480px'}" @click="register = !register">Register/LogIn</button><br>
-    
-           <div class="register" v-if="register">
+           <!-- <div class="modal-dialog modal-lg">...</div> -->
+           <div class="register " v-if="register">
             <h2>Register User :</h2>
+            <!-- <div class="modal-dialog modal-lg"> -->
            <label>Create a username :<br><input type="text" v-model="username" required></label><br>
             <label>Create a password  :<br><input type="password" v-model="password" required></label><br>
             <label>Age :<br><input type="text" v-model="userAge" required></label><br>
@@ -54,33 +55,37 @@
             
     
     <button @click="addUser()">Register</button>
-           </div>
+  </div>
+           
            <div v-else>
       <login-view/>
     
            </div>
-    </div>
-    <div></div>
-    </div>
+        </div>
+    <!-- </div> -->
+    <!-- <div></div> -->
+    
     
             <!-- </div>
           </div> -->
           <!-- {{$store.state.users }} -->
-          <div class="footer">
+          <!-- <div class="footer">
         <footer-view/>
-          </div>
-        
+          </div> -->
+    </div>
     
     </template>
     
     <script>
     import LoginView from '@/views/LoginView.vue';
-    import FooterView from './FooterView.vue';
-    
+    // import FooterView from './FooterView.vue';
+    // import { toast } from 'vue3-toastify/index';
+    // import "vue3-toastify/dist/index.css";
+  
     export default {
       components:{
-        LoginView,
-        FooterView
+        LoginView
+        // FooterView
       },
         data(){
             return{
@@ -99,6 +104,7 @@
         methods: {
           addUser(){
             this.$store.dispatch('addUser',this.$data)
+           
           }
         
         }
@@ -106,6 +112,15 @@
     </script>
     
     <style scoped>
+    button{
+      padding: 10px 20px;
+  background-color: #3f0639;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+    }
     @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
     .hover-text {
       display: none;

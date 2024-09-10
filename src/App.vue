@@ -5,9 +5,10 @@
 
   <nav-bar-view/>
  </div>  -->
- <div class="row flex-column-reverse flex-md-row">
-  
+ <div class="row flex-column-reverse flex-md-row" >
+  <!-- <spinner-view/> -->
      <router-view/>
+     
    <!-- <home-page/> -->
  </div> 
  
@@ -23,10 +24,14 @@
 </div>
 </template>
 <script>
+// import SpinnerView from './views/SpinnerView.vue';
+
 // import HomePage from './views/HomePage.vue';
 // import NavBarView from './views/NavBarView.vue';
 export default{
   components:{
+    // SpinnerView
+
 // NavBarView
     // HomePage
   }
@@ -47,5 +52,8 @@ body{
   padding: 0;
   margin: 0;
   margin-left: 0;
+}
+.row{
+  padding: 0;
 }
 </style>

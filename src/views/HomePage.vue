@@ -72,6 +72,7 @@
                 height="80px"
             /><span  class="hover-textD">Admin</span></router-link>
           </li>
+          <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
         </nav>
       </div>
     </div>
@@ -250,6 +251,15 @@ export default {
 </script>
 
 <style scoped>
+button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 #img{
   position: relative;
@@ -369,7 +379,7 @@ img:hover + .hover-textD {
 }
 .container {
   display: flex;
-  height: 115vh;
+  height: 125vh;
   padding: 0;
   margin: 0;
   --bs-gutter-x: 0;

@@ -116,7 +116,9 @@
     
   </ul>
 </div>
-        <div class="card-container">
+
+        <div class="card-container" v-if="cookieExists" >
+         
           <div
             class="card"
             style="
@@ -130,13 +132,13 @@
           >
           <!-- <comp :postInfo="post"/> -->
             <img
-              v-if="post"
+             
               :src="post.url"
               class="card-img-top"
               alt=""
               :style="{ width: '19rem', height: '150px',borderRadius:'0px 0px 2px 2px'}"
             />
-            <div v-else><spinner-view /></div>
+            
 
             <div class="card-body" :style="{ backgroundColor: '#a511966e' }">
               <!-- <p class="card-text">{{ post.description }}</p> -->
@@ -193,7 +195,7 @@
 
               <div id="view">
                 <div v-show="createView">
-                  <h5>{{ post.description }}</h5>
+                  <h5 :style="{backgroundColor:'#a51196'}">{{ post.description }}</h5>
                 </div>
               </div>
             </div>
@@ -241,6 +243,9 @@
                   </div>
                 </div> -->
         </div>
+        <div v-else><spinner-view /></div>
+      
+      
       </div>
     </div>
     <div class="footer">
@@ -261,10 +266,19 @@ export default {
       createView: false,
       content: "",
       description:"",
-      url:""
+      url:"",
+      cookieExists: false
     };
   },
   methods: {
+    checkCookie() {
+      const cookie = this.$cookies.get('token');
+      if (cookie) {
+        this.cookieExists = true;
+      } else {
+        this.cookieExists = false;
+      }
+    },
     getPosts() {
       this.$store.dispatch("getPosts");
     },
@@ -287,12 +301,14 @@ export default {
     },
     addPost(){
       this.$store.dispatch('addPost',this.$data)
-    }
+    },
+    
   },
   mounted() {
     this.getPosts();
     this.getPost();
     // this.addComment()
+    this.checkCookie();
   },
 };
 </script>
@@ -500,6 +516,7 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  
 
   flex-grow: 1;
   padding: 40px;
@@ -507,6 +524,8 @@ p {
   font-family: "Nerko One", cursive;
   font-weight: 400;
   font-style: normal;
+  width: 1200vw;
+ 
 }
 
 /* .post-section {

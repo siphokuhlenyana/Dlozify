@@ -39,7 +39,8 @@
         </div>
         <div class="main-content ">
   <h2 :style="{color:'#fff'}">Updates On Comments </h2>
-            <div class="list-group" v-for="comment in $store.state.comment " :key="comment.commentsID" :style="{backgroundColor:'#3F0639',color:'#fff'}">
+  <div v-if="cookieExists">
+            <div  class="list-group" v-for="comment in $store.state.comment " :key="comment.commentsID" :style="{backgroundColor:'#3F0639',color:'#fff'}">
   <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
     <div class="d-flex w-150 justify-content-between">
       <h5 class="mb-1">{{ comment.content }}</h5>
@@ -49,38 +50,52 @@
     <small>Post ID:{{ comment.idpost }}</small><br>
     <small>Comment ID:{{ comment.commentsID }}</small>
   </a>
-  
+  </div>
 </div>
+<div v-else><spinner-view/></div>
         </div>
-        </div>
+        
           <div class="footer">
            
            <footer-view/>
           </div>
-        
+    </div>
     
     </template>
     
     <script>
     import FooterView from './FooterView'
+import SpinnerView from './SpinnerView.vue'
     export default {
       data() {
         return {
-            cDate: new Date()
+            cDate: new Date(),
+            cookieExists:false
         }
       },
       components:{
-        FooterView
+        FooterView ,SpinnerView 
       },
       
-        methods: {
+ 
+      methods: {
           getComments(){
             this.$store.dispatch('getComments')
-          }
+          },
+    checkCookie() {
+      const cookie =  this.$cookies.get('token');
+      if (cookie) {
+        this.cookieExists = true;
+      } else {
+        this.cookieExists = false;
+      }
+    },
+    
         
         },
         mounted(){
        this.getComments()
+       this.checkCookie()
         }
 }
     

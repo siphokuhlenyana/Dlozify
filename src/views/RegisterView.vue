@@ -39,8 +39,10 @@
       <div class="main-content ">
   <!-- {{ $store.state.users }} -->
            
-         <img :style="{marginLeft:'450px'}" src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
-         <button :style="{marginLeft:'480px'}" @click="register = !register">Register/LogIn</button><br>
+        <sign-in-out/>
+  
+  <img :style="{marginLeft:'450px'}" src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
+         <!-- <button :style="{marginLeft:'480px'}" @click="register = !register">Register/LogIn</button><br>
   
          <div class="register" v-if="register">
           <h2>Register User :</h2>
@@ -59,7 +61,7 @@
     <login-view/>
   
          </div>
-  </div>
+  </div> -->
   <div></div>
   </div>
   
@@ -76,11 +78,13 @@
   <script>
   import LoginView from '@/views/LoginView.vue';
   import FooterView from './FooterView.vue';
+import SignInOut from '@/components/SignInOut.vue';
   
   export default {
     components:{
       LoginView,
-      FooterView
+      FooterView,
+        SignInOut
     },
       data(){
           return{
