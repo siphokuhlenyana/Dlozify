@@ -1,13 +1,13 @@
 <template>
 <div class="container">
-    <div class="sidebar">
+    <!-- <div class="sidebar">
       <div class="logo">
         <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
        
       </div>
       <div class="sidebar-menu">
         <nav>
-          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"><span class="hover-text">Home</span></router-link>
+          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"><span class="hover-text">Home</span></router-link><br><br>
         
           
         <li>
@@ -33,32 +33,23 @@
         <li>
          <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"><span class="hover-textD">Admin</span></router-link>
         </li> 
+        <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
        </nav>
       </div> 
-    </div>
-    <div class="main-content ">
+    </div> -->
+    <div class="main-content " >
 <!-- {{ $store.state.users }} -->
          
-       <img :style="{marginLeft:'450px'}" src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="150px" height="100px" ><br>
-       <button :style="{marginLeft:'480px'}" @click="register = !register">Register/LogIn</button><br>
+       <img :style="{marginLeft:'450px'}" :src="user.userProfile" alt="" width="150px" height="100px" ><br>
+<!--       
+          <label>Username : {{ user.username }}<br></label><br>
+          <label>Age :{{user.userAge  }}<br></label><br>
+          <label>Gender: {{ user.gender }}<br></label><br>
+          
+          <label>Role: {{ user.userRole }}<br></label><br>
+          <label>Bio : {{ user.bio }}<br></label><br>
 
-       <div class="register" v-if="register">
-        <h2>Register User :</h2>
-       <label>Create a username :<br><input type="text" v-model="username" required></label><br>
-        <label>Create a password  :<br><input type="password" v-model="password" required></label><br>
-        <label>Age :<br><input type="text" v-model="userAge" required></label><br>
-        <label>Gender:<br><input type="text" v-model="gender"></label><br>
-        <label>Profile:<br><input type="text" v-model="userProfile" placeholder="Url"></label><br>
-        <label>Role:<br><input type="text" v-model="userRole" placeholder="User"></label><br>
-        <label>Bio :<br><input type="text" v-model="bio"></label><br>
-        
-
-<button @click="addUser()">Register</button>
-       </div>
-       <div v-else>
-  <login-view/>
-
-       </div>
+          {{ $store.state.user.data }} -->
 </div>
 <div></div>
 </div>
@@ -66,47 +57,59 @@
         <!-- </div>
       </div> -->
       <!-- {{$store.state.users }} -->
-      <div class="footer">
+      <!-- <div class="footer">
     <footer-view/>
-      </div>
+      </div> -->
     
 
 </template>
 
 <script>
-import LoginView from '@/views/LoginView.vue';
-import FooterView from './FooterView.vue';
+
+// import FooterView from './FooterView.vue';
 
 export default {
   components:{
-    LoginView,
-    FooterView
+    
+    // FooterView
   },
     data(){
         return{
-            username:'',
-            password:'',
-            userProfile:'',
-            userRole:'',
-            bio:'',
-            userAge:'',
-            gender:'',
-            register:true
+            userID:''
+           
             
             
         }
     },
     methods: {
-      addUser(){
-        this.$store.dispatch('addUser',this.$data)
+     
+      getUser(){
+        this.$store.dispatch('getUser',this.userID)
       }
     
+    },
+    mounted() {
+      // this.getUser()
     }
+    
 };
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 .hover-text {
   display: none;
   position: absolute;
@@ -198,13 +201,13 @@ label{
 }
 .container {
   display: flex;
-  height: 115vh;
+  height: 125vh;
   --bs-gutter-x:0;
 }
 
 .sidebar {
   background-color:#3F0639;
-  width: 18%;
+  width: 15%;
   /* padding: 20px; */
 }
 

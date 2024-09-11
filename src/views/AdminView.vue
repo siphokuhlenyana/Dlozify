@@ -1,52 +1,53 @@
 <template>
     <div class="container">
-        <div class="sidebar">
+        <!-- <div class="sidebar">
           <div class="logo">
             <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
            
           </div>
           <div class="sidebar-menu">
             <nav>
-              <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
+              <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"><span class="hover-text">Home</span></router-link><br><br>
             
               
             <li>
-              <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"></router-link>
+              <router-link to="/FeedsView"><img src="https://siphokuhlenyana.github.io/dlozify-pics/bookmark.png" alt="" width="100px" height="80px"><span class="hover-textP">Posts</span></router-link>
              
             
             </li>
             <li>
-              <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"></router-link>
+              <router-link to="/notifications"><img src="https://siphokuhlenyana.github.io/dlozify-pics/notification.png" alt="" width="100px" height="80px"><span class="hover-textN">Notifications</span></router-link>
              
              
             </li>
             <li>
-              <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"> </router-link>
+              <router-link to="/messages"><img src="https://siphokuhlenyana.github.io/dlozify-pics/email.png" alt="" width="100px" height="80px"><span class="hover-textI">Inbox</span> </router-link>
             
             </li>
             <li>
-            <router-link to="/account" ><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"></router-link>
+            <router-link to="/account" ><img src="https://siphokuhlenyana.github.io/dlozify-pics/account.png" alt="" width="100px" height="80px"><span class="hover-textC">Account</span></router-link>
             </li>
             <li>
-            <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"></router-link>
+            <router-link to="/about"><img src="https://siphokuhlenyana.github.io/dlozify-pics/information.png" alt="" width="100px" height="80px"><span class="hover-textA">About</span></router-link>
             </li>
             <li>
-             <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
+             <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"><span class="hover-textD">Admin</span></router-link>
             </li> 
            </nav>
+           <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
           </div> 
-        </div>
+        </div> -->
         <div class="main-content ">
     <!-- {{ $store.state.users }} -->
     
     <h2 class="display-2" :style="{color:'#fff'}">Admin</h2>
      <button :style="{marginLeft:'480px'}" @click="user = !user">User /Post Settings</button>
-      <table v-if="user" class="table-primary table-bordered border-primary" id="table" :style="{width:'800px',borderColor:'#A51196',borderWidth:'10px',borderStyle:'solid',backgroundColor:'A51196'}">
+     <div v-if="!cookieExists"> <spinner-view/>  </div>
+     <div v-else>
+      <table v-if="user" class="table-primary table-bordered border-primary" id="table" :style="{width:'1000px',borderColor:'#A51196',borderWidth:'1px',borderStyle:'solid',backgroundColor:'A51196'}">
         <thead :style="{fontWeight:'1000',marginBottom:'1000px'}">
           <tr >
-            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
-  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
-</svg></th>
+          
             <th >Profile</th>
             <th>Name</th>
             <th>User Role</th>
@@ -58,7 +59,7 @@
         </thead>
         <tbody>
           <tr v-for="user in users" :key="user.userID">
-            <td> <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></td>
+            
             <td><img :src="user.userProfile" alt="" width="80px"></td>
             <td :style="{textAlign:'center'}">{{ user.username }}</td>
             <td :style="{textAlign:'center'}">{{ user.userRole }}</td>
@@ -77,9 +78,16 @@
           </tr>
         </tbody>
       </table>
+     
       <div v-else>
         <h2 class="display-5" :style="{color:'#fff'}">Post Management</h2>
-        <table  class="table-primary table-bordered border-primary" id="table" :style="{width:'1200px',height:'100px',borderColor:'#A51196',borderWidth:'10px',borderStyle:'solid',backgroundColor:'A51196'}">
+        <button :style="{marginLeft:'948px'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></button>
+        <div v-if="!cookieExists"> <spinner-view/>   </div>
+        
+        <table v-else  class="table-primary table-bordered border-primary" id="table" :style="{width:'1000px',height:'100px',borderColor:'#A51196',borderWidth:'1px',borderStyle:'solid',backgroundColor:'A51196'}">
         <thead :style="{fontWeight:'1000',marginBottom:'1000px'}">
           <tr >
             <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
@@ -90,7 +98,7 @@
             <th >Description</th>
             
             
-            <th>Actions</th>
+            <th :style="{width:'150px'}">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -100,7 +108,7 @@
             <td :style="{textAlign:'center'}">{{ post.description }}</td>
             
             
-            <td>
+            <td >
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" :style="{backgroundColor:'#3F0639',color:'#fff'}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
   <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
 </svg></button>
@@ -148,7 +156,7 @@
                   <label for="gender" class="form-label">Bio</label>
                   <input type="text" v-model="bio" class="form-control" >
                 </div>
-                <button @click="EditUser()" type="submit" class="btn btn-primary" >Save changes</button>
+                <button @click="EditUser(user.userID)" type="submit" class="btn btn-primary" >Save changes</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </form>
             </div>
@@ -157,29 +165,32 @@
       </div>
     
     </div>
-    
+        </div>
     </div>
+    <!-- </div> -->
     
     
             <!-- </div>
           </div> -->
           <!-- {{$store.state.users }} -->
-          <div class="footer">
+          <!-- <div class="footer">
            
            <footer-view/>
-          </div>
+          </div> -->
         
    
     </template>
     
     <script>
 
-import FooterView from './FooterView.vue';
+// import FooterView from './FooterView.vue';
+import SpinnerView from './SpinnerView.vue';
     
     export default {
       components:{
        
-            FooterView
+            // FooterView,
+            SpinnerView
       },
         data(){
             return{
@@ -190,7 +201,8 @@ import FooterView from './FooterView.vue';
                 bio:'',
                 userAge:'',
                 gender:'',
-                user:true
+                user:true ,
+                cookieExists:false
               
                 
                 
@@ -202,8 +214,10 @@ import FooterView from './FooterView.vue';
             }
         },
         methods: {
-          EditUser(){
-            this.$store.dispatch('EditUser',this.$data)
+          EditUser(userID){
+            console.log(userID);
+            
+            this.$store.dispatch('EditUser',{userID, data: this.$data})
           },
         //   closeModal(){
         //    this.showModal.value=false
@@ -222,6 +236,14 @@ import FooterView from './FooterView.vue';
     },
     getPosts(){
       this.$store.dispatch('getPosts')
+    },
+    checkCookie() {
+      const cookie = this.$cookies.get('token');
+      if (cookie) {
+        this.cookieExists = true;
+      } else {
+        this.cookieExists = false;
+      }
     }
         
         }
@@ -230,6 +252,7 @@ import FooterView from './FooterView.vue';
     this.getUsers()
     // this.DeleteUser()
     this.getPosts()
+    this.checkCookie()
     
   }
     };
@@ -237,6 +260,19 @@ import FooterView from './FooterView.vue';
     
     <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+    button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
     .hover-text {
   display: none;
   position: absolute;
@@ -245,6 +281,9 @@ import FooterView from './FooterView.vue';
   color: #fff;
   font-size:large;
   font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-text {
   display: block;
@@ -256,6 +295,9 @@ img:hover + .hover-text {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textP {
   display: block;
@@ -267,6 +309,9 @@ img:hover + .hover-textP {
   left: 135px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textN {
   display: block;
@@ -278,6 +323,9 @@ img:hover + .hover-textN {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textI {
   display: block;
@@ -289,6 +337,9 @@ img:hover + .hover-textI {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textC {
   display: block;
@@ -300,6 +351,9 @@ img:hover + .hover-textC {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textA {
   display: block;
@@ -311,6 +365,9 @@ img:hover + .hover-textA {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textD {
   display: block;
@@ -320,6 +377,9 @@ img:hover + .hover-textD {
         border-collapse: collapse;
 
   backdrop-filter: blur(50px); 
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     .border-primary{
       border-color: #A51196;
@@ -328,10 +388,13 @@ img:hover + .hover-textD {
     #mainC{
         background: #3F0639;
         background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
+        font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     .container {
       display: flex;
-      height: 115vh;
+      height: 300vh;
       margin: 0;
     }
     
@@ -350,7 +413,8 @@ img:hover + .hover-textD {
     
     .sidebar-menu {
       list-style: none;
-      padding: 0;
+     
+      padding: 30px;
     }
     
     .sidebar-menu li {
@@ -406,15 +470,16 @@ img:hover + .hover-textD {
       resize: none;
     }
     
-    .post-button {
+    button {
       padding: 10px 20px;
-      background-color: #3F0639;
+      background-color: #a51196;
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       margin-left: 10px;
     }
+    
     
     .post-body {
       display: flex;

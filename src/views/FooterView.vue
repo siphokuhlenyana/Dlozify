@@ -1,6 +1,7 @@
 <template>
-    <footer class="container-fluid">
+    <footer >
       <div class="row">
+        
           <p class="lead"> Dlozify &copy;
             
             <span> {{cYear}}</span>
@@ -32,6 +33,29 @@
   .lead{
     /* padding-top: 0; */
     /* margin-bottom: 10px; */
-    margin: 0;
-  }
+    
+  /* margin:200px; */
+  background-color: #a51196;
+  color: #fff;
+  /* padding: 20px; */
+  text-align: center;
+  /* margin-top: 250px; */
+  height: 80px;
+  padding-top: 50px;
+  width: 1500px;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  width: 100vw;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  /* margin-bottom: 10px; */
+}
+
+
+   
+  
 </style>

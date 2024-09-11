@@ -1,14 +1,14 @@
 <template>
 
     <div class="container">
-        <div class="sidebar">
+        <!-- <div class="sidebar">
           <div class="logo">
             <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
            
           </div>
           <div class="sidebar-menu">
             <nav>
-              <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+              <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
             
               
             <li>
@@ -34,12 +34,14 @@
             <li>
              <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
             </li> 
+            <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
            </nav>
           </div> 
-        </div>
+        </div> -->
         <div class="main-content ">
-  <h2 :style="{color:'#fff'}">Updates On Comments </h2>
-            <div class="list-group" v-for="comment in $store.state.comment " :key="comment.commentsID" :style="{backgroundColor:'#3F0639',color:'#fff'}">
+  <h2 :style="{color:'#fff'}">Updates On Comments </h2><br><br>
+  <div v-if="cookieExists">
+            <div  class="list-group" v-for="comment in $store.state.comment " :key="comment.commentsID" :style="{backgroundColor:'#3F0639',color:'#fff'}">
   <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
     <div class="d-flex w-150 justify-content-between">
       <h5 class="mb-1">{{ comment.content }}</h5>
@@ -49,38 +51,52 @@
     <small>Post ID:{{ comment.idpost }}</small><br>
     <small>Comment ID:{{ comment.commentsID }}</small>
   </a>
-  
+  </div>
 </div>
+<div v-else><spinner-view/></div>
         </div>
-        </div>
-          <div class="footer">
+        
+          <!-- <div class="footer">
            
            <footer-view/>
-          </div>
-        
+          </div> -->
+    </div>
     
     </template>
     
     <script>
-    import FooterView from './FooterView'
+    // import FooterView from './FooterView'
+import SpinnerView from './SpinnerView.vue'
     export default {
       data() {
         return {
-            cDate: new Date()
+            cDate: new Date(),
+            cookieExists:false
         }
       },
       components:{
-        FooterView
+        SpinnerView 
       },
       
-        methods: {
+ 
+      methods: {
           getComments(){
             this.$store.dispatch('getComments')
-          }
+          },
+    checkCookie() {
+      const cookie =  this.$cookies.get('token');
+      if (cookie) {
+        this.cookieExists = true;
+      } else {
+        this.cookieExists = false;
+      }
+    },
+    
         
         },
         mounted(){
        this.getComments()
+       this.checkCookie()
         }
 }
     
@@ -89,6 +105,19 @@
     
     <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap'); 
+    button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
     .list-group-item.active {
         background-color: #3f063971;
         border-color: #880E7C;
@@ -104,6 +133,10 @@
       color: #fff;
       font-size:large;
       font-weight: 900;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-text {
       display: block;
@@ -115,6 +148,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textP {
       display: block;
@@ -126,6 +163,10 @@
       left: 135px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textN {
       display: block;
@@ -137,6 +178,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textI {
       display: block;
@@ -148,6 +193,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textC {
       display: block;
@@ -159,6 +208,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textA {
       display: block;
@@ -170,36 +223,62 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textD {
       display: block;
     }
     #email{
       height: 10px;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     .about{
       margin-left: 20px;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     input{
         width: 400px;
         height: 50px;
+        font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     label{
         color: #fff;
+        font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     #mainC{
         background: #3F0639;
         /* background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%); */
         background-image: url('https://siphokuhlenyana.github.io/dlozify-pics/bck-img.jpg');
+        font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  width: 100vw;
     }
     .container {
       display: flex;
-      height: 115vh;
+      height: 125vh;
+      /* width: 869px; */
     }
     
     .sidebar {
       background-color:#3F0639;
-      width: 18%;
+      width: 15%;
       /* padding: 20px; */
     }
     
@@ -229,9 +308,17 @@
     .sidebar-menu li span {
       color: #fff;
       font-weight: bold;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     p{
       color: white;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     .main-content {
       background-color:rgb(95, 1, 95);
@@ -243,6 +330,10 @@
       background-position: center;
       
       flex-grow: 1;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
       /* padding: 50px; */
      
     }
@@ -373,7 +464,10 @@
       text-align: center;
     /* margin-top: 250px; */
     
-    
+    font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     
     .footer ul {

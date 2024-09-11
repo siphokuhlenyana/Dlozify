@@ -6,6 +6,7 @@ import AccountView from '@/views/AccountView.vue'
 import AdminView from '@/views/AdminView.vue'
 import ChatView from '@/views/ChatView.vue'
 import NotificationsView from '@/views/NotificationsView.vue'
+import SignInOut from '@/components/SignInOut.vue'
 
 const routes = [
   // {
@@ -71,6 +72,15 @@ const routes = [
     path: '/notifications',
     name: 'Notifications',
     component: NotificationsView
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    // component: () => import(/* webpackChunkName: "about" */ '../views/Homepage.vue')
+  },
+  {
+    path: '/signInOut',
+    name: 'SignInOut',
+    component: SignInOut
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

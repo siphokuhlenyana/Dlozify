@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="sidebar">
+    <!-- <div class="sidebar">
       <div class="logo">
         <img
           src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png"
@@ -72,17 +72,18 @@
                 height="80px"
             /><span  class="hover-textD">Admin</span></router-link>
           </li>
+          <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
         </nav>
       </div>
-    </div>
+    </div> -->
     <div class="main-content">
       <div class="post-section" >
         <div class="post-header">
           <textarea placeholder="Search Friends" v-model="username"></textarea>
-          <button class="post-button btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</button>
+          <button class="post-button btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="searchUser()">Search</button>
        
        <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-for="user in $store.state.users" :key="user.username">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -90,7 +91,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" v-if="foundUser">
-      {{user.userProfile}} {{ user.username}} {{ user.userRole }}
+        
+    <div v-for="user in foundUser" :key="user.userID">
+     <img :src="user.userProfile" alt=""  :style="{width:'100px',height:'100px',borderRadius:'50%'}"> {{ user.username }} ({{ user.gender }})<br>
+     {{ user.bio }}
+    </div>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -122,7 +128,7 @@
                   People you may know 
                 </h3>
              <div id="cards" >
-                <div class="user-card" v-for="user in $store.state.users" :key="user.userID">
+                <div class="user-card" v-for="user in getLimit()" :key="user.userID">
                   <img id="img" :style="{width:'200px'}"
                     :src="user.userProfile"
                     alt="" 
@@ -188,19 +194,19 @@
   <!-- </div>
         </div> -->
   <!-- {{$store.state.users }} -->
-  <div class="footer">
+  <!-- <div class="footer">
     <footer-view />
-  </div>
+  </div> -->
 </template>
 
 <script>
 import {toast} from 'vue3-toastify'
 import "vue3-toastify/dist/index.css";
 import ButtonComp from "@/components/ButtonComp.vue";
-import FooterView from "./FooterView.vue";
+// import FooterView from "./FooterView.vue";
 // import SpinnerView from './SpinnerView.vue';
 export default {
-  components: { FooterView,ButtonComp },
+  components: { ButtonComp },
   name: "HomePage",
   data() {
     return {
@@ -212,7 +218,20 @@ export default {
   },
   methods: {
     getLimit() {
-      this.$store.dispatch("getLimit");
+      let users= this.$store.state.users 
+      console.log(users);
+      
+      if(users){
+      users = users.slice(0, 3);  
+      console.log(users + "hehehe");
+      
+      }
+     else{
+      users=[]
+     }
+
+     return users
+     
     },
     createViewIf() {
       toast("Followed this user ! 👌", {
@@ -223,17 +242,29 @@ export default {
       })
       
     },
-    getUser(){
-      this.$store.dispatch('getUser',this.username)
+    getUsers(){
+      this.$store.dispatch('getUsers')
       
-    },
+    } ,
     searchUser() {
-      this.foundUser = this.user.find(user => {
+      // if(!this.user) return  [];
+      this.getUsers();
+      this.foundUser = this.user?.filter(user => {
         return user.username.toLowerCase().includes(this.username.toLowerCase())
+          
               
       })
+      console.log(this.foundUser)
+      return this.foundUser
     }
-  }
+  },
+  computed:{
+    user(){
+      return this.$store.state.users || []
+    }
+
+  },
+ 
     // handleHover() {
     //   this.isHovered = !this.isHovered
     // }
@@ -241,15 +272,29 @@ export default {
 //   let users= $store.state.users;
 //   let searchedUsers= users.value.filter(users);
 // }
-  ,
+  
   mounted() {
-    this.getLimit();
-    // this.getUser();
+    // this.getLimit();
+    this.getUsers();
+   
   },
 };
 </script>
 
 <style scoped>
+button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 #img{
   position: relative;
@@ -369,7 +414,7 @@ img:hover + .hover-textD {
 }
 .container {
   display: flex;
-  height: 115vh;
+  height: 125vh;
   padding: 0;
   margin: 0;
   --bs-gutter-x: 0;
@@ -418,13 +463,28 @@ p {
   background-size: cover;
   background-position: center;
 
-  flex-grow: 1;
-  padding: 50px;
+  /* flex-grow: 1; */
+  padding: 25px;
   padding-top: 50px;
   font-family: "Nerko One", cursive;
   font-weight: 400;
   font-style: normal;
+  width: 100vw;
+  height: 100%;
 }
+/* @media (max-width: 300px) {
+  
+  .post-body {
+    max-width: 70%;
+  }
+  .post-content {
+    max-width: 70%;
+  }
+  .main-content{
+    max-width: 70%;
+  }
+  
+} */
 
 /* .post-section {
     /* background-color: #fff; */
