@@ -2,7 +2,7 @@
     <div>
         
         <img src="https://siphokuhlenyana.github.io/dlozify-pics/Eclipse@1x-1.0s-200px-200px.gif" width="200px" alt="Loading..." class="loading-gif">
-        <h1 > Register or Sign In</h1>
+        <h1 > Register or Sign In !!</h1>
 <!--    < H1
    <button @click="SignIn">SignUp/SignIn</button> -->
    </div>

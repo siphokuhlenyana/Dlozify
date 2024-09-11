@@ -16,7 +16,7 @@ const apiURL = 'http://localhost:5009/'
 export default createStore({
   state: {
     users:null,
-    user:null,
+    user:[],
     posts:null,
     comment:null
   },
@@ -68,8 +68,8 @@ commit('setPosts',data)
     
       async getPost({commit},id){
         try{
-          const {data} =await axios.get(`${apiURL}posts/${id}`)
-            commit('setPosts', data);
+          const data =await axios.get(`${apiURL}posts/${id}`)
+            // commit('setPosts', data);
             console.log(data);
             
         }catch(e){
@@ -102,10 +102,10 @@ commit('setPosts',data)
         
         }
         },
-      async getUser({commit}){
+      async getUser({commit},id){
         try{
-          const {data} =await axios.get(`${apiURL}users/${id}`)
-            commit('setUsers', data);
+          const data =await axios.get(`${apiURL}users/${id}`)
+            // commit('setUsers', data);
             $cookies.get('token')
             console.log(data);
             
@@ -176,8 +176,10 @@ commit('setPosts',data)
       // router.push('/')
       
     },
-    async EditUser({commit},info){
-      let {data} =await axios.patch(`${apiURL}users/${id}`,info)
+    async EditUser({commit},{userID, info}){
+      console.log(userID);
+      
+      let {data} =await axios.patch(`${apiURL}users/${userID}`,info)
       commit('setUsers',data);
       console.log(data);
      

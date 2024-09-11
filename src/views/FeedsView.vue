@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="sidebar">
+    <!-- <div class="sidebar">
       <div class="logo">
         <img
           src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png"
@@ -16,7 +16,7 @@
               width="100px"
               height="80px" /><span class="hover-text">Home</span></router-link
           ><br /><br />
-          <!-- <a href="#homepage"></a> -->
+         
 
           <li>
             <router-link to="/FeedsView"
@@ -35,7 +35,7 @@
                 width="100px"
                 height="80px"
             /><span class="hover-textN">Notifications</span></router-link>
-            <!-- <a href="#notifications"></a> -->
+           
           </li>
           <li>
             <router-link to="/messages"
@@ -74,9 +74,10 @@
                 height="80px"
             /><span class="hover-textD">Admin</span></router-link>
           </li>
+          <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
         </nav>
       </div>
-    </div>
+    </div> -->
     <div class="main-content">
       <div class="post-section">
         <div class="post-header">
@@ -248,18 +249,18 @@
       
       </div>
     </div>
-    <div class="footer">
-      <footer-view />
+    <!-- <div class="footer">
+      <footer-view /> -->
       <!-- <p>Dlozify©2024</p> -->
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-import FooterView from "./FooterView.vue";
+// import FooterView from "./FooterView.vue";
 import SpinnerView from "./SpinnerView.vue";
 export default {
-  components: { SpinnerView, FooterView },
+  components: { SpinnerView },
   name: "FeedsView",
   data() {
     return {
@@ -315,6 +316,19 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 .hover-text {
   display: none;
   position: absolute;
@@ -425,6 +439,7 @@ img:hover + .hover-textD {
   background-color: #3f0639;
   width: 16rem;
   color: #fff;
+  margin-top: 1rem;
 }
 #comment {
   background-color: #a51196;
@@ -442,7 +457,7 @@ img:hover + .hover-textD {
 #send {
   background-color: #3f0639;
   border-radius: 10px;
-  margin-left: 150px;
+  margin-left: 80px;
   color: #fff;
 }
 .card {
@@ -524,7 +539,7 @@ p {
   font-family: "Nerko One", cursive;
   font-weight: 400;
   font-style: normal;
-  width: 1200vw;
+  /* width: 1200vw; */
  
 }
 

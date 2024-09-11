@@ -1,38 +1,44 @@
 <template> 
-<div class="container-fluid">
-<div class="row"> 
+<div class="container">
+<nav-bar-view/>
+  <router-view/> 
+  </div>
+  
+<!-- <div class="row">  -->
   <!-- <div class="col-md-3 order-1 order-md-2">
 
-  <nav-bar-view/>
+  
  </div>  -->
- <div class="row flex-column-reverse flex-md-row" >
+ <!-- <div class="row flex-column-reverse flex-md-row" > -->
   <!-- <spinner-view/> -->
-     <router-view/>
+   
      
    <!-- <home-page/> -->
- </div> 
+ <!-- </div>  -->
  
- 
-  <div class="col-12 bg-dark text-white p-2 fixed-bottom">
-    <footer-view/> 
-  </div>
+ <footer-view/> 
+  <!-- <div class="col-12 bg-dark text-white p-2 fixed-bottom"> -->
+   
+  
  
  
 
   
- </div>
-</div>
+ 
+
 </template>
 <script>
 // import SpinnerView from './views/SpinnerView.vue';
 
 // import HomePage from './views/HomePage.vue';
-// import NavBarView from './views/NavBarView.vue';
+import NavBarView from './views/NavBarView.vue';
+import FooterView from './views/FooterView.vue';
 export default{
   components:{
     // SpinnerView
 
-// NavBarView
+NavBarView,
+FooterView
     // HomePage
   }
 }
@@ -42,9 +48,10 @@ export default{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin: 0;
+  box-sizing: border-box;
   
 
 }
@@ -53,7 +60,10 @@ body{
   margin: 0;
   margin-left: 0;
 }
-.row{
-  padding: 0;
+.container{
+  display: flex;
+  width: 100%;
+  margin: 0;
 }
+
 </style>

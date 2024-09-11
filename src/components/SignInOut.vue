@@ -33,6 +33,7 @@
             <li>
              <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"><span class="hover-textD">Admin</span></router-link>
             </li> 
+            <router-link to="/SignInOut"><button :style="{backgroundColor:'#A51196'}" @click="SignIn">SignUp/SignIn</button></router-link>
            </nav>
           </div> 
         </div>
@@ -47,11 +48,11 @@
             <!-- <div class="modal-dialog modal-lg"> -->
            <label>Create a username :<br><input type="text" v-model="username" required></label><br>
             <label>Create a password  :<br><input type="password" v-model="password" required></label><br>
-            <label>Age :<br><input type="text" v-model="userAge" required></label><br>
-            <label>Gender:<br><input type="text" v-model="gender"></label><br>
-            <label>Profile:<br><input type="text" v-model="userProfile" placeholder="Url"></label><br>
-            <label>Role:<br><input type="text" v-model="userRole" placeholder="User"></label><br>
-            <label>Bio :<br><input type="text" v-model="bio"></label><br>
+            <label>Age :<br><input type="text" v-model="userAge" required :style="{marginLeft:'100px'}"></label><br>
+            <label>Gender:<br><input type="text" v-model="gender" :style="{marginLeft:'100px'}"></label><br>
+            <label>Profile:<br><input type="text" v-model="userProfile" placeholder="Url" :style="{marginLeft:'100px'}"></label><br>
+            <label>Role:<br><input type="text" v-model="userRole" placeholder="User" :style="{marginLeft:'110px'}"></label><br>
+            <label>Bio :<br><input type="text" v-model="bio" :style="{marginLeft:'110px'}"></label><br>
             
     
     <button @click="addUser()">Register</button>
@@ -112,6 +113,30 @@
     </script>
     
     <style scoped>
+    input{
+      background-color: #A51196;
+    }
+    label{
+      display: flex;
+      justify-content: center;
+
+    }
+    .register{
+      background-color: #ffffff51;
+      width: 800px;
+      height: 650px;
+      border-radius: 10%;
+      margin-top: 2rem;
+    }
+    h2{
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+    }
     button{
       padding: 10px 20px;
   background-color: #3f0639;
@@ -120,6 +145,11 @@
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+ 
     }
     @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
     .hover-text {
@@ -130,6 +160,10 @@
       color: #fff;
       font-size:large;
       font-weight: 900;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-text {
       display: block;
@@ -141,6 +175,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textP {
       display: block;
@@ -152,6 +190,10 @@
       left: 135px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textN {
       display: block;
@@ -163,6 +205,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textI {
       display: block;
@@ -174,6 +220,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textC {
       display: block;
@@ -185,6 +235,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textA {
       display: block;
@@ -196,6 +250,10 @@
       left: 145px;
       color: #a51196;
       font-size:large;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     img:hover + .hover-textD {
       display: block;
@@ -203,23 +261,35 @@
     input{
         width: 400px;
         height: 50px;
+        font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     label{
         color: #fff;
+        font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     #mainC{
         background: #3F0639;
         background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
+        font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     .container {
       display: flex;
-      height: 115vh;
+      height: 125vh;
       --bs-gutter-x:0;
     }
     
     .sidebar {
       background-color:#3F0639;
-      width: 18%;
+      width: 15%;
       /* padding: 20px; */
     }
     
@@ -253,6 +323,10 @@
     }
     p{
       color: white;
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     }
     .main-content {
       background-color:rgb(95, 1, 95);
@@ -266,7 +340,10 @@
       flex-grow: 1;
       padding-left: 50px;
       
-      
+      font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
      
       
     }
@@ -396,7 +473,10 @@
       /* padding: 20px; */
       text-align: center;
     /* margin-top: 250px; */
-    
+    font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
     
     }
     

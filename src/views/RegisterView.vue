@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <div class="sidebar">
+      <!-- <div class="sidebar">
         <div class="logo">
           <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
          
@@ -35,7 +35,7 @@
           </li> 
          </nav>
         </div> 
-      </div>
+      </div> -->
       <div class="main-content ">
   <!-- {{ $store.state.users }} -->
            
@@ -68,22 +68,22 @@
           <!-- </div>
         </div> -->
         <!-- {{$store.state.users }} -->
-        <div class="footer">
+        <!-- <div class="footer">
       <footer-view/>
-        </div>
+        </div> -->
       
-  
+  </div>
   </template>
   
   <script>
   import LoginView from '@/views/LoginView.vue';
-  import FooterView from './FooterView.vue';
+  // import FooterView from './FooterView.vue';
 import SignInOut from '@/components/SignInOut.vue';
   
   export default {
     components:{
       LoginView,
-      FooterView,
+     
         SignInOut
     },
       data(){

@@ -1,7 +1,7 @@
 <template>
   
   <div class="container">
-    <div class="sidebar">
+    <!-- <div class="sidebar">
       <div class="logo">
         <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
        
@@ -37,9 +37,10 @@
          <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"> <span class="hover-textD">Admin</span></router-link>
         
         </li> 
+        <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
        </nav>
       </div> 
-    </div>
+    </div> -->
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
 <div class="about">
@@ -75,19 +76,19 @@ Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and n
         <!-- </div>
       </div> -->
       <!-- {{$store.state.users }} -->
-      <div class="footer">
+      <!-- <div class="footer">
        
        <footer-view/>
-      </div>
+      </div> -->
     
 
 </template>
 
 <script>
-import FooterView from './FooterView.vue'
+// import FooterView from './FooterView.vue'
 export default {
   components:{
-    FooterView
+    // FooterView
   },
     data(){
         return{
@@ -113,6 +114,15 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
 .hover-text {
   display: none;
   position: absolute;

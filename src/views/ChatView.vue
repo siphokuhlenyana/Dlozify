@@ -1,14 +1,14 @@
 <template>
 
 <div class="container">
-    <div class="sidebar">
+    <!-- <div class="sidebar">
       <div class="logo">
         <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
        
       </div>
       <div class="sidebar-menu">
         <nav>
-          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link>
+          <router-link to="/"><img src="https://siphokuhlenyana.github.io/dlozify-pics/home.png" alt="" width="100px" height="80px"></router-link><br><br>
         
           
         <li>
@@ -34,56 +34,31 @@
         <li>
          <router-link to="/settings"><img src="https://siphokuhlenyana.github.io/dlozify-pics/gear.png" alt="" width="100px" height="80px"></router-link>
         </li> 
+        <router-link to="/SignInOut"><button @click="SignIn">SignUp/SignIn</button></router-link>
        </nav>
       </div> 
-    </div>
+    </div> -->
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
-<div class="chat-container">
-      <div class="chat-header">
-        <img src="" alt="Profile Picture" />
-        <div class="chat-header-info">
-          <h3>Mamita@5</h3>
-          <p>Hi there, how can I help you?</p>
-        </div>
-      </div>
-      <div class="chat-messages">
-        <div class="message sender">
-          <img src="https://placehold.co/50x50" alt="User Profile Picture" />
-          <div class="message-content">
-            <p>lolo</p>
-          </div>
-        </div>
-        <div class="message recipient">
-          <div class="message-content">
-            <p>Hey Mamita, I'd like you to help me with copying when facing distress.</p>
-          </div>
-        </div>
-      </div>
-      <div class="chat-input">
-        <input type="text" placeholder="Type in message..." />
-        <button>Send</button>
-      </div>
-    </div>
-    </div>
+
   
   </div>
         <!-- </div>
       </div> -->
       <!-- {{$store.state.users }} -->
-      <div class="footer">
+      <!-- <div class="footer">
        
        <footer-view/>
-      </div>
+      </div> -->
     
-
+</div>
 </template>
 
 <script>
-import FooterView from './FooterView'
+// import FooterView from './FooterView'
 export default {
   components:{
-    FooterView
+    // FooterView
   },
   
     methods: {
@@ -100,6 +75,19 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap'); 
+button{
+  padding: 10px 20px;
+  background-color: #a51196;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 .hover-text {
   display: none;
   position: absolute;
@@ -108,6 +96,10 @@ export default {
   color: #fff;
   font-size:large;
   font-weight: 900;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-text {
   display: block;
@@ -119,6 +111,10 @@ img:hover + .hover-text {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textP {
   display: block;
@@ -130,6 +126,10 @@ img:hover + .hover-textP {
   left: 135px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textN {
   display: block;
@@ -141,6 +141,10 @@ img:hover + .hover-textN {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textI {
   display: block;
@@ -152,6 +156,10 @@ img:hover + .hover-textI {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textC {
   display: block;
@@ -163,6 +171,10 @@ img:hover + .hover-textC {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textA {
   display: block;
@@ -174,30 +186,54 @@ img:hover + .hover-textA {
   left: 145px;
   color: #a51196;
   font-size:large;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 img:hover + .hover-textD {
   display: block;
 }
 #email{
   height: 10px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 .about{
   margin-left: 20px;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 input{
     width: 400px;
     height: 50px;
+    font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 label{
     color: #fff;
+    font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 #mainC{
     background: #3F0639;
     background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%);
+    font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 .container {
   display: flex;
-  height: 115vh;
+  height: 125vh;
 }
 
 .sidebar {
@@ -235,6 +271,10 @@ label{
 }
 p{
   color: white;
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 .main-content {
   background-color:rgb(95, 1, 95);
@@ -247,7 +287,10 @@ p{
   
   flex-grow: 1;
   /* padding: 50px; */
-  
+  font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* .post-section {
@@ -375,7 +418,10 @@ h3{
   /* padding: 20px; */
   text-align: center;
 /* margin-top: 250px; */
-
+font-weight: 900;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
 
 }
 
