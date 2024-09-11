@@ -25,14 +25,16 @@ const selectPost = async(req,res)=>{
 
 const insertPost =async(req,res)=>{
     
-
+try{
     
     let {description,url}= req.body
     
         
                 await insertPostDb(description,url)
                 res.send('Post was inserted successfully !')
-           
+}catch(e){
+    res.send('Post not inserted !')
+}      
         
     }
 

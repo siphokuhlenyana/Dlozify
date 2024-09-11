@@ -25,14 +25,16 @@ const selectComment = async(req,res)=>{
 
 const insertComment =async(req,res)=>{
     
-
+try{
     
     let {idpost,content}= req.body
     
         
                 await insertCommentDb(idpost,content)
                 res.send('Comment was inserted successfully !')
-           
+}catch(e){
+    res.send('Comment not inserted !')
+}    
         
     }
 

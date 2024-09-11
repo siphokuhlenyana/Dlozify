@@ -25,7 +25,7 @@ const selectNotification = async(req,res)=>{
 
 const insertNotification =async(req,res)=>{
     
-
+try{
     
     let {chatID,senderID,content,mediaUrl,createdAt}= req.body
     
@@ -33,7 +33,9 @@ const insertNotification =async(req,res)=>{
                 await insertNotificationDb(chatID,senderID,content,mediaUrl,createdAt)
                 res.send('Data was inserted successfully !')
            
-        
+}catch(e){
+    res.send('Notifications not inserted !')
+}
     }
 
     //     

@@ -26,14 +26,16 @@ const selectRequest = async(req,res)=>{
 
 const insertRequest =async(req,res)=>{
     
-
+try{
     
     let {status}= req.body
     
         
                 await insertRequestDb(status)
                 res.send('Status was inserted successfully !')
-           
+}catch(e){
+    res.send('Status not inserted successfully !')
+} 
         
     }
 
