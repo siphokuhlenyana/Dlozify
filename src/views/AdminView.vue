@@ -208,6 +208,9 @@ import SpinnerView from './SpinnerView.vue';
                 
             }
         },
+        beforeMount() {
+    this.checkRole();
+  },
         computed:{
             users(){
                 return this.$store.state.users
@@ -245,6 +248,7 @@ import SpinnerView from './SpinnerView.vue';
         this.cookieExists = false;
       }
     },
+    
 //   deleteSelected(post, selected) {
 //   post.forEach(item => {
 //     if (selected.includes(item)) {
@@ -260,10 +264,21 @@ deleteSelected(post, selected) {
     }
   }
   return post;
-}
+},
         
+        
+        checkRole() {
+      const token = this.$cookies.get('token');
+      if (!token) {
+        this.$router.push({ name: 'login' });
+      } else {
+        const decodedToken = this.$cookies.get(token);
+        if (decodedToken.userRole !== 'admin') {
+          this.$router.push({ name: 'unauthorized' });
         }
-        ,
+      }
+    },
+        
   mounted(){
     this.getUsers()
     // this.DeleteUser()
@@ -271,7 +286,8 @@ deleteSelected(post, selected) {
     this.checkCookie()
     
   }
-    }; 
+    }
+  } 
     </script>
     
     <style scoped>
@@ -397,6 +413,12 @@ img:hover + .hover-textD {
   font-weight: 400;
   font-style: normal;
     }
+    /* Media query for screen sizes below 961px */
+@media only screen and (max-width: 960px) {
+  table {
+    width: 80%; /* adjust the width to 80% for smaller screens */
+  }
+}
     .border-primary{
       border-color: #A51196;
     }

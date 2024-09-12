@@ -91,8 +91,8 @@ commit('setPosts',data)
     
       async getPost({commit},id){
         try{
-          const data =await axios.get(`${apiURL}posts/${id}`)
-            // commit('setPosts', data);
+          const {data} =await axios.get(`${apiURL}posts/${id}`)
+            commit('setPosts', data);
             console.log(data);
             toast(` ${data.message}`, {
               "theme": "dark",
@@ -155,8 +155,8 @@ commit('setPosts',data)
         },
       async getUser({commit},id){
         try{
-          const data =await axios.get(`${apiURL}users/${id}`)
-            // commit('setUsers', data);
+          const {data} =await axios.get(`${apiURL}users/${id}`)
+            commit('setUsers', data);
             $cookies.get('token')
             console.log(data);
             toast(` ${data.message}`, {
@@ -166,7 +166,7 @@ commit('setPosts',data)
               "dangerouslyHTMLString": true
             })
         }catch(e){
-          toast(` ${data}`, {
+          toast(` ${e.message}`, {
             "theme": "dark",
             "type": "error",
             "position": "top-center",
@@ -258,7 +258,8 @@ commit('setPosts',data)
       try{
       console.log(userID);
       
-      let {data} =await axios.patch(`${apiURL}users/${userID}`,info)
+      let response=await axios.patch(`${apiURL}users/${userID}`,info)
+      const { data } = response;
       commit('setUsers',data);
       console.log(data);
       toast(` ${data.message}`, {
