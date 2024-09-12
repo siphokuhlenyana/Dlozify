@@ -10,8 +10,8 @@ axios.defaults.withCredentials =true
 axios.defaults.headers=$cookies.get('token')
 
 
-const apiURL = 'https://dlozify.onrender.com/'
-// const apiURL = 'http://localhost:5009/'
+// const apiURL = 'https://dlozify.onrender.com/'
+const apiURL = 'http://localhost:5009/'
 export default createStore({
   state: {
     users:null,
@@ -117,12 +117,12 @@ commit('setPosts',data)
         const {data} =await axios.get(`${apiURL}users`)
           commit('setUsers', data);
           console.log(data);
-          toast(` ${data.message}`, {
-            "theme": "dark",
-            "type": "success",
-            "position": "top-center",
-            "dangerouslyHTMLString": true
-          })
+          // toast("Users ,Yaay!", {
+          //   "theme": "dark",
+          //   "type": "success",
+          //   "position": "top-center",
+          //   "dangerouslyHTMLString": true
+          // })
       }catch(e){
         toast(` ${e.message}`, {
           "theme": "dark",
@@ -222,6 +222,7 @@ commit('setPosts',data)
           "dangerouslyHTMLString": true
         })
       }
+      location.reload();
     },
     async loginUser({commit},info){
       try{
@@ -242,7 +243,7 @@ commit('setPosts',data)
       // })
       // router.push('/messages')
       }catch(e){
-        toast(` ${data}`, {
+        toast(` ${data.message}`, {
           "theme": "dark",
           "type": "error",
           "position": "top-center",
@@ -250,6 +251,7 @@ commit('setPosts',data)
         })
       }
       // router.push('/')
+      location.reload();
       
     },
     async EditUser({commit},{userID, info}){
@@ -297,6 +299,7 @@ commit('setPosts',data)
         })
       }
       router.push('/settings')
+      location.reload();
     },
     async DeletePost(context,id){
       try{
@@ -317,7 +320,29 @@ commit('setPosts',data)
         })
       }
     
+      location.reload();
       
+    },
+    async DeleteComment(context,id){
+      try{
+          let {data} =await axios.delete(`${apiURL}comment/${id}`)
+          toast(` ${data.message}`, {
+            "theme": "dark",
+            "type": "success",
+            "position": "top-center",
+            "dangerouslyHTMLString": true
+          })
+      console.log(data);
+      }catch(e){
+        toast(` ${data}`, {
+          "theme": "dark",
+          "type": "error",
+          "position": "top-center",
+          "dangerouslyHTMLString": true
+        })
+      }
+    
+      location.reload();
       
     }
     },

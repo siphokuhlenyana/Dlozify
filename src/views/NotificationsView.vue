@@ -41,7 +41,7 @@
         <div class="main-content ">
   <h2 :style="{color:'#fff'}">Updates On Comments </h2><br><br>
   <div v-if="cookieExists">
-            <div  class="list-group" v-for="comment in $store.state.comment " :key="comment.commentsID" :style="{backgroundColor:'#3F0639',color:'#fff'}">
+            <div  class="list-group" v-for="comment in $store.state.comment " :key="comment.commentsID" :style="{color:'#fff',width:'70vw',paddingLeft:'2rem'}">
   <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
     <div class="d-flex w-150 justify-content-between">
       <h5 class="mb-1">{{ comment.content }}</h5>
@@ -50,6 +50,13 @@
     
     <small>Post ID:{{ comment.idpost }}</small><br>
     <small>Comment ID:{{ comment.commentsID }}</small>
+    <button @click="DeleteComment(comment.commentsID)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></button>
+<button ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
+</svg></button>
   </a>
   </div>
 </div>
@@ -91,6 +98,10 @@ import SpinnerView from './SpinnerView.vue'
         this.cookieExists = false;
       }
     },
+    DeleteComment(commentsID){
+      this.$store.dispatch('DeleteComment',commentsID)
+      location.reload();
+    }
     
         
         },
@@ -106,7 +117,7 @@ import SpinnerView from './SpinnerView.vue'
     <style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap'); 
     button{
-  padding: 10px 20px;
+  padding: 8px 10px;
   background-color: #a51196;
   color: #fff;
   border: none;
@@ -117,11 +128,12 @@ import SpinnerView from './SpinnerView.vue'
   font-family: "Nerko One", cursive;
   font-weight: 400;
   font-style: normal;
+  height: 2rem;
 }
     .list-group-item.active {
         background-color: #3f063971;
         border-color: #880E7C;
-        height: 100px;
+        height: 150px;
         margin-bottom: 2rem;
         
     }
@@ -260,7 +272,7 @@ import SpinnerView from './SpinnerView.vue'
   font-weight: 400;
   font-style: normal;
     }
-    #mainC{
+    .main-content{
         background: #3F0639;
         /* background: linear-gradient(180deg, #3F0639 0%, #880E7C 72%,#A51196 100%); */
         background-image: url('https://siphokuhlenyana.github.io/dlozify-pics/bck-img.jpg');
@@ -272,8 +284,9 @@ import SpinnerView from './SpinnerView.vue'
     }
     .container {
       display: flex;
-      height: 125vh;
+      height: 135vh;
       /* width: 869px; */
+         --bs-gutter-x: 0;
     }
     
     .sidebar {

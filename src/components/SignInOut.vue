@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="sidebar">
+        <!-- <div class="sidebar">
           <div class="logo">
             <img src="https://siphokuhlenyana.github.io/dlozify-pics/DloziLogo.png" alt="Logo"  />
            
@@ -36,7 +36,7 @@
             <router-link to="/SignInOut"><button :style="{backgroundColor:'#A51196'}" @click="SignIn">SignUp/SignIn</button></router-link>
            </nav>
           </div> 
-        </div>
+        </div> -->
         <div class="main-content ">
     <!-- {{ $store.state.users }} -->
              

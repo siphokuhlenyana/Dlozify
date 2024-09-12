@@ -40,7 +40,7 @@
     </div> -->
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
-
+<h1 :style="{color:'#fff',display:'flex',justifyContent:'center',marginTop:'2rem'}">📬 Requests </h1>
   
   </div>
         <!-- </div>
@@ -291,6 +291,7 @@ p{
   font-family: "Nerko One", cursive;
   font-weight: 400;
   font-style: normal;
+  width: 100vw;
 }
 
 /* .post-section {

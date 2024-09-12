@@ -16,7 +16,7 @@
               alt=""
               width="100px"
               height="80px"
-           class="active " /> <span  class="hover-text">Home</span></router-link></li><br>
+           class="active " /> <span  class="hover-text">Home</span></router-link></li>
 
           <li>
             <router-link to="/FeedsView"
@@ -73,7 +73,7 @@
                 height="80px"
             /><span  class="hover-textD">Admin</span></router-link>
           </li>
-          <router-link to="/SignInOut"><LogOutCompVue/></router-link>
+          <router-link to="/SignInOut"><LogOutCompVue /></router-link>
         </nav>
       </div>
     </div> 
@@ -83,6 +83,11 @@
 import LogOutCompVue from '@/components/LogOutComp.vue'
 
 export default {
+  data() {
+    return {
+      createView: false,
+    }
+  },
   components:{
     LogOutCompVue
   }  
@@ -121,9 +126,12 @@ img:hover + .hover-text {
 img:active {
 
   color: #fff;
-  background-color: #a51196;
+  /* background-color: #a51196; */
   padding: 10px;
   border-radius: 5px;
+  border-bottom: #a51196;
+  border-width: 1px;
+  border-style: solid;
 }
 .hover-textP {
   display: none;
@@ -247,4 +255,3 @@ img:hover + .hover-textD {
   }
 
 </style>
-}

@@ -37,22 +37,25 @@
        </nav>
       </div> 
     </div> -->
-    <div class="main-content " >
+    
+    <div class="main-content " :style="{paddingTop:'2rem'}" >
 <!-- {{ $store.state.users }} -->
-         
-       <img :style="{marginLeft:'450px'}" :src="user.userProfile" alt="" width="150px" height="100px" ><br>
-<!--       
-          <label>Username : {{ user.username }}<br></label><br>
+  <!-- <h2> Accounts using Dlozify </h2><br><br> -->
+          <div class="contents" v-for="user in users" :key="user.userID">
+       <img  :src="user.userProfile" alt="" width="150px" height="100px" ><br> 
+           <label>Username : {{ user.username }}<br></label><br>
           <label>Age :{{user.userAge  }}<br></label><br>
           <label>Gender: {{ user.gender }}<br></label><br>
           
           <label>Role: {{ user.userRole }}<br></label><br>
-          <label>Bio : {{ user.bio }}<br></label><br>
+          <label>Bio : {{ user.bio }}<br></label><br>  
 
-          {{ $store.state.user.data }} -->
 </div>
-<div></div>
 </div>
+</div>
+
+
+
 
         <!-- </div>
       </div> -->
@@ -83,13 +86,18 @@ export default {
     },
     methods: {
      
-      getUser(){
-        this.$store.dispatch('getUser',this.userID)
+      getUsers(){
+        this.$store.dispatch('getUsers')
       }
     
     },
+    computed:{
+            users(){
+                return this.$store.state.users
+            }
+        },
     mounted() {
-      // this.getUser()
+      this.getUsers();
     }
     
 };
@@ -97,6 +105,10 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+/* .contents{
+  display: grid;
+  grid-template-columns: repeat(3,1fr );
+} */
 button{
   padding: 10px 20px;
   background-color: #a51196;
@@ -253,9 +265,10 @@ p{
   
   flex-grow: 1;
   padding-left: 50px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr );
   
-  
- 
+ width: 100vw;
   
 }
 
