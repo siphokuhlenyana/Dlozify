@@ -25,7 +25,7 @@ let port=process.env.PORT || 5009
 app.use(express.json())
 app.use(express.static('public'))
 app.use(cors({
-    origin: '*',
+    origin: 'http://localhost:8080',
     credentials: true
 })
 )
