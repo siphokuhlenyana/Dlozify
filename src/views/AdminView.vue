@@ -208,9 +208,10 @@ import SpinnerView from './SpinnerView.vue';
                 
             }
         },
-        beforeMount() {
-    this.checkRole();
-  },
+  //       ,
+  //       beforeMount() {
+  //   this.checkRole();
+  // },
         computed:{
             users(){
                 return this.$store.state.users
