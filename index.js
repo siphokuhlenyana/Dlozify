@@ -13,6 +13,7 @@ import { verifyAToken } from './middleware/authenticate.js'
 
 const app =express()
 let port=process.env.PORT || 5009
+app.use(cors())
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Credentials", "true");
@@ -24,8 +25,7 @@ app.use((req, res, next) => {
 })
 app.use(express.json())
 app.use(express.static('public'))
-app.use(cors()
-)
+
 
 app.use('/users',userRouter)
 app.use('/chats',chatsRouter)
