@@ -267,17 +267,17 @@ deleteSelected(post, selected) {
 },
         
         
-        checkRole() {
-      const token = this.$cookies.get('token');
-      if (!token) {
-        this.$router.push({ name: 'login' });
-      } else {
-        const decodedToken = this.$cookies.get(token);
-        if (decodedToken.user.userRole !== 'admin') {
-          this.$router.push({ name: 'unauthorized' });
-        }
-      }
-    },
+    //     checkRole() {
+    //   const token = this.$cookies.get('token');
+    //   if (!token) {
+    //     this.$router.push({ name: 'login' });
+    //   } else {
+    //     const decodedToken = this.$cookies.get(token);
+    //     if (decodedToken.user.userRole !== 'admin') {
+    //       this.$router.push({ name: 'unauthorized' });
+    //     }
+    //   }
+    // },
         
   mounted(){
     this.getUsers()
