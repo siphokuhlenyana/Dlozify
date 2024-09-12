@@ -55,7 +55,7 @@
 </template>
 
 <script>
-// import FooterView from './FooterView'
+// import FooterView from './FooterView' 
 export default {
   components:{
     // FooterView

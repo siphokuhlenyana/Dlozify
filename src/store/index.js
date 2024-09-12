@@ -10,8 +10,8 @@ axios.defaults.withCredentials =true
 axios.defaults.headers=$cookies.get('token')
 
 
-// const apiURL = 'https://dlozify.onrender.com/'
-const apiURL = 'http://localhost:5009/'
+const apiURL = 'https://dlozify.onrender.com/'
+// const apiURL = 'http://localhost:5009/'
 export default createStore({
   state: {
     users:null,
