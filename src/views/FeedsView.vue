@@ -108,7 +108,7 @@
           {{ post.description}}
           <img src="post.url" alt=""> -->
           <!-- <div class="dropdown"> -->
-  <button @click="sortArray()" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" :style="{backgroundColor: '#3F0639',color:'#fff'}">
+  <button @click="sortArray()"  :style="{backgroundColor: '#3F0639',color:'#fff'}">
     Sort 
   </button>
   
