@@ -273,7 +273,7 @@ deleteSelected(post, selected) {
         this.$router.push({ name: 'login' });
       } else {
         const decodedToken = this.$cookies.get(token);
-        if (decodedToken.userRole !== 'admin') {
+        if (decodedToken.user.userRole !== 'admin') {
           this.$router.push({ name: 'unauthorized' });
         }
       }

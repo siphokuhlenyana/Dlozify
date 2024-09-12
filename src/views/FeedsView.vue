@@ -107,16 +107,12 @@
         <!-- <div class="post-body" v-for="post in $store.state.posts.data" :key="post.idpost" >
           {{ post.description}}
           <img src="post.url" alt=""> -->
-          <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" :style="{backgroundColor: '#3F0639',color:'#fff'}">
-    Sort By
+          <!-- <div class="dropdown"> -->
+  <button @click="sortArray()" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" :style="{backgroundColor: '#3F0639',color:'#fff'}">
+    Sort 
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">A-Z</a></li>
-    <li><a class="dropdown-item" href="#">Z-A</a></li>
-    
-  </ul>
-</div>
+  
+<!-- </div> -->
 
         <div class="card-container" v-if="cookieExists" >
          
@@ -303,6 +299,13 @@ export default {
     addPost(){
       this.$store.dispatch('addPost',this.$data)
     },
+    sortArray(post) {
+  return post.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  });
+}
     
   },
   mounted() {
