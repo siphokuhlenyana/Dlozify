@@ -95,6 +95,7 @@
     <div v-for="user in foundUser" :key="user.userID">
      <img :src="user.userProfile" alt=""  :style="{width:'100px',height:'100px',borderRadius:'50%'}"> {{ user.username }} ({{ user.gender }})<br>
      {{ user.bio }}
+     <button >+Follow</button>
     </div>
        
       </div>
