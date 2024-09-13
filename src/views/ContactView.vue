@@ -42,7 +42,7 @@
 <!-- {{ $store.state.users }} -->
 <!-- <h1 :style="{color:'#fff',display:'flex',justifyContent:'center',marginTop:'2rem'}">📬 Requests </h1> -->
   
-<h3 :style="{backgroundColor:'#A51196',marginLeft:'100px',color:'#fff'}">Reach out ..</h3> 
+<h3 :style="{backgroundColor:'#A51196',marginLeft:'100px',color:'#fff',marginTop:'2rem'}">Reach out ..</h3> 
 <div id="form">
   <form
   action="https://formspree.io/f/xdknjkoj"
@@ -110,6 +110,10 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap'); 
+#email{
+  width: 100px;
+  height:400px;
+}
 #form{
   background-color: #ffffff51;
       width: 800px;
@@ -118,6 +122,9 @@ export default {
       margin-top: 2rem;
       display: flex;
       justify-content: center;
+      margin-left: 2rem;
+      font-size: large;
+
 }
 button{
   padding: 10px 20px;
