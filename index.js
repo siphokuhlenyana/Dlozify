@@ -14,7 +14,7 @@ import cors from 'cors'
 const app =express()
 let port=process.env.PORT || 5009
 app.use(cors({
-    origin: 'https://dlozify.firebaseapp.com',
+    origin: ['https://dlozify.firebaseapp.com','https://dlozify.web.app/'],
     credentials: true
 }
 
