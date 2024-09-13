@@ -110,7 +110,7 @@ toast(` ${data.message}`, {
       let {data}=await axios.post(`${apiURL}request/follow`,info)
       console.log(data);
       commit('setFriend_request',data)
-      alert("Comment added !!")
+      // alert("Friend followed !!")
       toast(` ${data.message}`, {
         "theme": "dark",
         "type": "success",
