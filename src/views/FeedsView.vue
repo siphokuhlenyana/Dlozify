@@ -293,11 +293,13 @@ export default {
       // console.log(idpost,this.content);
       
       this.$store.dispatch('addComment',{idpost:idpost,content:this.content})
-      location.reload;
+      location.reload();
+      alert("Post liked ❤️❤️❤️❤️❤️❤️❤️!");
 
     },
     addPost(){
       this.$store.dispatch('addPost',this.$data)
+      location.reload();
     },
     sortArray(post) {
   return post.sort((a, b) => {
