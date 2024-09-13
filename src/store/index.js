@@ -17,7 +17,8 @@ export default createStore({
     users:null,
     user:[],
     posts:null,
-    comment:null
+    comment:null,
+    friend_request:null
   },
   getters: {
 
@@ -34,9 +35,32 @@ export default createStore({
     },
     setComments(state,payload){
       state.comment=payload
+    },
+    setFriend_request(state,payload){
+      state.friend_request=payload
     }
   },
   actions: {
+    async getFriend({commit}){
+      try{
+        const {data}= await axios.get(`${apiURL}request`)
+commit('setFriend_request',data)
+toast(` ${data.message}`, {
+  "theme": "dark",
+  "type": "success",
+  "position": "top-center",
+  "dangerouslyHTMLString": true
+})
+      }catch(e){
+        toast(` ${e.message}`, {
+          "theme": "dark",
+          "type": "error",
+          "position": "top-center",
+          "dangerouslyHTMLString": true
+        })
+        // console.log(`Failed to get comments: ${e.message}`);
+      }
+    },
     async getComments({commit}){
       try{
         const {data}= await axios.get(`${apiURL}comment`)
@@ -79,7 +103,29 @@ toast(` ${data.message}`, {
         })
         // console.log(`Failed to add comment: ${e.message}`)
       }
+    }, async addFriend({commit},info){
+      try{
+      let {data}=await axios.post(`${apiURL}friend_request/follow`,info)
+      console.log(data);
+      commit('setComments',data)
+      alert("Comment added !!")
+      toast(` ${data.message}`, {
+        "theme": "dark",
+        "type": "success",
+        "position": "top-center",
+        "dangerouslyHTMLString": true
+      })
+      }catch(e){
+        toast(` ${e.message}`, {
+          "theme": "dark",
+          "type": "error",
+          "position": "top-center",
+          "dangerouslyHTMLString": true
+        })
+        // console.log(`Failed to add comment: ${e.message}`)
+      }
     },
+    
     async getPosts({commit}){
       try{
         const {data}= await axios.get(`${apiURL}posts`)

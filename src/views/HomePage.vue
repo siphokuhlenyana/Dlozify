@@ -95,7 +95,7 @@
     <div v-for="user in foundUser" :key="user.userID">
      <img :src="user.userProfile" alt=""  :style="{width:'100px',height:'100px',borderRadius:'50%'}"> {{ user.username }} ({{ user.gender }})<br>
      {{ user.bio }}
-     <button >+Follow</button>
+     <button @click="addFriend_request(user.userID)" >+Follow</button>
     </div>
        
       </div>
@@ -213,7 +213,8 @@ export default {
     return {
       username:'',
       createView: false,
-      foundUser :null
+      foundUser :null,
+      userID:''
       
     };
   },
@@ -257,6 +258,9 @@ export default {
       })
       console.log(this.foundUser)
       return this.foundUser
+    },
+    addFriend_request(userID){
+      this.$store.dispatch('addFriend',{userID:userID},info)
     }
   },
   computed:{
