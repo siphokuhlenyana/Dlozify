@@ -202,7 +202,7 @@ import SpinnerView from './SpinnerView.vue';
                 userAge:'',
                 gender:'',
                 user:true ,
-                cookieExists:false
+                cookieExists:true
               
                 
                 
