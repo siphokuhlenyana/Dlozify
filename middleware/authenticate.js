@@ -5,6 +5,7 @@ import {config} from 'dotenv'
 
 config()
 const checkUser=async(req,res,next)=>{
+    
     const {username, password} =req.body
     let hashedP =(await selectUsersDb(username)).password
     console.log(hashedP);
@@ -13,6 +14,7 @@ let result = await compare(password,hashedP )
 console.log(result);
 
         if(result ==true) {
+            
             let token =jwt.sign({username:username},process.env.SECRET_KEY)
             // console.log(token);
              

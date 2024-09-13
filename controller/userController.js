@@ -38,12 +38,14 @@ const insertUser =async(req,res)=>{
     let {username,password,userProfile,userRole,bio,userAge,gender}= req.body
     let exisitingUsername = (await selectUsersDb(username)).username
     if (username == exisitingUsername) {
-        res.status(403).send('Username already exisits')
-        return
-    } else{
+        res.status(403).send('Username already exisits') 
+        
         userRole = 'user'   
         userProfile = 'https://codjoelmayer.github.io/projectImages/images/profile-Image.png'
         bio ='Hi there I just joined !'
+        return
+    } else{
+       
         hash(password,10,async(err,hashedP)=>{
             if(err) throw err
             console.log(hashedP);

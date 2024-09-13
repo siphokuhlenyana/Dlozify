@@ -11,11 +11,11 @@ const selectRequestDb =  async(id_friend_req)=>{
     
     
 }
-const insertRequestDb =async(status)=>{
+const insertRequestDb =async(userID,status)=>{
     let [data] =await pool.query(`
-        INSERT INTO friend_request(status)
-        VALUES (?)
-        `,[status])
+        INSERT INTO friend_request(userID,status)
+        VALUES (?,?)
+        `,[userID,status])
      return data
     }
     const deleteRequestDb=async(id_friend_req)=>{
