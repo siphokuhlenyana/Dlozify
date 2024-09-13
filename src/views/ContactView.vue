@@ -124,7 +124,7 @@ export default {
 #form{
   background-color: #ffffff51;
       width: 800px;
-      height: 450px;
+      height: 550px;
       border-radius: 10%;
       margin-top: 2rem;
       display: flex;
