@@ -44,7 +44,7 @@
                 width="100px"
                 height="80px"
               />
-              <span  class="hover-textI">Inbox</span></router-link>
+              <span  class="hover-textI">Contact</span></router-link>
           </li>
           <li>
             <router-link to="/account"
