@@ -43,10 +43,12 @@
 <!-- <h1 :style="{color:'#fff',display:'flex',justifyContent:'center',marginTop:'2rem'}">📬 Requests </h1> -->
   
 <h3 :style="{backgroundColor:'#A51196',marginLeft:'100px',color:'#fff'}">Reach out ..</h3> 
-<form
+<div id="form">
+  <form
   action="https://formspree.io/f/xdknjkoj"
   method="POST"
 >
+ 
 <label>
     Name:
     <input id="email" type="text" name="name" required>
@@ -72,8 +74,10 @@
   <!-- your other form fields go here -->
   <button type="submit" :style="{borderRadius:'10px',backgroundColor:'#3F0639',color:'#fff'}">Send</button>
 </form>
+</div>
 
-  </div>
+</div>
+  
         <!-- </div>
       </div> -->
       <!-- {{$store.state.users }} -->
@@ -106,6 +110,15 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap'); 
+#form{
+  background-color: #ffffff51;
+      width: 800px;
+      height: 650px;
+      border-radius: 10%;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+}
 button{
   padding: 10px 20px;
   background-color: #a51196;

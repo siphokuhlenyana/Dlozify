@@ -4,7 +4,7 @@ import HomePage from '../views/HomePage.vue'
 import FeedsView from '../views/FeedsView.vue'
 import AccountView from '@/views/AccountView.vue'
 import AdminView from '@/views/AdminView.vue'
-import ChatView from '@/views/ChatView.vue'
+import ChatView from '@/views/ContactView.vue'
 import NotificationsView from '@/views/NotificationsView.vue'
 import SignInOut from '@/components/SignInOut.vue'
 
