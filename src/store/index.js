@@ -104,6 +104,8 @@ toast(` ${data.message}`, {
         // console.log(`Failed to add comment: ${e.message}`)
       }
     }, async addFriend({commit},info){
+      console.log(info);
+      
       try{
       let {data}=await axios.post(`${apiURL}friend_request/follow`,info)
       console.log(data);
