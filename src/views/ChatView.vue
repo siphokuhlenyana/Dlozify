@@ -40,8 +40,39 @@
     </div> -->
     <div class="main-content ">
 <!-- {{ $store.state.users }} -->
-<h1 :style="{color:'#fff',display:'flex',justifyContent:'center',marginTop:'2rem'}">📬 Requests </h1>
+<!-- <h1 :style="{color:'#fff',display:'flex',justifyContent:'center',marginTop:'2rem'}">📬 Requests </h1> -->
   
+<h3 :style="{backgroundColor:'#A51196',marginLeft:'100px',color:'#fff'}">Reach out ..</h3> 
+<form
+  action="https://formspree.io/f/xdknjkoj"
+  method="POST"
+>
+<label>
+    Name:
+    <input id="email" type="text" name="name" required>
+  </label><br>
+  <label>
+    Your Surname:
+    <input id="email" type="text" name="surname" required>
+  </label><br>
+  <label>
+    Your age:
+    <input id="email" type="number" name="age" required>
+  </label><br>
+  <label>
+    Your email:
+    <input id="email" type="email" name="email" required>
+  </label><br>
+  
+  <label>
+    Your message:<br>
+    <textarea name="message" required :style="{width:'400px',height:'60px'}"></textarea>
+  </label><br>
+
+  <!-- your other form fields go here -->
+  <button type="submit" :style="{borderRadius:'10px',backgroundColor:'#3F0639',color:'#fff'}">Send</button>
+</form>
+
   </div>
         <!-- </div>
       </div> -->
