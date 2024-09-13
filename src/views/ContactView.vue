@@ -74,7 +74,7 @@
   <!-- your other form fields go here -->
   <button type="submit" :style="{borderRadius:'10px',backgroundColor:'#3F0639',color:'#fff'}">Send</button>
 </form>
-<img src="https://media2.giphy.com/media/EK24OWrJSy1GkkNu0y/giphy.gif?cid=6c09b9520pf5ixcp7q3y4p5pk11joxzqzmsrmgsofdhrot1n&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="" width="150px">
+<img src="https://media2.giphy.com/media/EK24OWrJSy1GkkNu0y/giphy.gif?cid=6c09b9520pf5ixcp7q3y4p5pk11joxzqzmsrmgsofdhrot1n&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="" width="200px" height="100px" :style="{marginLeft:'1rem'}">
 </div>
 <div :style="{marginLeft:'4rem'}">
 <a href="https://www.linkedin.com/in/siphokuhle-nyana-6a917016a/" target="blank"  > <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
