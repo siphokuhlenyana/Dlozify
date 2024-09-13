@@ -260,7 +260,7 @@ export default {
       return this.foundUser
     },
     addFriend_request(userID){
-      this.$store.dispatch('addFriend',{userID:userID})
+      this.$store.dispatch('addFriend',{userID:this.userID})
     }
   },
   computed:{
