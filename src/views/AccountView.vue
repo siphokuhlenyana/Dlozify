@@ -41,6 +41,7 @@
     <div class="main-content " :style="{paddingTop:'2rem'}" >
 <!-- {{ $store.state.users }} -->
   <!-- <h2> Accounts using Dlozify </h2><br><br> -->
+   <div v-if="cookieExists">
           <div class="contents" v-for="user in users" :key="user.userID">
        <img  :src="user.userProfile" alt="" width="150px" height="100px" ><br> 
            <label>Username : {{ user.username }}<br></label><br>
@@ -49,8 +50,9 @@
           
           <label>Role: {{ user.userRole }}<br></label><br>
           <label>Bio : {{ user.bio }}<br></label><br>  
-
 </div>
+</div>
+         <div v-else><spinner-view/></div>
 </div>
 </div>
 
@@ -68,11 +70,13 @@
 </template>
 
 <script>
+import SpinnerView from './SpinnerView.vue';
 
 // import FooterView from './FooterView.vue';
 
 export default {
   components:{
+    SpinnerView
     
     // FooterView
   },
