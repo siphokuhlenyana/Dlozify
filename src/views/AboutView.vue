@@ -52,22 +52,7 @@
 Meaningful Connections: The app provides a platform for users to connect with others who share similar spiritual interests and goals,<br> fostering meaningful relationships and a sense of community.<br><br>
 Safe Space: Dlozify prioritizes user safety and privacy, ensuring a secure and non-judgmental environment for users to explore their spiritual journeys.</p>
  <br>
- <h3 :style="{backgroundColor:'#A51196',marginLeft:'100px',color:'#fff'}">Reach out ..</h3> 
-<form
-  action="https://formspree.io/f/xdknjkoj"
-  method="POST"
->
-  <label>
-    Your email:
-    <input id="email" type="email" name="email" required>
-  </label><br>
-  <label>
-    Your message:<br>
-    <textarea name="message" required :style="{width:'400px',height:'60px'}"></textarea>
-  </label><br>
-  <!-- your other form fields go here -->
-  <button type="submit" :style="{borderRadius:'10px',backgroundColor:'#3F0639',color:'#fff'}">Send</button>
-</form>
+
 
 </div>
     </div>
