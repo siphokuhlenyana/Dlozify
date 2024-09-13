@@ -87,7 +87,7 @@ toast(` ${data.message}`, {
       let {data}=await axios.post(`${apiURL}comment/comment`,info)
       console.log(data);
       commit('setComments',data)
-      alert("Comment added !!")
+      // alert("Comment added !!")
       toast(` ${data.message}`, {
         "theme": "dark",
         "type": "success",

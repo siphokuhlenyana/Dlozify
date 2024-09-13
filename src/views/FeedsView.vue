@@ -294,7 +294,8 @@ export default {
       
       this.$store.dispatch('addComment',{idpost:idpost,content:this.content})
       location.reload();
-      alert("Post liked ❤️❤️❤️❤️❤️❤️❤️!");
+
+      // alert("Post liked ❤️❤️❤️❤️❤️❤️❤️!");
 
     },
     addPost(){

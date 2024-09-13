@@ -228,11 +228,11 @@ import SpinnerView from './SpinnerView.vue';
         //   },
           DeleteUser(userID){
             this.$store.dispatch('DeleteUser',userID)
-            location.reload;
+            location.reload();
           },
           DeletePost(idpost){
             this.$store.dispatch('DeletePost',idpost)
-            location.reload;
+            location.reload();
           },
           
           getUsers(){
@@ -282,7 +282,7 @@ deleteSelected(post, selected) {
         
   mounted(){
     this.getUsers()
-    this.DeleteUser()
+    // this.DeleteUser()
     this.getPosts()
     this.checkCookie()
     

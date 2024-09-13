@@ -82,9 +82,9 @@ export default {
   },
     data(){
         return{
-            userID:''
+            userID:'',
            
-            
+            cookieExists: false
             
         }
     },

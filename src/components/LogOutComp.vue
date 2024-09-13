@@ -22,13 +22,14 @@ export default {
         },
         logOut(){
             this.$cookies.remove('token')
-            location.reload();
+            
             toast("You have Logged out successfully !", {
         "theme": "dark",
         "type": "success",
         "position": "top-center",
         "dangerouslyHTMLString": true
       })
+      location.reload();
         }
     }
 }
