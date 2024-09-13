@@ -293,6 +293,7 @@ p{
   font-family: "Nerko One", cursive;
   font-weight: 400;
   font-style: normal;
+  width: 100vw;
 }
 
 /* .post-section {
