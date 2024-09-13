@@ -42,7 +42,7 @@
     
     <h2 class="display-2" :style="{color:'#fff'}">Admin</h2>
      <button :style="{marginLeft:'480px'}" @click="user = !user">User /Post Settings</button>
-     <div v-if="!cookieExists"> <spinner-view/>  </div>
+     <div v-if="cookieExists"> <spinner-view/>  </div>
      <div v-else>
       <table v-if="user" class="table-primary table-bordered border-primary" id="table" :style="{width:'1000px',borderColor:'#A51196',borderWidth:'1px',borderStyle:'solid',backgroundColor:'A51196'}">
         <thead :style="{fontWeight:'1000',marginBottom:'1000px'}">
