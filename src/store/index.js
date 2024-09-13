@@ -107,7 +107,7 @@ toast(` ${data.message}`, {
       console.log(info);
       
       try{
-      let {data}=await axios.post(`${apiURL}friend_request/follow`,info)
+      let {data}=await axios.post(`${apiURL}request/follow`,info)
       console.log(data);
       commit('setComments',data)
       alert("Comment added !!")
