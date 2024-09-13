@@ -292,7 +292,7 @@ commit('setPosts',data)
       })
      
       }catch(e){
-        toast(` ${data}`, {
+        toast(` ${e.message}`, {
           "theme": "dark",
           "type": "error",
           "position": "top-center",

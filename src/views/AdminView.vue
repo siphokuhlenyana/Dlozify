@@ -282,7 +282,7 @@ deleteSelected(post, selected) {
         
   mounted(){
     this.getUsers()
-    // this.DeleteUser()
+    this.DeleteUser()
     this.getPosts()
     this.checkCookie()
     
