@@ -92,7 +92,15 @@ export default {
      
       getUsers(){
         this.$store.dispatch('getUsers')
+      },
+      checkCookie() {
+      const cookie = this.$cookies.get('token');
+      if (cookie) {
+        this.cookieExists = true;
+      } else {
+        this.cookieExists = false;
       }
+    }
     
     },
     computed:{
@@ -102,6 +110,7 @@ export default {
         },
     mounted() {
       this.getUsers();
+      this.checkCookie();
     }
     
 };
