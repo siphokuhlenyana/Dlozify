@@ -95,7 +95,7 @@
     <div v-for="user in foundUser" :key="user.userID">
      <img :src="user.userProfile" alt=""  :style="{width:'100px',height:'100px',borderRadius:'50%'}"> {{ user.username }} ({{ user.gender }})<br>
      {{ user.bio }}
-     <button @click="addFriend_request(user.userID)" >+Follow</button>
+     <button @click="addFriend_request(user.userID)"  >+Follow</button>
     </div>
        
       </div>
@@ -260,7 +260,7 @@ export default {
       return this.foundUser
     },
     addFriend_request(userID){
-      this.$store.dispatch('addFriend',{userID:this.userID})
+      this.$store.dispatch('addFriend',{userID:userID})
     }
   },
   computed:{
