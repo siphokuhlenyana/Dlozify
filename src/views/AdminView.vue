@@ -58,7 +58,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users" :key="user.userID">
+          <tr v-for="user in users()" :key="user.userID">
             
             <td><img :src="user.userProfile" alt="" width="80px"></td>
             <td :style="{textAlign:'center'}">{{ user.username }}</td>
