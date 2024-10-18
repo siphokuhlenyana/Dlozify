@@ -253,5 +253,11 @@ img:hover + .hover-textD {
     color: #fff;
     font-weight: bold;
   }
-
+  @media screen and (max-width: 380px){
+    nav{
+      height: 2250px;
+      
+    }
+    
+  }
 </style>

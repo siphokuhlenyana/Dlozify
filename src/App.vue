@@ -51,7 +51,7 @@ FooterView
   /* text-align: center; */
   color: #2c3e50;
   margin: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   
 
 }

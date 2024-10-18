@@ -477,6 +477,16 @@ p {
   width: 100vw;
   height: 100%;
 }
+@media screen and (max-width: 380px) {
+  .main-content{
+    width: 900vw;
+    height: 2400px;
+  }
+  .post-body{
+    margin-top:16rem ;
+    height: 900px;
+  }
+}
 /* @media (max-width: 300px) {
   
   .post-body {
